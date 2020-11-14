@@ -9,7 +9,8 @@
 `$ ./miniLaska`
 
 #### Main Function
-
+```c
 	int main(){
-	return 0;
+		return 0;
 	}
+```
