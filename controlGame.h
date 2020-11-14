@@ -1,3 +1,11 @@
+void assign_square(int* table){
+	return;
+}
+
+int eat(){ /*Conquista*/
+	return 0;
+}
+
 int square_status(){ /*Controllo casella*/
 	return 0;
 }
