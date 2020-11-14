@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <graphics.h>
+#include "start.h"
 #include "squareActions.h"
 #include "checkFunctions.h"
 #include "struct.h"
