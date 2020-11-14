@@ -9,9 +9,8 @@
 #include "printBoard.h"
 
 int main(){
-	square* table;
-	createTable(table);
+	square* board;
+	createTable(board);
 	printf("Test output\n");
-	/*table_out(table);*/
 	return 0;
 }

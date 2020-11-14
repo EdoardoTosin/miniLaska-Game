@@ -1,4 +1,4 @@
-void assign_square(int* table){
+void assign_square(int* board){
 	return;
 }
 
