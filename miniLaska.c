@@ -24,7 +24,7 @@ int win_check(){ /*Controllo condizioni vittoria dopo ogni mossa*/
 	return 0;
 }
 
-int table_out(int pos){ /*Creazione grafica output*/
+int table_out(int pos){ /*Creazione grafica output terminale*/
 	return 0;
 }
 
