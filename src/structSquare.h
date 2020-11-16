@@ -1,6 +1,8 @@
-typedef struct Square{
+struct Square{
 	int height;
 	int pos_1;
 	int pos_2;
 	int pos_3;
-} square;
+};
+
+typedef struct Square* square;
