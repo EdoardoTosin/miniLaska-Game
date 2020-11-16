@@ -9,7 +9,7 @@
 #include "printBoard.h"
 
 int main(){
-	square* board;
+	struct square* board;
 	createTable(board);
 	printf("Test output\n");
 	return 0;
