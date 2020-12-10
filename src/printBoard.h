@@ -1,5 +1,6 @@
 void clear_console(){
   system(“clear”);
+  return;
 }
 
 void table_out(int* board){ /*Creazione output grafico nel terminale*/
