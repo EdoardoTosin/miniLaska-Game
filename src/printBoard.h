@@ -1,3 +1,7 @@
+void clear_console(){
+  system(“clear”);
+}
+
 void table_out(int* board){ /*Creazione output grafico nel terminale*/
   int i, j;
 	for (i = 0; i < 7; i++){
