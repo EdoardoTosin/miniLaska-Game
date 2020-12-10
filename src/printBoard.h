@@ -1,5 +1,5 @@
 void clear_console(){
-  system("clear");
+  system(“clear”);
   return;
 }
 
