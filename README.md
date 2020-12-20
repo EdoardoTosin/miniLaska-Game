@@ -1,8 +1,8 @@
-# :red_circle: miniLaska Game
+# :red_circle: miniLaska Game :black_circle:
 
 #### How to compile
 
-`$ gcc -ansi -pedantic -O2 -Wall -Wextra $* -lm miniLaska.c -o miniLaska`
+`$ gcc -ansi -pedantic -O2 -Wall -Wextra -lm miniLaska.c -o miniLaska`
 
 #### How to launch
 
