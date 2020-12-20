@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <conio.h>
+/*
+#include <conio.h>
+*/
 #include <stdbool.h>
-//#include <string.h>
+/*
+#include <string.h>
+*/
 
 #include "startGame.h"
 #include "endGames.h"
@@ -22,8 +26,10 @@ int main() {
     printf("\n");
     while (!end){
         struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*11);
-        //system("cls");
-        //print_board(board);
+        /*
+        system("cls");
+        print_board(board);
+        */
         int indice=avanzamento(board,mosse,turno);
         if (indice==0){
             end=1;
@@ -52,6 +58,8 @@ int main() {
         }
     }
 
-    // Ricordarsi di fare la free di board
+    /*
+    Ricordarsi di fare la free di board
+    */
     return 0;
 }
