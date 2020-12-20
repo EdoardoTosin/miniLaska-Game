@@ -9,7 +9,7 @@
 */
 
 #include "startGame.h"
-#include "endGames.h"
+#include "endGame.h"
 #include "gameControl.h"
 #include "structSquare.h"
 #include "printBoard.h"
