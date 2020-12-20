@@ -2,7 +2,7 @@
 
 #### How to compile
 
-`$ gcc miniLaska.c -std=gnu89 -g3 -Og -ansi -pedantic -Wall -Wextra $* -lm -o miniLaska`
+`$ gcc -ansi -pedantic -O2 -Wall -Wextra $* -lm miniLaska.c -o miniLaska`
 
 #### How to launch
 
