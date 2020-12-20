@@ -1,4 +1,4 @@
-# :red_circle: miniLaska Game :black_circle:
+# :red_circle: miniLaska Game :white_circle:
 
 #### How to compile
 
