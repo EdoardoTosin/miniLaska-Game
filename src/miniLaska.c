@@ -55,13 +55,14 @@ struct mossa{
 /*
 typedef struct mossa* mossa_m;*/
 BoardPointer initialize() {
+    int i,j,pedina;
     BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
     boardPointer->mat = (struct Cella**)malloc(7 * sizeof(struct Cella*));
-    for(int i=0;i<7;i++) {
+    for(i=0;i<7;i++) {
         boardPointer->mat[i] = (struct Cella*) malloc(7*sizeof(struct Cella));
-        for(int j=0;j<7;j++) {
+        for(j=0;j<7;j++) {
             boardPointer->mat[i][j].pedina = (struct Pedina*) malloc(3*sizeof(struct Pedina));
-            for(int pedina=0;pedina<3;pedina++) {
+            for(pedina=0;pedina<3;pedina++) {
                 boardPointer->mat[i][j].pedina[pedina].team = 0;
                 boardPointer->mat[i][j].pedina[pedina].p = '-';
                 boardPointer->mat[i][j].pedina[pedina].grado = 0;
@@ -73,9 +74,10 @@ BoardPointer initialize() {
 }
 
 void create_pedina(BoardPointer board){
+    int i,j;
     int dim=7;
-    for(int i=0;i<dim;i++) {
-        for(int j=0;j<dim;j++) {
+    for(i=0;i<dim;i++) {
+        for(j=0;j<dim;j++) {
             if ((i + j) % 2 == 0 && i!=3) {
                 board->mat[i][j].pedina[0].team = i < 3 ? 1 : 2;
                 board->mat[i][j].pedina[0].p = i < 3 ? 'r' : 'g';
@@ -86,10 +88,11 @@ void create_pedina(BoardPointer board){
     }
 }
 void print_board(BoardPointer board){
-    for (int i = 0; i < 7; ++i) {
-        for (int j = 0; j < 7; ++j) {
+    int i,j,k;
+    for (i = 0; i < 7; ++i) {
+        for (j = 0; j < 7; ++j) {
             printf("|");
-            for (int k = 0; k < 3; ++k) {
+            for (k = 0; k < 3; ++k) {
                 printf("%c",board->mat[i][j].pedina[k].p);
                 /*
                 if (board->mat[i][j].pedina[1].p=='r'){
@@ -131,7 +134,8 @@ int get_grado(BoardPointer board,int i,int j){
     return board->mat[i][j].pedina[get_altezza(board,i,j)-1].grado;
 }
 bool cella_vuota(BoardPointer board,int i, int j){
-    for (int k = 0; k < 3; ++k) {
+    int k;
+    for (k = 0; k < 3; ++k) {
         if (board->mat[i][j].pedina[k].team!=0){
             return false;
         }
@@ -139,7 +143,8 @@ bool cella_vuota(BoardPointer board,int i, int j){
     return true;
 }
 void print_mosse(struct mossa *mosse, int dim){
-    for (int i = 0; i < dim; ++i) {
+    int i;
+    for (i = 0; i < dim; ++i) {
         printf("Mossa n.%d %d %d - %d %d\n", i + 1, mosse[i].posizioneattuale.riga, mosse[i].posizioneattuale.colonna,
                mosse[i].posizionearrivo.riga, mosse[i].posizionearrivo.colonna);
     }
@@ -147,12 +152,13 @@ void print_mosse(struct mossa *mosse, int dim){
 int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
     int dim = 7;
     int indice =0;
+    int i,j,i1,j1;
     bool soloMangiata = false;
-    for(int i=0;i<dim;i++){
-        for(int j=0;j<dim;j++) {
+    for(i=0;i<dim;i++){
+        for(j=0;j<dim;j++) {
             if((i+j)%2==0 && get_team(board,i,j) == turno) {
-                for(int i1=i-2; i1<=i+2 ; i1++) {
-                    for(int j1=j-2; j1<=j+2 ; j1++) {
+                for(i1=i-2; i1<=i+2 ; i1++) {
+                    for(j1=j-2; j1<=j+2 ; j1++) {
                         int puntoMedioRiga = (i + i1)/2;
                         int puntoMedioColonna = (j + j1)/2;
                         bool condizioneAnd = (i1+j1) %2 ==0 && i1 != i;
