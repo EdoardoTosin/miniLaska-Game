@@ -8,11 +8,11 @@
 #include <string.h>
 */
 
-#include "startGame.h"
 #include "endGame.h"
 #include "gameControl.h"
-#include "structSquare.h"
+#include "objectCreation.h"
 #include "printBoard.h"
+#include "startGame.h"
 
 int main() {
     int end=0;
