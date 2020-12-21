@@ -226,7 +226,6 @@ void spostamento_mangiata(BoardPointer board,struct mossa mosse){
     int j=(mosse.posizioneattuale.colonna+mosse.posizionearrivo.colonna)/2;
     int altezzattuale=get_altezza(board,mosse.posizioneattuale.riga,mosse.posizioneattuale.colonna);
     int altezzapmedio=get_altezza(board,i,j);
-    int altezzatotale=altezzattuale+altezzapmedio;
     board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[0].team = board->mat[i][j].pedina[altezzapmedio-1].team;
     board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[0].p = board->mat[i][j].pedina[altezzapmedio-1].p;
     board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[0].grado = board->mat[i][j].pedina[altezzapmedio-1].grado;
@@ -269,7 +268,7 @@ int main() {
     while (!end){
         struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*11);
         /*
-        system("cls");
+        system("clear");
         print_board(board);*/
         int indice=avanzamento(board,mosse,turno);
         if (indice==0){
@@ -281,7 +280,7 @@ int main() {
             }
         }
         print_mosse(mosse,indice);
-        printf("Seleziona una mossa");
+        printf("Seleziona una mossa ");
         scanf_s("%d",&mossa);
         if (mosse->posizionearrivo.riga-mosse->posizioneattuale.riga==1){
             spostamento_soldato(board,mosse[mossa-1]);
