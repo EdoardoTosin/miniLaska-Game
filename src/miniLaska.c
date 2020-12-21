@@ -96,7 +96,7 @@ void print_board(BoardPointer board){
                 printf("%c",board->mat[i][j].pedina[k].p);
                 /*
                 if (board->mat[i][j].pedina[1].p=='r'){
-                    //setcolor(RED);
+                    setcolor(RED);
                 }
                 */
             }
