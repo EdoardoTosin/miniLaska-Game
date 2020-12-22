@@ -4,6 +4,7 @@
 #include <conio.h>
 */
 #include <stdbool.h>
+#include <math.h>
 /*
 #include <string.h>
 */
@@ -104,18 +105,6 @@ void print_board(BoardPointer board){
         printf("|\n");
     }
 }
-void promozione(struct Pedina *pedina,int i){
-    if (pedina[0].p=='g' && i==0){
-        pedina[0].p='G';
-        pedina[0].grado=2;
-        pedina[0].team=2;
-    }
-    if (pedina[0].p=='r' && i==6){
-        pedina[0].p='R';
-        pedina[0].grado=2;
-        pedina[0].team=1;
-    }
-}
 int get_altezza(BoardPointer board,int i, int j){
     if(board->mat[i][j].height==0){
         return 0;
@@ -123,6 +112,20 @@ int get_altezza(BoardPointer board,int i, int j){
         return board->mat[i][j].height;
     }
 }
+void promozione(BoardPointer board,struct Pedina *pedina,int i,int j){
+    int altezza=get_altezza(board,i,j);
+    if (pedina[altezza-1].p=='g' && i==0){
+        pedina[altezza-1].p='G';
+        pedina[altezza-1].grado=2;
+        pedina[altezza-1].team=2;
+    }
+    if (pedina[altezza-1].p=='r' && i==6){
+        pedina[altezza-1].p='R';
+        pedina[altezza-1].grado=2;
+        pedina[altezza-1].team=1;
+    }
+}
+
 int get_team(BoardPointer board,int i,int j){
     if(board->mat[i][j].height==0){
         return 0;
@@ -153,7 +156,7 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
     int dim = 7;
     int indice = 0;
     int i,j,i1,j1;
-    bool soloMangiata = false;
+    bool soloMangiata = false; /*serve per vedere se è stata trovata almeno una mangiata*/
     for(i=0;i<dim;i++){
         for(j=0;j<dim;j++) {
             if((i+j)%2==0 && get_team(board,i,j) == turno) {
@@ -161,7 +164,7 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
                     for(j1=j-2; j1<=j+2 ; j1++) {
                         int puntoMedioRiga = (i + i1)/2;
                         int puntoMedioColonna = (j + j1)/2;
-                        bool condizioneAnd = (i1+j1) %2 ==0 && i1 != i;
+                        bool condizioneAnd = (i1+j1) %2 ==0 && i1 != i && j1 != j;
                         condizioneAnd = condizioneAnd && i1 < dim && i1 >= 0;
                         condizioneAnd = condizioneAnd && j1 < dim && j1 >= 0;
                         condizioneAnd = condizioneAnd && cella_vuota(board,i1,j1);
@@ -169,7 +172,7 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
                         condizioneOr = condizioneOr || (turno == 2 && i1<i);
                         condizioneOr = condizioneOr || get_grado(board,i,j) == 2;
                         condizioneAnd = condizioneAnd && condizioneOr;
-                        bool isNormalStep = (i1-i)==1;
+                        bool isNormalStep = abs(i1-i)==1;
                         if(condizioneAnd) {
                             int teamPuntoMedio = get_team(board,puntoMedioRiga,puntoMedioColonna);
                             bool mangiata = (teamPuntoMedio != 0 && teamPuntoMedio != turno && !isNormalStep);
@@ -219,7 +222,7 @@ void spostamento_soldato(BoardPointer board,struct mossa mosse){
     }
     board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].height=dim;
     svuota_cella(board,mosse.posizioneattuale.riga,mosse.posizioneattuale.colonna);
-    promozione(board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina,mosse.posizionearrivo.riga);
+    promozione(board,board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina,mosse.posizionearrivo.riga,mosse.posizionearrivo.colonna);
 }
 void spostamento_mangiata(BoardPointer board,struct mossa mosse){
     int k;
@@ -248,6 +251,7 @@ void spostamento_mangiata(BoardPointer board,struct mossa mosse){
     }
     svuota_cella(board,mosse.posizioneattuale.riga,mosse.posizioneattuale.colonna);
     aggiorna_cella(board,i,j);
+    promozione(board,board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina,mosse.posizionearrivo.riga,mosse.posizionearrivo.colonna);
 }
 
 /*
@@ -279,7 +283,7 @@ int main() {
         print_mosse(mosse,indice);
         printf("Seleziona una mossa ");
         scanf_s("%d",&mossa);
-        if (mosse->posizionearrivo.riga-mosse->posizioneattuale.riga==1){
+        if (abs(mosse->posizionearrivo.riga-mosse->posizioneattuale.riga)==1){
             spostamento_soldato(board,mosse[mossa-1]);
         }else{
             spostamento_mangiata(board,mosse[mossa-1]);
