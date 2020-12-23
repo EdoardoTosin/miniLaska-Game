@@ -196,22 +196,19 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
     }
     return indice;
 }
-void svuota_cella(BoardPointer board, int i, int j){
-    int k;
-    int height=get_altezza(board,i,j);
-    for (k=0; k<height; k++) {
-        board->mat[i][j].pedina[k].team = 0;
-        board->mat[i][j].pedina[k].p = '-';
-        board->mat[i][j].pedina[k].grado = 0;
-    }
-    board->mat[i][j].height=0;
-}
 void aggiorna_cella(BoardPointer board, int i,int j){
     int height=get_altezza(board,i,j);
     board->mat[i][j].pedina[height-1].team = 0;
     board->mat[i][j].pedina[height-1].p = '-';
     board->mat[i][j].pedina[height-1].grado = 0;
     board->mat[i][j].height=height-1;
+}
+void svuota_cella(BoardPointer board, int i, int j){
+    int k;
+    int height=get_altezza(board,i,j);
+    for (k=0; k<height; k++) {
+        aggiorna_cella(board,i,j);
+    }
 }
 void spostamento_soldato(BoardPointer board,struct mossa mosse){
     int i;
