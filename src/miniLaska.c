@@ -16,19 +16,20 @@
 #include "startGame.h"
 
 #define DIM 7
+#define HEIGHT 3
 
 struct Pedina{
     /*
     enum colore colore;*/
     int team;
     char p;
-    int grado;
+    int rank;
 };
 /*
 typedef struct Pedina* pedina_p;*/
 struct Cella{
     int height;
-    struct Pedina* pedina;
+    struct Pedina* piece;
 };
 
 /*
@@ -45,30 +46,30 @@ int turno=1;
 typedef struct Board board_b;*/
 
 struct Posizione{
-    int riga;
-    int colonna;
+    int row;
+    int col;
 };
 /*
 typedef struct Posizione *posizione_p;*/
 
 struct mossa{
-    struct Posizione posizioneattuale;
-    struct Posizione posizionearrivo;
+    struct Posizione startPos;
+    struct Posizione endPos;
 };
 /*
 typedef struct mossa* mossa_m;*/
 BoardPointer initialize() {
-    int i,j,pedina;
+    int i,j,piece;
     BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
-    boardPointer->mat = (struct Cella**)malloc(7 * sizeof(struct Cella*));
-    for(i=0; i<7; i++) {
-        boardPointer->mat[i] = (struct Cella*) malloc(7*sizeof(struct Cella));
-        for(j=0; j<7; j++) {
-            boardPointer->mat[i][j].pedina = (struct Pedina*) malloc(3*sizeof(struct Pedina));
-            for(pedina=0;pedina<3;pedina++) {
-                boardPointer->mat[i][j].pedina[pedina].team = 0;
-                boardPointer->mat[i][j].pedina[pedina].p = '-';
-                boardPointer->mat[i][j].pedina[pedina].grado = 0;
+    boardPointer->mat = (struct Cella**)malloc(DIM * sizeof(struct Cella*));
+    for(i=0; i<DIM; i++) {
+        boardPointer->mat[i] = (struct Cella*) malloc(DIM * sizeof(struct Cella));
+        for(j=0; j<DIM; j++) {
+            boardPointer->mat[i][j].piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
+            for(piece=0;piece<HEIGHT;piece++) {
+                boardPointer->mat[i][j].piece[piece].team = 0;
+                boardPointer->mat[i][j].piece[piece].p = '-';
+                boardPointer->mat[i][j].piece[piece].rank = 0;
                 boardPointer->mat[i][j].height = 0;
             }
         }
@@ -81,9 +82,9 @@ void create_pedina(BoardPointer board){
     for(i=0; i<DIM; i++) {
         for(j=0; j<DIM; j++) {
             if ((i + j) % 2 == 0 && i!=3) {
-                board->mat[i][j].pedina[0].team = i < 3 ? 1 : 2;
-                board->mat[i][j].pedina[0].p = i < 3 ? 'r' : 'g';
-                board->mat[i][j].pedina[0].grado = 1;
+                board->mat[i][j].piece[0].team = i < 3 ? 1 : 2;
+                board->mat[i][j].piece[0].p = i < 3 ? 'r' : 'g';
+                board->mat[i][j].piece[0].rank = 1;
                 board->mat[i][j].height=1;
             }
         }
@@ -94,10 +95,10 @@ void print_board(BoardPointer board){
     for (i=0; i<DIM; i++) {
         for (j=0; j<DIM; j++) {
             printf("|");
-            for (k=0; k<3; k++) {
-                printf("%c",board->mat[i][j].pedina[k].p);
+            for (k=0; k<HEIGHT; k++) {
+                printf("%c",board->mat[i][j].piece[k].p);
                 /*
-                if (board->mat[i][j].pedina[1].p=='r'){
+                if (board->mat[i][j].piece[1].p=='r'){
                     setcolor(RED);
                 }
                 */
@@ -117,45 +118,45 @@ int get_team(BoardPointer board,int i,int j){
     if(board->mat[i][j].height==0){
         return 0;
     }else {
-        return board->mat[i][j].pedina[get_altezza(board, i, j) - 1].team;
+        return board->mat[i][j].piece[get_altezza(board, i, j) - 1].team;
     }
 }
 int get_grado(BoardPointer board,int i,int j){
-    return board->mat[i][j].pedina[get_altezza(board,i,j)-1].grado;
+    return board->mat[i][j].piece[get_altezza(board,i,j)-1].rank;
 }
 bool cella_vuota(BoardPointer board,int i, int j){
     int k;
-    for (k=0; k<3; k++) {
-        if (board->mat[i][j].pedina[k].team!=0){
+    for (k=0; k<HEIGHT; k++) {
+        if (board->mat[i][j].piece[k].team!=0){
             return false;
         }
     }
     return true;
 }
-void promozione(BoardPointer board,struct Pedina *pedina,int i,int j){
+void promozione(BoardPointer board,struct Pedina *piece,int i,int j){
     int altezza=get_altezza(board,i,j);
-    if (pedina[altezza-1].p=='g' && i==0){
-        pedina[altezza-1].p='G';
-        pedina[altezza-1].grado=2;
+    if (piece[altezza-1].p=='g' && i==0){
+        piece[altezza-1].p='G';
+        piece[altezza-1].rank=2;
         /*
-        pedina[altezza-1].team=2; è già settato al valore 2*/
+        piece[altezza-1].team=2; è già settato al valore 2*/
     }
-    if (pedina[altezza-1].p=='r' && i==6){
-        pedina[altezza-1].p='R';
-        pedina[altezza-1].grado=2;
+    if (piece[altezza-1].p=='r' && i==6){
+        piece[altezza-1].p='R';
+        piece[altezza-1].rank=2;
         /*
-        pedina[altezza-1].team=1; è già settato al valore 1*/
+        piece[altezza-1].team=1; è già settato al valore 1*/
     }
 }
 void print_mosse(struct mossa *mosse, int dim){
     int i;
     for (i=0; i<dim; i++) {
-        printf("Mossa n.%d %d %d - %d %d\n", i + 1, mosse[i].posizioneattuale.riga, mosse[i].posizioneattuale.colonna,
-               mosse[i].posizionearrivo.riga, mosse[i].posizionearrivo.colonna);
+        printf("Mossa n.%d %d %d - %d %d\n", i + 1, mosse[i].startPos.row, mosse[i].startPos.col,
+               mosse[i].endPos.row, mosse[i].endPos.col);
     }
 }
 int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
-    int indice = 0;
+    int index = 0;
     int i,j,i1,j1;
     bool soloMangiata = false; /*serve per vedere se è stata trovata almeno una mangiata*/
     for(i=0; i<DIM; i++){
@@ -179,14 +180,14 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
                             bool mangiata = (teamPuntoMedio != 0 && teamPuntoMedio != turno && !isNormalStep);
                             if((!soloMangiata && (isNormalStep || mangiata)) || (soloMangiata && mangiata)) {
                                 if(!soloMangiata && mangiata) {
-                                    indice = 0;
+                                    index = 0;
                                     soloMangiata = mangiata;
                                 }
-                                mosse[indice].posizioneattuale.riga=i;
-                                mosse[indice].posizioneattuale.colonna=j;
-                                mosse[indice].posizionearrivo.riga=i1;
-                                mosse[indice].posizionearrivo.colonna=j1;
-                                indice++;
+                                mosse[index].startPos.row=i;
+                                mosse[index].startPos.col=j;
+                                mosse[index].endPos.row=i1;
+                                mosse[index].endPos.col=j1;
+                                index++;
                             }
                         }
                     }
@@ -194,13 +195,13 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
             }
         }
     }
-    return indice;
+    return index;
 }
 void aggiorna_cella(BoardPointer board, int i,int j){
     int height=get_altezza(board,i,j);
-    board->mat[i][j].pedina[height-1].team = 0;
-    board->mat[i][j].pedina[height-1].p = '-';
-    board->mat[i][j].pedina[height-1].grado = 0;
+    board->mat[i][j].piece[height-1].team = 0;
+    board->mat[i][j].piece[height-1].p = '-';
+    board->mat[i][j].piece[height-1].rank = 0;
     board->mat[i][j].height=height-1;
 }
 void svuota_cella(BoardPointer board, int i, int j){
@@ -212,44 +213,44 @@ void svuota_cella(BoardPointer board, int i, int j){
 }
 void spostamento_soldato(BoardPointer board,struct mossa mosse){
     int i;
-    int height=get_altezza(board,mosse.posizioneattuale.riga,mosse.posizioneattuale.colonna);
+    int height=get_altezza(board,mosse.startPos.row,mosse.startPos.col);
     for (i=0; i<height; i++) {
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[i].team = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[i].team;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[i].p = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[i].p;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[i].grado = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[i].grado;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].team;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].p;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].rank = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].rank;
     }
-    board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].height=height;
-    svuota_cella(board,mosse.posizioneattuale.riga,mosse.posizioneattuale.colonna);
-    promozione(board,board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina,mosse.posizionearrivo.riga,mosse.posizionearrivo.colonna);
+    board->mat[mosse.endPos.row][mosse.endPos.col].height=height;
+    svuota_cella(board,mosse.startPos.row,mosse.startPos.col);
+    promozione(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece,mosse.endPos.row,mosse.endPos.col);
 }
 void spostamento_mangiata(BoardPointer board,struct mossa mosse){
     int k;
-    int i=(mosse.posizioneattuale.riga+mosse.posizionearrivo.riga)/2;
-    int j=(mosse.posizioneattuale.colonna+mosse.posizionearrivo.colonna)/2;
-    int altezzattuale=get_altezza(board,mosse.posizioneattuale.riga,mosse.posizioneattuale.colonna);
+    int i=(mosse.startPos.row+mosse.endPos.row)/2;
+    int j=(mosse.startPos.col+mosse.endPos.col)/2;
+    int altezzattuale=get_altezza(board,mosse.startPos.row,mosse.startPos.col);
     int altezzapmedio=get_altezza(board,i,j);
-    board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[0].team = board->mat[i][j].pedina[altezzapmedio-1].team;
-    board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[0].p = board->mat[i][j].pedina[altezzapmedio-1].p;
-    board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[0].grado = board->mat[i][j].pedina[altezzapmedio-1].grado;
-    if (altezzattuale==3){
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[1].team = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[1].team;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[1].p = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[1].p;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[1].grado = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[1].grado;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[2].team = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[2].team;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[2].p = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[2].p;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[2].grado = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[2].grado;
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].height=3;
+    board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].team = board->mat[i][j].piece[altezzapmedio-1].team;
+    board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].p = board->mat[i][j].piece[altezzapmedio-1].p;
+    board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].rank = board->mat[i][j].piece[altezzapmedio-1].rank;
+    if (altezzattuale==HEIGHT){
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[1].team;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[1].p;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].rank = board->mat[mosse.startPos.row][mosse.startPos.col].piece[1].rank;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[2].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[2].team;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[2].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[2].p;
+        board->mat[mosse.endPos.row][mosse.endPos.col].piece[2].rank = board->mat[mosse.startPos.row][mosse.startPos.col].piece[2].rank;
+        board->mat[mosse.endPos.row][mosse.endPos.col].height=HEIGHT;
     }else{
         for (k=0; k<altezzattuale; k++) {
-            board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[k+1].team = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[k].team;
-            board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[k+1].p = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[k].p;
-            board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina[k+1].grado = board->mat[mosse.posizioneattuale.riga][mosse.posizioneattuale.colonna].pedina[k].grado;
+            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].team;
+            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].p;
+            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].rank = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].rank;
         }
-        board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].height=altezzattuale+1;
+        board->mat[mosse.endPos.row][mosse.endPos.col].height=altezzattuale+1;
     }
-    svuota_cella(board,mosse.posizioneattuale.riga,mosse.posizioneattuale.colonna);
+    svuota_cella(board,mosse.startPos.row,mosse.startPos.col);
     aggiorna_cella(board,i,j);
-    promozione(board,board->mat[mosse.posizionearrivo.riga][mosse.posizionearrivo.colonna].pedina,mosse.posizionearrivo.riga,mosse.posizionearrivo.colonna);
+    promozione(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece,mosse.endPos.row,mosse.endPos.col);
 }
 
 /*
@@ -258,7 +259,7 @@ void vincente(BoardPointer board){
 }
 */
 int main() {
-    int mossa, indice;
+    int mossa, index;
     int end=0, turno=1, i=0, j=0;
     BoardPointer board = initialize();
     create_pedina(board);
@@ -269,8 +270,8 @@ int main() {
         /*
         system("clear");
         print_board(board);*/
-        indice=avanzamento(board,mosse,turno);
-        if (indice==0){
+        index=avanzamento(board,mosse,turno);
+        if (index==0){
             end=1;
             if (turno==2){
                 printf("Ha vinto il giocatore 1 in %d mosse",i);
@@ -278,10 +279,10 @@ int main() {
                 printf("Ha vinto il giocatore 2 in %d mosse",j);
             }
         }
-        print_mosse(mosse,indice);
+        print_mosse(mosse,index);
         printf("Seleziona una mossa ");
         scanf_s("%d",&mossa);
-        if (abs(mosse->posizionearrivo.riga-mosse->posizioneattuale.riga)==1){
+        if (abs(mosse->endPos.row-mosse->startPos.row)==1){
             spostamento_soldato(board,mosse[mossa-1]);
         }else{
             spostamento_mangiata(board,mosse[mossa-1]);
