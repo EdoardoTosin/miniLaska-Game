@@ -274,7 +274,7 @@ int main() {
             printf("Seleziona una mossa ");
             do{
               scanf/*_s*/("%d", &choice);
-            }while (choice<1 && choice>index);
+            }while (choice<1 || choice>index);
             if (abs(mosse->endPos.row-mosse->startPos.row)==1)
                 spostamento_soldato(board, mosse[choice-1]);
             else
