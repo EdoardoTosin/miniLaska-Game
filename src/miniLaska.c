@@ -159,7 +159,7 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
     bool soloMangiata = false; /*serve per vedere se è stata trovata almeno una mangiata*/
     for(i=0; i<DIM; i++){
         for(j=0; j<DIM; j++) {
-            if((i+j)%2==0 && getTeam(board,i,j) == turno) {
+            if((i+j)%2==0 && getTeam(board, i, j) == turno) {
                 for(i1=i-2; i1<=i+2; i1++) {
                     for(j1=j-2; j1<=j+2; j1++) {
                         int puntoMedioRiga = (i + i1)/2;
@@ -167,14 +167,14 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
                         bool condizioneAnd = (i1+j1) %2 ==0 && i1 != i && j1 != j;
                         condizioneAnd = condizioneAnd && i1 < DIM && i1 >= 0;
                         condizioneAnd = condizioneAnd && j1 < DIM && j1 >= 0;
-                        condizioneAnd = condizioneAnd && cella_vuota(board,i1,j1);
+                        condizioneAnd = condizioneAnd && cella_vuota(board, i1, j1);
                         bool condizioneOr = turno == 1 && i1 > i;
                         condizioneOr = condizioneOr || (turno == 2 && i1<i);
-                        condizioneOr = condizioneOr || getRank(board,i,j) == 2;
+                        condizioneOr = condizioneOr || getRank(board, i, j) == 2;
                         condizioneAnd = condizioneAnd && condizioneOr;
                         bool isNormalStep = abs(i1-i)==1;
                         if(condizioneAnd) {
-                            int teamPuntoMedio = getTeam(board,puntoMedioRiga,puntoMedioColonna);
+                            int teamPuntoMedio = getTeam(board, puntoMedioRiga, puntoMedioColonna);
                             bool mangiata = (teamPuntoMedio != 0 && teamPuntoMedio != turno && !isNormalStep);
                             if((!soloMangiata && (isNormalStep || mangiata)) || (soloMangiata && mangiata)) {
                                 if(!soloMangiata && mangiata) {
@@ -211,7 +211,7 @@ void svuota_cella(BoardPointer board, int i, int j){
 }
 void spostamento_soldato(BoardPointer board, struct mossa mosse){
     int i;
-    int height=getHeight(board,mosse.startPos.row,mosse.startPos.col);
+    int height=getHeight(board, mosse.startPos.row, mosse.startPos.col);
     for (i=0; i<height; i++) {
         board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].team;
         board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].p;
@@ -225,8 +225,8 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse){
     int k;
     int i=(mosse.startPos.row+mosse.endPos.row)/2;
     int j=(mosse.startPos.col+mosse.endPos.col)/2;
-    int altezzattuale=getHeight(board,mosse.startPos.row,mosse.startPos.col);
-    int altezzapmedio=getHeight(board,i,j);
+    int altezzattuale=getHeight(board, mosse.startPos.row, mosse.startPos.col);
+    int altezzapmedio=getHeight(board, i, j);
     board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].team = board->mat[i][j].piece[altezzapmedio-1].team;
     board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].p = board->mat[i][j].piece[altezzapmedio-1].p;
     board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].rank = board->mat[i][j].piece[altezzapmedio-1].rank;
