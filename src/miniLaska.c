@@ -163,7 +163,7 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
                         condizioneAnd = condizioneAnd && i1 < DIM && i1 >= 0;
                         condizioneAnd = condizioneAnd && j1 < DIM && j1 >= 0;
                         condizioneAnd = condizioneAnd && cella_vuota(board, i1, j1);
-                        bool condizioneOr = turno == 1 && i1 > i;
+                        bool condizioneOr = (turno==1) && i1 > i;
                         condizioneOr = condizioneOr || (turno == 2 && i1<i);
                         condizioneOr = condizioneOr || getRank(board, i, j) == 2;
                         condizioneAnd = condizioneAnd && condizioneOr;
@@ -250,7 +250,7 @@ void vincente(BoardPointer board){
 }
 */
 int main() {
-    int mossa, index;
+    int choice, index;
     int end=0, turno=1, i=0, j=0;
     BoardPointer board = initialize();
     create_pedina(board);
@@ -261,33 +261,37 @@ int main() {
         /*
         system("clear");
         print_board(board);*/
-        index=avanzamento(board,mosse,turno);
+        index=avanzamento(board, mosse, turno);
         if (index==0){
             end=1;
             if (turno==2)
-                printf("Ha vinto il giocatore 1 in %d mosse",i);
+                printf("Ha vinto il giocatore 1 in %d mosse\n",i);
             else
-                printf("Ha vinto il giocatore 2 in %d mosse",j);
-        }
-        print_mosse(mosse,index);
-        printf("Seleziona una mossa ");
-        scanf_s("%d", &mossa);
-        if (abs(mosse->endPos.row-mosse->startPos.row)==1)
-            spostamento_soldato(board, mosse[mossa-1]);
-        else
-            spostamento_mangiata(board, mosse[mossa-1]);
-        printf("il giocatore %d ha eseguito la mossa%d\n", turno, mossa);
-        print_board(board);
-        if (turno==1){
-            turno=2;
-            i++;
+                printf("Ha vinto il giocatore 2 in %d mosse\n",j);
         }
         else{
-            turno=1;
-            j++;
+            print_mosse(mosse,index);
+            printf("Seleziona una mossa ");
+            scanf/*_s*/("%d", &choice);
+            if (abs(mosse->endPos.row-mosse->startPos.row)==1)
+                spostamento_soldato(board, mosse[choice-1]);
+            else
+                spostamento_mangiata(board, mosse[choice-1]);
+            printf("il giocatore %d ha eseguito la mossa%d\n", turno, choice);
+            system("clear");
+            print_board(board);
+            if (turno==1){
+                turno=2;
+                i++;
+            }
+            else{
+                turno=1;
+                j++;
+            }
         }
     }
-
+    free(board);
+    
     /*Ricordarsi di fare la free di board*/
     return 0;
 }
