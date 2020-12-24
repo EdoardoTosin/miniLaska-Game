@@ -91,17 +91,30 @@ void create_pedina(BoardPointer board){
     }
 }
 void print_board(BoardPointer board){
+    char white=1;
     int i,j,k;
+    printf(" ");
+    for (j=0; j<DIM; j++)
+        printf("   %d", j);
+    printf("\n");
     for (i=0; i<DIM; i++) {
+        printf("%d ", i);
         for (j=0; j<DIM; j++) {
-            printf("|");
-            for (k=0; k<HEIGHT; k++)
-                printf("%c", board->mat[i][j].piece[k].p);
-                /*
-                if (board->mat[i][j].piece[1].p=='r'){
-                    setcolor(RED);
-                }
-                */
+            if ((i+j)%2==0){
+                printf("|");
+                for (k=0; k<HEIGHT; k++)
+                    printf("%c", board->mat[i][j].piece[k].p);
+                    /*
+                    if (board->mat[i][j].piece[1].p=='r'){
+                        setcolor(RED);
+                    }
+                    */
+            }
+            else{
+                printf("|");
+                for (k=0; k<HEIGHT; k++)
+                    printf("%c",white);
+            }
         }
         printf("|\n");
     }
