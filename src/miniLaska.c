@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 /*
-#include <conio.h>
-*/
+#include <conio.h>*/
 #include <stdbool.h>
 #include <math.h>
 /*
-#include <string.h>
-*/
+#include <string.h>*/
 
 #include "endGame.h"
 #include "gameControl.h"
@@ -107,8 +105,7 @@ void print_board(BoardPointer board){
                     /*
                     if (board->mat[i][j].piece[1].p=='r'){
                         setcolor(RED);
-                    }
-                    */
+                    }*/
             }
             else{
                 printf("|");
@@ -260,8 +257,7 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse){
 /*
 void vincente(BoardPointer board){
 
-}
-*/
+}*/
 int main() {
     system("clear");
     int choice, index;
