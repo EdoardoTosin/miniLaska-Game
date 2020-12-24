@@ -272,7 +272,9 @@ int main() {
         else{
             print_mosse(mosse,index);
             printf("Seleziona una mossa ");
-            scanf/*_s*/("%d", &choice);
+            do{
+              scanf/*_s*/("%d", &choice);
+            }while (choice<1 && choice>index);
             if (abs(mosse->endPos.row-mosse->startPos.row)==1)
                 spostamento_soldato(board, mosse[choice-1]);
             else
@@ -291,7 +293,7 @@ int main() {
         }
     }
     free(board);
-    
+
     /*Ricordarsi di fare la free di board*/
     return 0;
 }
