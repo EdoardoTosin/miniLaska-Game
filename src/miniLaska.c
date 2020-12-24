@@ -250,13 +250,14 @@ void vincente(BoardPointer board){
 }
 */
 int main() {
+    system("clear");
     int choice, index;
     int end=0, turno=1, i=0, j=0;
     BoardPointer board = initialize();
     create_pedina(board);
     print_board(board);
-    printf("\n");
     while (!end){
+        printf("\n");
         struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*11);
         /*
         system("clear");
@@ -265,13 +266,13 @@ int main() {
         if (index==0){
             end=1;
             if (turno==2)
-                printf("Ha vinto il giocatore 1 in %d mosse\n",i);
+                printf("Ha vinto il giocatore 1 in %d mosse\n\n",i);
             else
-                printf("Ha vinto il giocatore 2 in %d mosse\n",j);
+                printf("Ha vinto il giocatore 2 in %d mosse\n\n",j);
         }
         else{
             print_mosse(mosse,index);
-            printf("Seleziona una mossa ");
+            printf("\nSeleziona una mossa: ");
             do{
               scanf/*_s*/("%d", &choice);
             }while (choice<1 || choice>index);
