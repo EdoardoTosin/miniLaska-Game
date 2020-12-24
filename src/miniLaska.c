@@ -59,14 +59,14 @@ struct mossa{
 /*
 typedef struct mossa* mossa_m;*/
 BoardPointer initialize() {
-    int i,j,piece;
+    int i, j, piece;
     BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
     boardPointer->mat = (struct Cella**)malloc(DIM * sizeof(struct Cella*));
     for(i=0; i<DIM; i++) {
         boardPointer->mat[i] = (struct Cella*) malloc(DIM * sizeof(struct Cella));
         for(j=0; j<DIM; j++) {
             boardPointer->mat[i][j].piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
-            for(piece=0;piece<HEIGHT;piece++) {
+            for(piece=0; piece<HEIGHT; piece++) {
                 boardPointer->mat[i][j].piece[piece].team = 0;
                 boardPointer->mat[i][j].piece[piece].p = '-';
                 boardPointer->mat[i][j].piece[piece].rank = 0;
@@ -95,14 +95,13 @@ void print_board(BoardPointer board){
     for (i=0; i<DIM; i++) {
         for (j=0; j<DIM; j++) {
             printf("|");
-            for (k=0; k<HEIGHT; k++) {
-                printf("%c",board->mat[i][j].piece[k].p);
+            for (k=0; k<HEIGHT; k++)
+                printf("%c", board->mat[i][j].piece[k].p);
                 /*
                 if (board->mat[i][j].piece[1].p=='r'){
                     setcolor(RED);
                 }
                 */
-            }
         }
         printf("|\n");
     }
@@ -124,11 +123,9 @@ int getRank(BoardPointer board,int i,int j){
 }
 bool cella_vuota(BoardPointer board,int i, int j){
     int k;
-    for (k=0; k<HEIGHT; k++) {
-        if (board->mat[i][j].piece[k].team!=0){
+    for (k=0; k<HEIGHT; k++)
+        if (board->mat[i][j].piece[k].team!=0)
             return false;
-        }
-    }
     return true;
 }
 void promozione(BoardPointer board,struct Pedina *piece,int i,int j){
@@ -148,18 +145,16 @@ void promozione(BoardPointer board,struct Pedina *piece,int i,int j){
 }
 void print_mosse(struct mossa *mosse, int dim){
     int i;
-    for (i=0; i<dim; i++) {
-        printf("Mossa n.%d %d %d - %d %d\n", i + 1, mosse[i].startPos.row, mosse[i].startPos.col,
-               mosse[i].endPos.row, mosse[i].endPos.col);
-    }
+    for (i=0; i<dim; i++)
+        printf("Mossa n.%d %d %d - %d %d\n", i + 1, mosse[i].startPos.row, mosse[i].startPos.col, mosse[i].endPos.row, mosse[i].endPos.col);
 }
 int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
     int index = 0;
-    int i,j,i1,j1;
+    int i, j, i1, j1;
     bool soloMangiata = false; /*serve per vedere se è stata trovata almeno una mangiata*/
     for(i=0; i<DIM; i++){
         for(j=0; j<DIM; j++) {
-            if((i+j)%2==0 && getTeam(board, i, j) == turno) {
+            if((i+j)%2==0 && getTeam(board, i, j) == turno)
                 for(i1=i-2; i1<=i+2; i1++) {
                     for(j1=j-2; j1<=j+2; j1++) {
                         int puntoMedioRiga = (i + i1)/2;
@@ -190,13 +185,12 @@ int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
                         }
                     }
                 }
-            }
         }
     }
     return index;
 }
-void aggiorna_cella(BoardPointer board, int i,int j){
-    int height=getHeight(board,i,j);
+void aggiorna_cella(BoardPointer board, int i, int j){
+    int height=getHeight(board, i, j);
     board->mat[i][j].piece[height-1].team = 0;
     board->mat[i][j].piece[height-1].p = '-';
     board->mat[i][j].piece[height-1].rank = 0;
@@ -205,9 +199,8 @@ void aggiorna_cella(BoardPointer board, int i,int j){
 void svuota_cella(BoardPointer board, int i, int j){
     int k;
     int height=getHeight(board, i, j);
-    for (k=0; k<height; k++) {
+    for (k=0; k<height; k++)
         aggiorna_cella(board, i, j);
-    }
 }
 void spostamento_soldato(BoardPointer board, struct mossa mosse){
     int i;
@@ -271,26 +264,25 @@ int main() {
         index=avanzamento(board,mosse,turno);
         if (index==0){
             end=1;
-            if (turno==2){
+            if (turno==2)
                 printf("Ha vinto il giocatore 1 in %d mosse",i);
-            }else{
+            else
                 printf("Ha vinto il giocatore 2 in %d mosse",j);
-            }
         }
         print_mosse(mosse,index);
         printf("Seleziona una mossa ");
-        scanf_s("%d",&mossa);
-        if (abs(mosse->endPos.row-mosse->startPos.row)==1){
+        scanf_s("%d", &mossa);
+        if (abs(mosse->endPos.row-mosse->startPos.row)==1)
             spostamento_soldato(board, mosse[mossa-1]);
-        }else{
+        else
             spostamento_mangiata(board, mosse[mossa-1]);
-        }
-        printf("il giocatore %d ha eseguito la mossa%d\n",turno,mossa);
+        printf("il giocatore %d ha eseguito la mossa%d\n", turno, mossa);
         print_board(board);
         if (turno==1){
             turno=2;
             i++;
-        }else{
+        }
+        else{
             turno=1;
             j++;
         }
