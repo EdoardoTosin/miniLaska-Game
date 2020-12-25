@@ -266,10 +266,10 @@ void vincente(BoardPointer board){
 
 }*/
 int main() {
-    system("clear");
     int choice, index;
     int end=0, turno=1, i=0, j=0;
     BoardPointer board = initialize();
+    system("clear");
     create_pedina(board);
     print_board(board);
     while (!end){
