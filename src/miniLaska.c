@@ -261,7 +261,7 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse){
     aggiorna_cella(board, i, j);
     promozione(board, board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
 }
-void game(){
+void match(){
     int choice, index;
     int end=0, turno=1, i=0, j=0;
     char player='R';
@@ -278,14 +278,14 @@ void game(){
         if (index==0){
             end=1;
             if (turno==2)
-                printf("Ha vinto il giocatore G in %d mosse\n\n",i);
+                printf("Ha vinto il giocatore G in %d mosse\n\n", i);
             else
-                printf("Ha vinto il giocatore R in %d mosse\n\n",j);
+                printf("Ha vinto il giocatore R in %d mosse\n\n", j);
         }
         else{
             printf("TURNO GIOCATORE %c\n", player);
             print_mosse(mosse,index);
-            printf("\nSeleziona una mossa: ");
+            printf("\nInserire numero mossa: ");
             do{
               scanf/*_s*/("%d", &choice);
             }while (choice<1 || choice>index);
@@ -320,7 +320,7 @@ int main() {
         scanf(" %c", &start);
     } while(start!='f' && start!='F');
     do{
-        game();
+        match();
         printf("Do you want to play again? (y for yes)\n\n");
         scanf(" %c", &start);
     } while(start=='y' && start=='Y');
