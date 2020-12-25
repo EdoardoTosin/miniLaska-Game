@@ -317,12 +317,12 @@ int main() {
     do{
         system("clear");
         printf("\nminiLaska GAME\n\nPress F to start the game\n\n");
-        scanf("%c", &start);
+        scanf(" %c", &start);
     } while(start!='f' && start!='F');
     do{
         game();
-        printf("\nDo you want to play again? (y for yes)\n\n");
-        scanf("%c", &start);
+        printf("Do you want to play again? (y for yes)\n\n");
+        scanf(" %c", &start);
     } while(start=='y' && start=='Y');
     return 0;
 }
