@@ -37,7 +37,6 @@ typedef struct Square*cella_c;*/
 struct Board{
     struct Cella **mat;
 };
-
 typedef struct Board* BoardPointer;
 /*
 int partita=0;
@@ -271,9 +270,6 @@ void match(){
     while (!end){
         printf("\n");
         struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*11);
-        /*
-        system("clear");
-        print_board(board);*/
         index=avanzamento(board, mosse, turno);
         if (index==0){
             end=1;
@@ -313,7 +309,7 @@ void match(){
     return;
 }
 int main() {
-    char start;
+    char start='0';
     do{
         system("clear");
         printf("\nminiLaska GAME\n\nPress F to start the game\n\n");
