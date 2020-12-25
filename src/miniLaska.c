@@ -90,7 +90,7 @@ void create_pedina(BoardPointer board){
 }
 void print_board(BoardPointer board){
     char white=1;
-    int i, j, k, l, m;
+    int i, j, k, l;
     printf("  ");
     for (j=0; j<DIM; j++)
         printf("   %d", j);
