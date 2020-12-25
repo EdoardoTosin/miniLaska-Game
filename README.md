@@ -10,7 +10,18 @@
 
 #### Main Function
 ```c
-int main(){
-	return 0;
+int main() {
+  char start='0';
+  do{
+    system("clear");
+    printf("\nminiLaska GAME\n\nPress F to start the game\n\n");
+    scanf(" %c", &start);
+  } while(start!='f' && start!='F');
+  do{
+    match();
+    printf("Do you want to play again? (y for yes)\n\n");
+    scanf(" %c", &start);
+  } while(start=='y' && start=='Y');
+  return 0;
 }
 ```
