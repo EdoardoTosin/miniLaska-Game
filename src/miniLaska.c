@@ -90,13 +90,16 @@ void create_pedina(BoardPointer board){
 }
 void print_board(BoardPointer board){
     char white=1;
-    int i,j,k;
-    printf(" ");
+    int i, j, k, l, m;
+    printf("  ");
     for (j=0; j<DIM; j++)
         printf("   %d", j);
     printf("\n");
     for (i=0; i<DIM; i++) {
-        printf("%d ", i);
+        printf("  +");
+        for (l=0; l<DIM; l++)
+            printf("---+");
+        printf("\n%d ", i);
         for (j=0; j<DIM; j++) {
             if ((i+j)%2==0){
                 printf("|");
@@ -115,6 +118,10 @@ void print_board(BoardPointer board){
         }
         printf("|\n");
     }
+    printf("  +");
+    for (l=0; l<DIM; l++)
+        printf("---+");
+    printf("\n");
 }
 int getHeight(BoardPointer board,int i, int j){
     if (board->mat[i][j].height==0)
