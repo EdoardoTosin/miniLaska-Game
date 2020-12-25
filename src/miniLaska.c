@@ -293,12 +293,12 @@ void match(){
             printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
             if (turno==1){
                 turno=2;
-                player='G';
+                player='R';
                 i++;
             }
             else{
                 turno=1;
-                player='R';
+                player='G';
                 j++;
             }
         }
