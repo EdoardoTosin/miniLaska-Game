@@ -15,6 +15,7 @@
 
 #define DIM 7
 #define HEIGHT 3
+#define ROW 65
 
 struct Pedina{
     /*
@@ -91,7 +92,8 @@ void create_pedina(BoardPointer board){
 void print_board(BoardPointer board){
     char white=1;
     int i, j, k, l;
-    printf("  ");
+    system("clear");
+    printf(" ");
     for (j=0; j<DIM; j++)
         printf("   %d", j);
     printf("\n");
@@ -99,16 +101,15 @@ void print_board(BoardPointer board){
         printf("  +");
         for (l=0; l<DIM; l++)
             printf("---+");
-        printf("\n%d ", i);
+        printf("\n%c ", ROW+i);
         for (j=0; j<DIM; j++) {
             if ((i+j)%2==0){
                 printf("|");
                 for (k=0; k<HEIGHT; k++)
-                    printf("%c", board->mat[i][j].piece[k].p);
-                    /*
-                    if (board->mat[i][j].piece[1].p=='r'){
-                        setcolor(RED);
-                    }*/
+                    if (board->mat[i][j].piece[k].p == '-')
+                        printf(" ");
+                    else
+                        printf("%c", board->mat[i][j].piece[k].p);
             }
             else{
                 printf("|");
@@ -163,7 +164,7 @@ void promozione(BoardPointer board,struct Pedina *piece,int i,int j){
 void print_mosse(struct mossa *mosse, int dim){
     int i;
     for (i=0; i<dim; i++)
-        printf("Mossa n.%d %d %d - %d %d\n", i + 1, mosse[i].startPos.row, mosse[i].startPos.col, mosse[i].endPos.row, mosse[i].endPos.col);
+        printf("Mossa n.%d %c %d - %c %d\n", i + 1, ROW+mosse[i].startPos.row, mosse[i].startPos.col, ROW+mosse[i].endPos.row, mosse[i].endPos.col);
 }
 int avanzamento(BoardPointer board,struct mossa *mosse,int turno) {
     int index = 0;
@@ -260,16 +261,11 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse){
     aggiorna_cella(board, i, j);
     promozione(board, board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
 }
-
-/*
-void vincente(BoardPointer board){
-
-}*/
-int main() {
+void game(){
     int choice, index;
     int end=0, turno=1, i=0, j=0;
+    char player='R';
     BoardPointer board = initialize();
-    system("clear");
     create_pedina(board);
     print_board(board);
     while (!end){
@@ -282,11 +278,12 @@ int main() {
         if (index==0){
             end=1;
             if (turno==2)
-                printf("Ha vinto il giocatore 1 in %d mosse\n\n",i);
+                printf("Ha vinto il giocatore G in %d mosse\n\n",i);
             else
-                printf("Ha vinto il giocatore 2 in %d mosse\n\n",j);
+                printf("Ha vinto il giocatore R in %d mosse\n\n",j);
         }
         else{
+            printf("TURNO GIOCATORE %c\n", player);
             print_mosse(mosse,index);
             printf("\nSeleziona una mossa: ");
             do{
@@ -296,21 +293,36 @@ int main() {
                 spostamento_soldato(board, mosse[choice-1]);
             else
                 spostamento_mangiata(board, mosse[choice-1]);
-            printf("il giocatore %d ha eseguito la mossa%d\n", turno, choice);
-            system("clear");
             print_board(board);
+            printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
             if (turno==1){
                 turno=2;
+                player='R';
                 i++;
             }
             else{
                 turno=1;
+                player='G';
                 j++;
             }
         }
     }
     free(board);
-
-    /*Ricordarsi di fare la free di board*/
+    /*
+    Ricordarsi di fare la free di mosse*/
+    return;
+}
+int main() {
+    char start;
+    do{
+        system("clear");
+        printf("\nminiLaska GAME\n\nPress F to start the game\n\n");
+        scanf("%c", &start);
+    } while(start!='f' && start!='F');
+    do{
+        game();
+        printf("\nDo you want to play again? (y for yes)\n\n");
+        scanf("%c", &start);
+    } while(start=='y' && start=='Y');
     return 0;
 }
