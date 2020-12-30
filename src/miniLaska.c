@@ -16,7 +16,10 @@
 #define DIM 7
 #define HEIGHT 3
 #define ROW 65
+#define MAX_DEPTH 1000
 
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 struct Pedina{
     /*
     enum colore colore;*/
@@ -54,6 +57,28 @@ struct mossa{
     struct Posizione startPos;
     struct Posizione endPos;
 };
+
+BoardPointer copyBoard(BoardPointer board) {
+    int i, j, piece;
+    BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
+    boardPointer->mat = (struct Cella**)malloc(DIM * sizeof(struct Cella*));
+    for(i=0; i<DIM; i++) {
+        boardPointer->mat[i] = (struct Cella*) malloc(DIM * sizeof(struct Cella));
+        for(j=0; j<DIM; j++) {
+            boardPointer->mat[i][j].piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
+            for(piece=0; piece<HEIGHT; piece++) {
+                boardPointer->mat[i][j].piece[piece].team =  board->mat[i][j].piece[piece].team;
+                boardPointer->mat[i][j].piece[piece].p = board->mat[i][j].piece[piece].p;
+                boardPointer->mat[i][j].piece[piece].rank = board->mat[i][j].piece[piece].rank;
+                boardPointer->mat[i][j].height = board->mat[i][j].height;
+            }
+        }
+    }
+    return boardPointer;
+}
+ 
+/*
+typedef struct mossa* mossa_m;*/
 /*
 typedef struct mossa* mossa_m;*/
 BoardPointer initialize() {
@@ -260,6 +285,86 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse){
     aggiorna_cella(board, i, j);
     promozione(board, board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
 }
+
+void eseguiSpostamento(BoardPointer board,struct mossa m) {
+	  if (abs(m.endPos.row-m.startPos.row)==1)
+                spostamento_soldato(board, m);
+            else
+                spostamento_mangiata(board, m);
+}
+
+int minimax(BoardPointer board, bool isMax, int depth,int somma)
+{
+    struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*11);
+	int index=avanzamento(board, mosse, isMax ? 1:2);
+ 
+    if (index == 0 && !isMax)
+        return INT_MAX;
+
+    if (index == 0 && isMax)
+        return INT_MIN;
+ 
+    if (depth == MAX_DEPTH)
+        return somma;
+ 
+ 	bool mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
+
+    if (isMax)
+    {
+        int best = INT_MIN;
+        for (int i = 0; i< index; i++)
+        {
+        	BoardPointer boardSimulata = copyBoard(board);
+            eseguiSpostamento(boardSimulata,mosse[i]);
+ 
+            best = MAX( best, minimax(boardSimulata, !isMax,depth + 1, somma + (mangiata ? 10 : 0)) );
+ 
+            free(boardSimulata);
+        }
+        free(mosse);
+        return best;
+    }
+ 
+    else
+    {
+        int best = INT_MAX;
+        for (int i = 0; i< index; i++)
+        {
+            BoardPointer boardSimulata = copyBoard(board);
+            eseguiSpostamento(boardSimulata,mosse[i]);
+ 
+             best = MIN(best, minimax(boardSimulata, !isMax, depth+1, somma + (mangiata ? -10 : 0)));
+ 
+            free(boardSimulata);
+        }
+        free(mosse);
+        return best;
+    }
+}
+ 
+int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize)
+{
+    int bestVal = INT_MIN;
+    int bestMove = 0;
+    for (int i = 0; i<mosseSize;i++)
+    {
+    	 		BoardPointer boardSimulata = copyBoard(board);
+                eseguiSpostamento(boardSimulata,mosse[i]);
+ 
+                int moveVal = minimax(boardSimulata, false,0,0);
+ 
+                if (moveVal > bestVal)
+                {
+                    bestMove = i;
+                }
+                free(boardSimulata);
+    }
+    printf("The value of the best Move is : %d\n\n",
+            bestVal);
+ 
+    return bestMove;
+}
+
 void match(){
     int choice, index;
     int end=0, turno=1, i=0, j=0;
@@ -285,10 +390,7 @@ void match(){
             do{
               scanf/*_s*/("%d", &choice);
             }while (choice<1 || choice>index);
-            if (abs(mosse->endPos.row-mosse->startPos.row)==1)
-                spostamento_soldato(board, mosse[choice-1]);
-            else
-                spostamento_mangiata(board, mosse[choice-1]);
+            eseguiSpostamento(board,mosse[choice -1 ]);
             print_board(board);
             printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
             if (turno==1){
@@ -308,6 +410,7 @@ void match(){
     Ricordarsi di fare la free di mosse*/
     return;
 }
+
 int main() {
     char start='0';
     do{
