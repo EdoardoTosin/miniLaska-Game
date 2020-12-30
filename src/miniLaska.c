@@ -22,6 +22,12 @@
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
+#ifdef _WIN32
+#define CLEAR "cls"
+#else
+#define CLEAR "clear"
+#endif
+
 struct Pedina{
 	/*
 	enum colore colore;*/
@@ -103,8 +109,8 @@ BoardPointer initialize() {
 
 void create_pedina(BoardPointer board) {
 	int i,j;
-	for(i=0; i<DIM; i++) {
-		for(j=0; j<DIM; j++) {
+	for (i=0; i<DIM; i++) {
+		for (j=0; j<DIM; j++) {
 			if ((i + j) % 2 == 0 && i!=3) {
 				board->mat[i][j].piece[0].team = i < 3 ? 1 : 2;
 				board->mat[i][j].piece[0].p = i < 3 ? 'r' : 'g';
@@ -118,7 +124,7 @@ void create_pedina(BoardPointer board) {
 void print_board(BoardPointer board) {
 	char white=1;
 	int i, j, k, l;
-	system("clear");
+	system(CLEAR);
 	printf(" ");
 	for (j=0; j<DIM; j++)
 		printf("   %d", j);
@@ -421,7 +427,7 @@ void match(void) {
 int main(void) {
 	char start='0';
 	do{
-		system("clear");
+		system(CLEAR);
 		printf("\nminiLaska GAME\n\nPress F to start the game\n\n");
 		scanf(" %c", &start);
 	} while(start!='f' && start!='F');
