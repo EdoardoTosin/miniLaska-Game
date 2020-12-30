@@ -372,7 +372,7 @@ int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize){
     return bestMove;
 }
 
-void match(){
+void match(void){
     int choice, index;
     int end=0, turno=1, i=0, j=0;
     char player='R';
