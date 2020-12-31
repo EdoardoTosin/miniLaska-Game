@@ -27,8 +27,6 @@
 #endif
 
 struct Pedina{
-	/*
-	enum colore colore;*/
 	int team;
   char p;
 	int rank;
@@ -64,6 +62,9 @@ struct mossa{
 	struct Posizione endPos;
 };
 
+/*
+typedef struct mossa* mossa_m;*/
+
 BoardPointer copyBoard(BoardPointer board) {
 	int i, j, piece;
 	BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
@@ -83,21 +84,18 @@ BoardPointer copyBoard(BoardPointer board) {
 	return boardPointer;
 }
 
-/*
-typedef struct mossa* mossa_m;*/
-
 BoardPointer initialize() {
-	int i, j, piece;
+	int i, j, h;
 	BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
 	boardPointer->mat = (struct Cella**)malloc(DIM * sizeof(struct Cella*));
 	for(i=0; i<DIM; i++) {
 		boardPointer->mat[i] = (struct Cella*) malloc(DIM * sizeof(struct Cella));
 		for(j=0; j<DIM; j++) {
 			boardPointer->mat[i][j].piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
-			for(piece=0; piece<HEIGHT; piece++) {
-				boardPointer->mat[i][j].piece[piece].team = 0;
-				boardPointer->mat[i][j].piece[piece].p = '-';
-				boardPointer->mat[i][j].piece[piece].rank = 0;
+			for(h=0; h<HEIGHT; h++) {
+				boardPointer->mat[i][j].piece[h].team = 0;
+				boardPointer->mat[i][j].piece[h].p = '-';
+				boardPointer->mat[i][j].piece[h].rank = 0;
 				boardPointer->mat[i][j].height = 0;
 			}
 		}
