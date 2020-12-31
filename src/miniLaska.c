@@ -16,7 +16,7 @@
 #define DIM 7
 #define HEIGHT 3
 #define ROW 65
-#define MAX_DEPTH 8
+#define MAX_DEPTH 4
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
@@ -121,7 +121,7 @@ void create_pedina(BoardPointer board) {
 void print_board(BoardPointer board) {
 	char white=1;
 	int i, j, k, l;
-	system(CLEAR);
+	/*system(CLEAR);*/
 	printf(" ");
 	for (j=0; j<DIM; j++)
 		printf("   %d", j);
@@ -185,15 +185,22 @@ void promozione(BoardPointer board, struct Pedina *piece, int i, int j) {
 	if (piece[altezza-1].p=='g' && i==0) {
 		piece[altezza-1].p='G';
 		piece[altezza-1].rank=2;
-		/*
-		piece[altezza-1].team=2; è già settato al valore 2*/
 	}
 	if (piece[altezza-1].p=='r' && i==6) {
 		piece[altezza-1].p='R';
 		piece[altezza-1].rank=2;
-		/*
-		piece[altezza-1].team=1; è già settato al valore 1*/
 	}
+}
+void promozionereverse(BoardPointer board, struct Pedina *piece, int i, int j) {
+    int altezza=getHeight(board, i, j);
+    if (piece[altezza-1].p=='G' && i==0) {
+        piece[altezza-1].p='g';
+        piece[altezza-1].rank=1;
+    }
+    if (piece[altezza-1].p=='R' && i==6) {
+        piece[altezza-1].p='r';
+        piece[altezza-1].rank=1;
+    }
 }
 
 void print_mosse(struct mossa *mosse, int dim) {
@@ -271,6 +278,17 @@ void spostamento_soldato(BoardPointer board, struct mossa mosse) {
 	svuota_cella(board,mosse.startPos.row,mosse.startPos.col);
 	promozione(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece,mosse.endPos.row,mosse.endPos.col);
 }
+void spostamento_soldatoreverse(BoardPointer board, struct mossa mosse,int altezzastart) {
+    int i;
+    promozionereverse(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
+    for (i=0; i<altezzastart; i++) {
+        board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].team;
+        board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].p;
+        board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].rank;
+    }
+    board->mat[mosse.startPos.row][mosse.startPos.col].height=altezzastart;
+    svuota_cella(board,mosse.endPos.row,mosse.endPos.col);
+}
 
 void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
 	int k;
@@ -302,6 +320,39 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
 	aggiorna_cella(board, i, j);
 	promozione(board, board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
 }
+void spostamento_mangiatareverse(BoardPointer board, struct mossa mosse,int altezzastart) {
+    int k;
+    int i=(mosse.startPos.row+mosse.endPos.row)/2;
+    int j=(mosse.startPos.col+mosse.endPos.col)/2;
+    int altezzattuale=getHeight(board, mosse.endPos.row, mosse.endPos.col);
+    int altezzapmedio=getHeight(board, i, j);
+    promozionereverse(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
+    board->mat[i][j].piece[altezzapmedio].team = board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].team;
+    board->mat[i][j].piece[altezzapmedio].p =board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].p;
+    board->mat[i][j].piece[altezzapmedio].rank = board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].rank;
+    if (altezzastart==HEIGHT) {
+        for (k=0; k<altezzastart; k++) {
+            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].team;
+            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].p;
+            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].rank;
+        }
+        board->mat[mosse.startPos.row][mosse.startPos.col].height=HEIGHT;
+    }else if (altezzastart==2){
+        for (k=0; k<altezzastart; k++) {
+            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].team;
+            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].p;
+            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].rank;
+        }
+        board->mat[mosse.startPos.row][mosse.startPos.col].height=altezzastart;
+    }else{
+        board->mat[mosse.startPos.row][mosse.startPos.col].piece[0].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].team;
+        board->mat[mosse.startPos.row][mosse.startPos.col].piece[0].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].p;
+        board->mat[mosse.startPos.row][mosse.startPos.col].piece[0].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].rank;
+        board->mat[mosse.startPos.row][mosse.startPos.col].height=altezzastart;
+    }
+    board->mat[i][j].height=getHeight(board,i,j)+1;
+    svuota_cella(board,mosse.endPos.row,mosse.endPos.col);
+}
 
 void eseguiSpostamento(BoardPointer board,struct mossa m) {
 	if (abs(m.endPos.row-m.startPos.row)==1)
@@ -312,7 +363,7 @@ void eseguiSpostamento(BoardPointer board,struct mossa m) {
 
 int minimax(BoardPointer board, bool isMax, int depth,int somma) {
 	int i, best;
-	struct mossa *mosse=(struct mossa*) malloc(sizeof(struct mossa)*11);
+	struct mossa *mosse=(struct mossa*) malloc(sizeof(struct mossa)*15);
 	  int index=avanzamento(board, mosse, isMax ? 1:2);
 
 	if (index == 0 && !isMax)
@@ -332,7 +383,7 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
 			BoardPointer boardSimulata = copyBoard(board);
 			eseguiSpostamento(boardSimulata,mosse[i]);
 
-			best = MAX(best, minimax(boardSimulata, !isMax,depth + 1, somma + (mangiata ? 10 : 0)) );
+			best = MAX(best, minimax(boardSimulata, !isMax,depth + 1, somma + (mangiata ? 1 : 0)) );
 
 			free(boardSimulata);
 		}
@@ -346,7 +397,7 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
 			BoardPointer boardSimulata = copyBoard(board);
 			eseguiSpostamento(boardSimulata, mosse[i]);
 
-			best = MIN(best, minimax(boardSimulata, !isMax, depth+1, somma + (mangiata ? -10 : 0)));
+			best = MIN(best, minimax(boardSimulata, !isMax, depth+1, somma + (mangiata ? -1 : 0)));
 
 			free(boardSimulata);
 		}
@@ -364,7 +415,7 @@ int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize) {
 	  eseguiSpostamento(boardSimulata,mosse[i]);
 
 	  bool mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
-	  int moveVal = minimax(boardSimulata, false,0,mangiata ? 10 : 0);
+        int moveVal = minimax(boardSimulata, false,0,mangiata ? 1 : 0);
 	  if (moveVal > bestVal) {
 	  	bestMove = i;
 		  bestVal=moveVal;
@@ -385,7 +436,7 @@ void match(void) {
 	print_board(board);
 	while (!end) {
 		printf("\n");
-		struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*11);
+		struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*15);
 		index=avanzamento(board, mosse, turno);
 		if (index==0) {
 			end=1;
@@ -402,9 +453,9 @@ void match(void) {
         printf("mossa%d\n",mossa+1);
         eseguiSpostamento(board, mosse[mossa]);
         print_board(board);
-        printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa);
+                printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa+1);
 				turno=2;
-				player='R';
+				player='G';
 				i++;
 			}
 			else{
@@ -418,7 +469,7 @@ void match(void) {
         print_board(board);
         printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
 				turno=1;
-				player='G';
+				player='R';
 				j++;
 			}
 		}
@@ -426,13 +477,12 @@ void match(void) {
 	free(board);
 	/*
 	Ricordarsi di fare la free di mosse*/
-	return;
 }
 
 int main(void) {
 	char start='0';
 	do{
-		system(CLEAR);
+		/*system(CLEAR);*/
 		printf("\nminiLaska GAME\n\nPress F to start the game\n\n");
 		scanf(" %c", &start);
 	} while(start!='f' && start!='F');
@@ -440,6 +490,7 @@ int main(void) {
 		match();
 		printf("Do you want to play again? (y for yes)\n\n");
 		scanf(" %c", &start);
-	} while(start=='y' && start=='Y');
+	} while(start=='y' || start=='Y');
+            /*int altezzastart=getHeight(board,mosse->startPos.row,mosse->startPos.col);*/
 	return 0;
 }
