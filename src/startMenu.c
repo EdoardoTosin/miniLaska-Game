@@ -133,8 +133,3 @@ int startMenu() {
   }
   return 0;
 }
-
-int main(void) {
-  startMenu();
-  return 0;
-}

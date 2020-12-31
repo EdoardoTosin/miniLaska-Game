@@ -11,6 +11,7 @@
 #include "objectCreation.h"
 #include "printBoard.h"
 #include "startGame.h"
+#include "startMenu.h"
 
 #define DIM 7
 #define HEIGHT 3
