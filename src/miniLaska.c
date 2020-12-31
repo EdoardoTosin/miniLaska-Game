@@ -173,7 +173,7 @@ int getHeight(BoardPointer board, int i, int j) {
 }
 
 struct Cella * copyCella(struct Cella cella) {
-    struct Cella * c = (struct Cella*) malloc(DIM * sizeof(struct Cella));
+    struct Cella * c = (struct Cella*) malloc(sizeof(struct Cella));
     c->piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
     for(int i=0;i<HEIGHT;i++) {
         c->piece[i].team = cella.piece[i].team;
@@ -405,7 +405,7 @@ void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struc
     if(mezzo != NULL) {
         int i=(mossa.startPos.row+mossa.endPos.row)/2;
         int j=(mossa.startPos.col+mossa.endPos.col)/2;
-        copyContent(board,finale,i,j);
+        copyContent(board,mezzo,i,j);
 
     }
 
@@ -447,7 +447,7 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
                 free(mezzo);
             }
             if (isDiff(boarddd,board)){
-                printf("\n\n\n");
+                printf("*********************************************************************************************************************************************");
                 printf("start row %d - start col %d - end row %d - end col %d\n",mosse[i].startPos.row,mosse[i].startPos.col,mosse[i].endPos.row,mosse[i].endPos.col);
                 print_board(boarddd);
                 print_board(boardSpostamento);
@@ -479,7 +479,7 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
                 free(mezzo);
             }
             if (isDiff(boarddd,board)){
-                printf("\n\n\n");
+                printf("*********************************************************************************************************************************************");
                 printf("start row %d - start col %d - end row %d - end col %d\n",mosse[i].startPos.row,mosse[i].startPos.col,mosse[i].endPos.row,mosse[i].endPos.col);
                 print_board(boarddd);
                 print_board(boardSpostamento);
