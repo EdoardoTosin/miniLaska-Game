@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 void print_menu(){
-  //print the menu
   puts("\n\n\n");
   puts("/====================/");
   puts("       MAIN MENU      ");
@@ -12,7 +11,7 @@ void print_menu(){
   puts("1. Player vs Player");
   puts("2. PC vs Player");
   puts("3. PC vs Player");
-  puts("4. Exit");    //Altrimenti print"invalid"
+  puts("4. Exit");
   printf(">>");
   return;
 }
@@ -86,17 +85,17 @@ void print_submenu2(){
 int startMenu() {
   system(CLEAR);
   int choice = 0;
-  while (choice != 3) {
+  while (choice != 4) {
     print_menu();
     scanf("%d", &choice);
-    switch (choice) {//sistemare il caso stringa
+    switch (choice) {
       case 1:
         print_submenu1();
         break;
       case 2:
         print_submenu2();
         break;
-      case 2:
+      case 3:
         print_submenu3();
         break;
       case 4:
@@ -104,7 +103,7 @@ int startMenu() {
         break;
       default:
         puts("Invalid Input!");
-      } //end_switch
-  } //end_while
+      }
+  }
   return 0;
 }
