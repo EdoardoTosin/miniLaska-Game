@@ -12,7 +12,7 @@ void printStartMenu(){
   puts("2. Rules");
   puts("3. Credits");
   puts("4. Exit");
-  printf(">>");
+  printf("\n");
   return;
 }
 
@@ -28,7 +28,7 @@ void printStartGame(){
     puts("2. PC vs Player");
     puts("3. Return");
     puts("4. Exit");
-    printf(">>>");
+    printf("\n");
     scanf("%d", &subChoice1);
     if (subChoice1 == 1) {
       puts("E' stato scelta l'opzione 1");
@@ -67,7 +67,7 @@ void printRules(){
     Print rules*/
     puts("1. Return");
     puts("2. Exit");
-    printf(">>>");
+    printf("\n");
     scanf("%d", &subChoice2);
     if (subChoice2 == 1) {
       puts("E' stato scelto di tornare al menu precedente");
@@ -94,7 +94,7 @@ void printCredits(){
     Print credits*/
     puts("1. Return");
     puts("2. Exit");
-    printf(">>>");
+    printf("\n");
     scanf("%d", &subChoice3);
     if (subChoice3 == 1) {
       puts("E' stato scelto di tornare al menu precedente");
