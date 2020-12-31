@@ -397,9 +397,9 @@ void match(void) {
 			if (turno==1) {
 	      printf("TURNO GIOCATORE %c\n", player);
         print_mosse(mosse,index);
-        int mossa=findBestMove(board,mosse,index);
+        int mossa=findBestMove(board, mosse, index);
         printf("mossa%d\n",mossa+1);
-        eseguiSpostamento(board,mosse[mossa]);
+        eseguiSpostamento(board, mosse[mossa]);
         print_board(board);
         printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa);
 				turno=2;
@@ -408,12 +408,12 @@ void match(void) {
 			}
 			else{
         printf("TURNO GIOCATORE %c\n", player);
-        print_mosse(mosse,index);
+        print_mosse(mosse, index);
         printf("\nInserire numero mossa: ");
         do{
             scanf/*_s*/("%d", &choice);
         } while (choice<1 || choice>index);
-        eseguiSpostamento(board,mosse[choice -1 ]);
+        eseguiSpostamento(board, mosse[choice -1 ]);
         print_board(board);
         printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
 				turno=1;
