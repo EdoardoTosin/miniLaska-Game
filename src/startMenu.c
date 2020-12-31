@@ -17,9 +17,9 @@ void printStartMenu(){
 }
 
 void printStartGame(){
+  int subChoice1 = 0;
   system(CLEAR);
   puts("E' stato scelto il submenu 1");
-  int subChoice1 = 0;
   while (subChoice1 != 2) {
     puts("/====================/");
     puts("          START MENU    ");
@@ -56,9 +56,9 @@ void printStartGame(){
 }
 
 void printRules(){
+  int subChoice2 = 0;
   system(CLEAR);
   puts("E' stato scelto il submenu 2");
-  int subChoice2 = 0;
   while (subChoice2 != 2) {
     puts("/====================/");
     puts("           RULES    ");
@@ -83,9 +83,9 @@ void printRules(){
 }
 
 void printCredits(){
+  int subChoice3 = 0;
   system("cls");
   puts("E' stato scelto il submenu 3");
-  int subChoice3 = 0;
   while (subChoice3 != 2) {
     puts("/====================/");
     puts("           CREDITS    ");
@@ -111,7 +111,8 @@ void printCredits(){
 
 int startMenu() {
   int choice = 0;
-  while (StartMenu();
+  while (choice != 4) {
+    printStartMenu();
     scanf("%d", &choice);
     switch (choice) {
       case 1:
