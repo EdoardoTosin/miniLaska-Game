@@ -17,7 +17,7 @@
 #define DIM 7
 #define HEIGHT 3
 #define ROW 65
-#define MAX_DEPTH 1000
+#define MAX_DEPTH 8
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
@@ -307,10 +307,11 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
 }
 
 void eseguiSpostamento(BoardPointer board,struct mossa m) {
-	  if (abs(m.endPos.row-m.startPos.row)==1)
-		  spostamento_soldato(board, m);
-	else
-		  spostamento_mangiata(board, m);
+	  if (abs(m.endPos.row-m.startPos.row)==1) {
+          spostamento_soldato(board, m);
+      }else {
+          spostamento_mangiata(board, m);
+      }
 }
 
 int minimax(BoardPointer board, bool isMax, int depth,int somma) {
@@ -359,23 +360,24 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
 }
 
 int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize) {
-  int i;
-	int bestVal = INT_MIN;
-	int bestMove = 0;
-	for (i=0; i<mosseSize; i++) {
-		 	BoardPointer boardSimulata = copyBoard(board);
-				eseguiSpostamento(boardSimulata,mosse[i]);
+    int i;
+    int bestVal = INT_MIN;
+    int bestMove = 0;
+    for (i=0; i<mosseSize; i++) {
+        BoardPointer boardSimulata = copyBoard(board);
+        eseguiSpostamento(boardSimulata,mosse[i]);
 
-				int moveVal = minimax(boardSimulata, false,0,0);
+        bool mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
+        int moveVal = minimax(boardSimulata, false,0,mangiata ? 10 : 0);
+        if (moveVal > bestVal) {
+            bestMove = i;
+            bestVal=moveVal;
+        }
+        free(boardSimulata);
+    }
+    printf("The value of the best Move is : %d\n\n", bestVal);
 
-				if (moveVal > bestVal) {
-					bestMove = i;
-				}
-				free(boardSimulata);
-	}
-	printf("The value of the best Move is : %d\n\n", bestVal);
-
-	return bestMove;
+    return bestMove;
 }
 
 void match(void) {
@@ -397,21 +399,29 @@ void match(void) {
 				printf("Ha vinto il giocatore R in %d mosse\n\n", j);
 		}
 		else{
-			printf("TURNO GIOCATORE %c\n", player);
-			print_mosse(mosse,index);
-			printf("\nInserire numero mossa: ");
-			do{
-			  scanf/*_s*/("%d", &choice);
-			}while (choice<1 || choice>index);
-			eseguiSpostamento(board,mosse[choice -1 ]);
-			print_board(board);
-			printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
+
 			if (turno==1) {
+                printf("TURNO GIOCATORE %c\n", player);
+                print_mosse(mosse,index);
+                int mossa=findBestMove(board,mosse,index);
+                printf("mossa%d\n",mossa+1);
+                eseguiSpostamento(board,mosse[mossa]);
+                print_board(board);
+                printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa);
 				turno=2;
 				player='R';
 				i++;
 			}
 			else{
+                printf("TURNO GIOCATORE %c\n", player);
+                print_mosse(mosse,index);
+                printf("\nInserire numero mossa: ");
+                do{
+                    scanf/*_s*/("%d", &choice);
+                }while (choice<1 || choice>index);
+                eseguiSpostamento(board,mosse[choice -1 ]);
+                print_board(board);
+                printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
 				turno=1;
 				player='G';
 				j++;
