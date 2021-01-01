@@ -12,13 +12,11 @@ struct Cella{
     int height;
     struct Pedina* piece;
 };
+
 /*
 typedef struct Square*cella_c;*/
 
-struct Board{
-    struct Cella **mat;
-};
-typedef struct Board* BoardPointer;
+typedef struct Cella** BoardPointer;
 /*
 int partita=0;
 int turno=1;

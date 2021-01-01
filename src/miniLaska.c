@@ -5,6 +5,7 @@
 #include <limits.h>
 /*
 #include <string.h>*/
+
 #include "definitions.h"
 #include "struct.h"
 #include "objectCreation.h"
@@ -13,7 +14,6 @@
 #include "gameControl.h"
 #include "startGame.h"
 #include "startMenu.h"
-
 
 
 int main(void) {

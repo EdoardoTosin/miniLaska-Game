@@ -22,27 +22,27 @@ bool isDiff(BoardPointer board1, BoardPointer board2) {
 */
 
 int getHeight(BoardPointer board, int i, int j) {
-    if (board->mat[i][j].height==0)
+    if (board[i][j].height==0)
         return 0;
     else
-        return board->mat[i][j].height;
+        return board[i][j].height;
 }
 
 int getTeam(BoardPointer board,int i,int j) {
-    if (board->mat[i][j].height==0)
+    if (board[i][j].height==0)
         return 0;
     else
-        return board->mat[i][j].piece[getHeight(board, i, j) - 1].team;
+        return board[i][j].piece[getHeight(board, i, j) - 1].team;
 }
 
 int getRank(BoardPointer board,int i,int j) {
-    return board->mat[i][j].piece[getHeight(board, i, j)-1].rank;
+    return board[i][j].piece[getHeight(board, i, j)-1].rank;
 }
 
 bool cella_vuota(BoardPointer board,int i, int j) {
     int k;
     for (k=0; k<HEIGHT; k++)
-        if (board->mat[i][j].piece[k].team!=0)
+        if (board[i][j].piece[k].team!=0)
             return false;
     return true;
 }
@@ -93,19 +93,19 @@ void svuota_cella(BoardPointer board, int i, int j) {
     int k;
     int height=getHeight(board, i, j);
     for (k=0; k<height; k++){
-        board->mat[i][j].piece[k].team = 0;
-        board->mat[i][j].piece[k].p = '-';
-        board->mat[i][j].piece[k].rank = 0;
+        board[i][j].piece[k].team = 0;
+        board[i][j].piece[k].p = '-';
+        board[i][j].piece[k].rank = 0;
     }
-    board->mat[i][j].height=0;
+    board[i][j].height=0;
 }
 
 void aggiorna_cella(BoardPointer board, int i, int j) {
     int height=getHeight(board, i, j);
-    board->mat[i][j].piece[height-1].team = 0;
-    board->mat[i][j].piece[height-1].p = '-';
-    board->mat[i][j].piece[height-1].rank = 0;
-    board->mat[i][j].height=height-1;
+    board[i][j].piece[height-1].team = 0;
+    board[i][j].piece[height-1].p = '-';
+    board[i][j].piece[height-1].rank = 0;
+    board[i][j].height=height-1;
 }
 
 void promozione(BoardPointer board, struct Pedina *piece, int i, int j) {
@@ -124,13 +124,13 @@ void spostamento_soldato(BoardPointer board, struct mossa mosse) {
     int i;
     int height=getHeight(board, mosse.startPos.row, mosse.startPos.col);
     for (i=0; i<height; i++) {
-        board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].team;
-        board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].p;
-        board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].rank = board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].rank;
+        board[mosse.endPos.row][mosse.endPos.col].piece[i].team = board[mosse.startPos.row][mosse.startPos.col].piece[i].team;
+        board[mosse.endPos.row][mosse.endPos.col].piece[i].p = board[mosse.startPos.row][mosse.startPos.col].piece[i].p;
+        board[mosse.endPos.row][mosse.endPos.col].piece[i].rank = board[mosse.startPos.row][mosse.startPos.col].piece[i].rank;
     }
-    board->mat[mosse.endPos.row][mosse.endPos.col].height=height;
+    board[mosse.endPos.row][mosse.endPos.col].height=height;
     svuota_cella(board,mosse.startPos.row,mosse.startPos.col);
-    promozione(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece,mosse.endPos.row,mosse.endPos.col);
+    promozione(board,board[mosse.endPos.row][mosse.endPos.col].piece,mosse.endPos.row,mosse.endPos.col);
 }
 
 void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
@@ -139,28 +139,28 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
     int j=(mosse.startPos.col+mosse.endPos.col)/2;
     int altezzattuale=getHeight(board, mosse.startPos.row, mosse.startPos.col);
     int altezzapmedio=getHeight(board, i, j);
-    board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].team = board->mat[i][j].piece[altezzapmedio-1].team;
-    board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].p = board->mat[i][j].piece[altezzapmedio-1].p;
-    board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].rank = board->mat[i][j].piece[altezzapmedio-1].rank;
+    board[mosse.endPos.row][mosse.endPos.col].piece[0].team = board[i][j].piece[altezzapmedio-1].team;
+    board[mosse.endPos.row][mosse.endPos.col].piece[0].p = board[i][j].piece[altezzapmedio-1].p;
+    board[mosse.endPos.row][mosse.endPos.col].piece[0].rank = board[i][j].piece[altezzapmedio-1].rank;
     if (altezzattuale==HEIGHT) {
         for (k=1; k<altezzattuale; k++) {
-            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].team;
-            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].p;
-            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].rank = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].rank;
+            board[mosse.endPos.row][mosse.endPos.col].piece[k].team = board[mosse.startPos.row][mosse.startPos.col].piece[k].team;
+            board[mosse.endPos.row][mosse.endPos.col].piece[k].p = board[mosse.startPos.row][mosse.startPos.col].piece[k].p;
+            board[mosse.endPos.row][mosse.endPos.col].piece[k].rank = board[mosse.startPos.row][mosse.startPos.col].piece[k].rank;
         }
-        board->mat[mosse.endPos.row][mosse.endPos.col].height=HEIGHT;
+        board[mosse.endPos.row][mosse.endPos.col].height=HEIGHT;
     }
     else{
         for (k=0; k<altezzattuale; k++) {
-            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].team = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].team;
-            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].p = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].p;
-            board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].rank = board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].rank;
+            board[mosse.endPos.row][mosse.endPos.col].piece[k+1].team = board[mosse.startPos.row][mosse.startPos.col].piece[k].team;
+            board[mosse.endPos.row][mosse.endPos.col].piece[k+1].p = board[mosse.startPos.row][mosse.startPos.col].piece[k].p;
+            board[mosse.endPos.row][mosse.endPos.col].piece[k+1].rank = board[mosse.startPos.row][mosse.startPos.col].piece[k].rank;
         }
-        board->mat[mosse.endPos.row][mosse.endPos.col].height=altezzattuale+1;
+        board[mosse.endPos.row][mosse.endPos.col].height=altezzattuale+1;
     }
     svuota_cella(board, mosse.startPos.row, mosse.startPos.col);
     aggiorna_cella(board, i, j);
-    promozione(board, board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
+    promozione(board, board[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
 }
 
 void eseguiSpostamento(BoardPointer board,struct mossa m) {
@@ -170,13 +170,13 @@ void eseguiSpostamento(BoardPointer board,struct mossa m) {
         spostamento_mangiata(board, m);
 }
 
+
 void copyContent(BoardPointer board, struct Cella *cella,int row,int col) {
-    int i;
-    for(i=0;i<HEIGHT;i++) {
-        board->mat[row][col].piece[i].team = cella->piece[i].team;
-        board->mat[row][col].piece[i].p = cella->piece[i].p;
-        board->mat[row][col].piece[i].rank = cella->piece[i].rank;
-        board->mat[row][col].height = cella->height;
+    for(int i=0;i<HEIGHT;i++) {
+        board[row][col].piece[i].team = cella->piece[i].team;
+        board[row][col].piece[i].p = cella->piece[i].p;
+        board[row][col].piece[i].rank = cella->piece[i].rank;
+        board[row][col].height = cella->height;
     }
 }
 
@@ -187,16 +187,13 @@ void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struc
         int i=(mossa.startPos.row+mossa.endPos.row)/2;
         int j=(mossa.startPos.col+mossa.endPos.col)/2;
         copyContent(board,mezzo,i,j);
-
     }
-
 }
 
 struct Cella * copyCella(struct Cella cella) {
-    int i;
     struct Cella * c = (struct Cella*) malloc(sizeof(struct Cella));
     c->piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
-    for(i=0;i<HEIGHT;i++) {
+    for(int i=0;i<HEIGHT;i++) {
         c->piece[i].team = cella.piece[i].team;
         c->piece[i].p = cella.piece[i].p;
         c->piece[i].rank = cella.piece[i].rank;
@@ -224,11 +221,11 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
     if (isMax) {
         best = INT_MIN;
         for (i=0; i<index; i++) {
-            struct Cella*iniziale = copyCella(board ->mat[mosse[i].startPos.row][mosse[i].startPos.col]);
-            struct Cella*finale = copyCella(board ->mat[mosse[i].endPos.row][mosse[i].endPos.col]);
+            struct Cella*iniziale = copyCella(board[mosse[i].startPos.row][mosse[i].startPos.col]);
+            struct Cella*finale = copyCella(board[mosse[i].endPos.row][mosse[i].endPos.col]);
             int imezzo=(mosse[i].startPos.row+mosse[i].endPos.row)/2;
             int jmezzo=(mosse[i].startPos.col+mosse[i].endPos.col)/2;
-            struct Cella*mezzo = mangiata ? copyCella(board->mat[imezzo][jmezzo]): NULL;
+            struct Cella*mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
             eseguiSpostamento(board,mosse[i]);
             best = MAX(best, minimax(board, !isMax,depth + 1, somma + (mangiata ? 1 : 0)) );
             revert(board,iniziale,mezzo,finale,mosse[i]);
@@ -245,11 +242,11 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
     else{
         best = INT_MAX;
         for (i=0; i<index; i++) {
-            struct Cella*iniziale = copyCella(board ->mat[mosse[i].startPos.row][mosse[i].startPos.col]);
-            struct Cella*finale = copyCella(board ->mat[mosse[i].endPos.row][mosse[i].endPos.col]);
+            struct Cella*iniziale = copyCella(board[mosse[i].startPos.row][mosse[i].startPos.col]);
+            struct Cella*finale = copyCella(board[mosse[i].endPos.row][mosse[i].endPos.col]);
             int imezzo=(mosse[i].startPos.row+mosse[i].endPos.row)/2;
             int jmezzo=(mosse[i].startPos.col+mosse[i].endPos.col)/2;
-            struct Cella*mezzo = mangiata ? copyCella(board->mat[imezzo][jmezzo]): NULL;
+            struct Cella*mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
             eseguiSpostamento(board, mosse[i]);
             best = MIN(best, minimax(board, !isMax, depth+1, somma + (mangiata ? -1 : 0)));
             revert(board,iniziale,mezzo,finale,mosse[i]);
@@ -271,11 +268,11 @@ int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize) {
     int bestMove = 0;
     for (i=0; i<mosseSize; i++) {
         bool mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
-        struct Cella*iniziale = copyCella(board ->mat[mosse[i].startPos.row][mosse[i].startPos.col]);
-        struct Cella*finale = copyCella(board ->mat[mosse[i].endPos.row][mosse[i].endPos.col]);
+        struct Cella*iniziale = copyCella(board[mosse[i].startPos.row][mosse[i].startPos.col]);
+        struct Cella*finale = copyCella(board[mosse[i].endPos.row][mosse[i].endPos.col]);
         int imezzo=(mosse[i].startPos.row+mosse[i].endPos.row)/2;
         int jmezzo=(mosse[i].startPos.col+mosse[i].endPos.col)/2;
-        struct Cella*mezzo = mangiata ? copyCella(board->mat[imezzo][jmezzo]): NULL;
+        struct Cella*mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
         eseguiSpostamento(board,mosse[i]);
         if (mosseSize==1){
             moveVal= mangiata? 1:0;

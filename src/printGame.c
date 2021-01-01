@@ -20,10 +20,10 @@ void print_board(BoardPointer board) {
             if ((i+j)%2==0) {
                 printf("|");
                 for (k=0; k<HEIGHT; k++)
-                    if (board->mat[i][j].piece[k].p == '-')
+                    if (board[i][j].piece[k].p == '-')
                         printf(" ");
                     else
-                        printf("%c", board->mat[i][j].piece[k].p);
+                        printf("%c", board[i][j].piece[k].p);
             }
             else{
                 printf("|");
