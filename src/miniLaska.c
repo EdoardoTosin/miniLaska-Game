@@ -65,6 +65,7 @@ struct mossa{
 
 /*
 typedef struct mossa* mossa_m;*/
+/* da spostare in file utility
 bool isDiff(BoardPointer board1, BoardPointer board2) {
     for(int i=0;i<7;i++) {
         for(int j=0;j<7;j++) {
@@ -77,24 +78,8 @@ bool isDiff(BoardPointer board1, BoardPointer board2) {
     }
     return false;
 }
-BoardPointer copyBoard(BoardPointer board) {
-    int i, j, piece;
-    BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
-    boardPointer->mat = (struct Cella**)malloc(DIM * sizeof(struct Cella*));
-    for(i=0; i<DIM; i++) {
-        boardPointer->mat[i] = (struct Cella*) malloc(DIM * sizeof(struct Cella));
-        for(j=0; j<DIM; j++) {
-            boardPointer->mat[i][j].piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
-            for(piece=0; piece<HEIGHT; piece++) {
-                boardPointer->mat[i][j].piece[piece].team =  board->mat[i][j].piece[piece].team;
-                boardPointer->mat[i][j].piece[piece].p = board->mat[i][j].piece[piece].p;
-                boardPointer->mat[i][j].piece[piece].rank = board->mat[i][j].piece[piece].rank;
-                boardPointer->mat[i][j].height = board->mat[i][j].height;
-            }
-        }
-    }
-    return boardPointer;
-}
+*/
+
 BoardPointer initialize() {
     int i, j, h;
     BoardPointer boardPointer = (struct Board*) malloc(sizeof(struct Board));
@@ -149,7 +134,6 @@ void print_board(BoardPointer board) {
                         printf(" ");
                     else
                         printf("%c", board->mat[i][j].piece[k].p);
-                //printf("%d", board->mat[i][j].height);
             }
             else{
                 printf("|");
@@ -212,19 +196,6 @@ void promozione(BoardPointer board, struct Pedina *piece, int i, int j) {
     if (piece[altezza-1].p=='r' && i==6) {
         piece[altezza-1].p='R';
         piece[altezza-1].rank=2;
-    }
-}
-void promozionereverse(BoardPointer board, struct Pedina *piece, int i, int j, int rank) {
-    int altezza=getHeight(board, i, j);
-    if (rank==1) {
-        if (piece[altezza - 1].p == 'G') {
-            piece[altezza - 1].p = 'g';
-            piece[altezza - 1].rank = 1;
-        }
-        if (piece[altezza - 1].p == 'R') {
-            piece[altezza - 1].p = 'r';
-            piece[altezza - 1].rank = 1;
-        }
     }
 }
 
@@ -307,17 +278,6 @@ void spostamento_soldato(BoardPointer board, struct mossa mosse) {
     svuota_cella(board,mosse.startPos.row,mosse.startPos.col);
     promozione(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece,mosse.endPos.row,mosse.endPos.col);
 }
-void spostamento_soldatoreverse(BoardPointer board, struct mossa mosse,int altezzastart,int rank) {
-    int i;
-    promozionereverse(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col,rank);
-    for (i=0; i<altezzastart; i++) {
-        board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].team;
-        board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].p;
-        board->mat[mosse.startPos.row][mosse.startPos.col].piece[i].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[i].rank;
-    }
-    board->mat[mosse.startPos.row][mosse.startPos.col].height=altezzastart;
-    svuota_cella(board,mosse.endPos.row,mosse.endPos.col);
-}
 
 void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
     int k;
@@ -348,39 +308,6 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
     aggiorna_cella(board, i, j);
     promozione(board, board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col);
 }
-void spostamento_mangiatareverse(BoardPointer board, struct mossa mosse,int altezzastart,int rank) {
-    int k;
-    int i=(mosse.startPos.row+mosse.endPos.row)/2;
-    int j=(mosse.startPos.col+mosse.endPos.col)/2;
-    int altezzattuale=getHeight(board, mosse.endPos.row, mosse.endPos.col);
-    int altezzapmedio=getHeight(board, i, j);
-    promozionereverse(board,board->mat[mosse.endPos.row][mosse.endPos.col].piece, mosse.endPos.row,mosse.endPos.col,rank);
-    board->mat[i][j].piece[altezzapmedio].team = board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].team;
-    board->mat[i][j].piece[altezzapmedio].p =board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].p;
-    board->mat[i][j].piece[altezzapmedio].rank = board->mat[mosse.endPos.row][mosse.endPos.col].piece[0].rank;
-    if (altezzastart==HEIGHT) {
-        for (k=0; k<altezzastart; k++) {
-            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].team;
-            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].p;
-            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k].rank;
-        }
-        board->mat[mosse.startPos.row][mosse.startPos.col].height=HEIGHT;
-    }else if (altezzastart==2){
-        for (k=0; k<altezzastart; k++) {
-            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].team;
-            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].p;
-            board->mat[mosse.startPos.row][mosse.startPos.col].piece[k].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[k+1].rank;
-        }
-        board->mat[mosse.startPos.row][mosse.startPos.col].height=altezzastart;
-    }else{
-        board->mat[mosse.startPos.row][mosse.startPos.col].piece[0].team=board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].team;
-        board->mat[mosse.startPos.row][mosse.startPos.col].piece[0].p=board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].p;
-        board->mat[mosse.startPos.row][mosse.startPos.col].piece[0].rank=board->mat[mosse.endPos.row][mosse.endPos.col].piece[1].rank;
-        board->mat[mosse.startPos.row][mosse.startPos.col].height=altezzastart;
-    }
-    board->mat[i][j].height=getHeight(board,i,j)+1;
-    svuota_cella(board,mosse.endPos.row,mosse.endPos.col);
-}
 
 void eseguiSpostamento(BoardPointer board,struct mossa m) {
     if (abs(m.endPos.row-m.startPos.row)==1)
@@ -410,6 +337,7 @@ void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struc
     }
 
 }
+
 int minimax(BoardPointer board, bool isMax, int depth,int somma) {
     int i, best;
     struct mossa *mosse=(struct mossa*) malloc(sizeof(struct mossa)*15);
@@ -429,29 +357,18 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
     if (isMax) {
         best = INT_MIN;
         for (i=0; i<index; i++) {
-            int altezzastart=getHeight(board,mosse[i].startPos.row,mosse[i].startPos.col);
-            int rank=getRank(board,mosse[i].startPos.row,mosse[i].startPos.col);
             struct Cella*iniziale = copyCella(board ->mat[mosse[i].startPos.row][mosse[i].startPos.col]);
             struct Cella*finale = copyCella(board ->mat[mosse[i].endPos.row][mosse[i].endPos.col]);
             int imezzo=(mosse[i].startPos.row+mosse[i].endPos.row)/2;
             int jmezzo=(mosse[i].startPos.col+mosse[i].endPos.col)/2;
             struct Cella*mezzo = mangiata ? copyCella(board->mat[imezzo][jmezzo]): NULL;
-            BoardPointer boarddd=copyBoard(board);
             eseguiSpostamento(board,mosse[i]);
-            BoardPointer boardSpostamento=copyBoard(board);
             best = MAX(best, minimax(board, !isMax,depth + 1, somma + (mangiata ? 1 : 0)) );
             revert(board,iniziale,mezzo,finale,mosse[i]);
             free(iniziale);
             free(finale);
             if(mezzo != NULL) {
                 free(mezzo);
-            }
-            if (isDiff(boarddd,board)){
-                printf("*********************************************************************************************************************************************");
-                printf("start row %d - start col %d - end row %d - end col %d\n",mosse[i].startPos.row,mosse[i].startPos.col,mosse[i].endPos.row,mosse[i].endPos.col);
-                print_board(boarddd);
-                print_board(boardSpostamento);
-                print_board(board);
             }
         }
         free(mosse);
@@ -461,29 +378,18 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
     else{
         best = INT_MAX;
         for (i=0; i<index; i++) {
-            int altezzastart=getHeight(board,mosse[i].startPos.row,mosse[i].startPos.col);
-            int rank=getRank(board,mosse[i].startPos.row,mosse[i].startPos.col);
             struct Cella*iniziale = copyCella(board ->mat[mosse[i].startPos.row][mosse[i].startPos.col]);
             struct Cella*finale = copyCella(board ->mat[mosse[i].endPos.row][mosse[i].endPos.col]);
             int imezzo=(mosse[i].startPos.row+mosse[i].endPos.row)/2;
             int jmezzo=(mosse[i].startPos.col+mosse[i].endPos.col)/2;
             struct Cella*mezzo = mangiata ? copyCella(board->mat[imezzo][jmezzo]): NULL;
-            BoardPointer boarddd=copyBoard(board);
             eseguiSpostamento(board, mosse[i]);
-            BoardPointer boardSpostamento=copyBoard(board);
             best = MIN(best, minimax(board, !isMax, depth+1, somma + (mangiata ? -1 : 0)));
             revert(board,iniziale,mezzo,finale,mosse[i]);
             free(iniziale);
             free(finale);
             if(mezzo != NULL) {
                 free(mezzo);
-            }
-            if (isDiff(boarddd,board)){
-                printf("*********************************************************************************************************************************************");
-                printf("start row %d - start col %d - end row %d - end col %d\n",mosse[i].startPos.row,mosse[i].startPos.col,mosse[i].endPos.row,mosse[i].endPos.col);
-                print_board(boarddd);
-                print_board(boardSpostamento);
-                print_board(board);
             }
         }
         free(mosse);
@@ -493,21 +399,22 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
 
 int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize) {
     int i;
+    int moveVal=0;
     int bestVal = INT_MIN;
     int bestMove = 0;
     for (i=0; i<mosseSize; i++) {
         bool mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
-        int altezzastart=getHeight(board,mosse[i].startPos.row,mosse[i].startPos.col);
-        int rank=getRank(board,mosse[i].startPos.row,mosse[i].startPos.col);
         struct Cella*iniziale = copyCella(board ->mat[mosse[i].startPos.row][mosse[i].startPos.col]);
         struct Cella*finale = copyCella(board ->mat[mosse[i].endPos.row][mosse[i].endPos.col]);
         int imezzo=(mosse[i].startPos.row+mosse[i].endPos.row)/2;
         int jmezzo=(mosse[i].startPos.col+mosse[i].endPos.col)/2;
         struct Cella*mezzo = mangiata ? copyCella(board->mat[imezzo][jmezzo]): NULL;
-        BoardPointer boarddd=copyBoard(board);
         eseguiSpostamento(board,mosse[i]);
-
-        int moveVal = minimax(board, false,0,mangiata ? 1 : 0);
+        if (mosseSize==1){
+            moveVal= mangiata? 1:0;
+        }else{
+            moveVal = minimax(board, false,0,mangiata ? 1 : 0);
+        }
         if (moveVal > bestVal) {
             bestMove = i;
             bestVal=moveVal;
@@ -538,7 +445,7 @@ void match(void) {
         index=avanzamento(board, mosse, turno);
         if (index==0) {
             end=1;
-            if (turno==2)
+            if (turno==1)
                 printf("Ha vinto il giocatore G in %d mosse\n\n", i);
             else
                 printf("Ha vinto il giocatore R in %d mosse\n\n", j);
@@ -571,10 +478,9 @@ void match(void) {
                 j++;
             }
         }
+        free(mosse);
     }
     free(board);
-    /*
-    Ricordarsi di fare la free di mosse*/
 }
 
 int main(void) {
