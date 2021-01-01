@@ -172,7 +172,8 @@ void eseguiSpostamento(BoardPointer board,struct mossa m) {
 
 
 void copyContent(BoardPointer board, struct Cella *cella,int row,int col) {
-    for(int i=0;i<HEIGHT;i++) {
+    int i;
+    for(i=0;i<HEIGHT;i++) {
         board[row][col].piece[i].team = cella->piece[i].team;
         board[row][col].piece[i].p = cella->piece[i].p;
         board[row][col].piece[i].rank = cella->piece[i].rank;
@@ -191,9 +192,10 @@ void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struc
 }
 
 struct Cella * copyCella(struct Cella cella) {
+    int i;
     struct Cella * c = (struct Cella*) malloc(sizeof(struct Cella));
     c->piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
-    for(int i=0;i<HEIGHT;i++) {
+    for(i=0;i<HEIGHT;i++) {
         c->piece[i].team = cella.piece[i].team;
         c->piece[i].p = cella.piece[i].p;
         c->piece[i].rank = cella.piece[i].rank;
