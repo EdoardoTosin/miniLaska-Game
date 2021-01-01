@@ -2,7 +2,7 @@
 
 #### How to compile
 
-`$ gcc -ansi -pedantic -O2 -Wall -Wextra -lm miniLaska.c -o miniLaska`
+`$ make`
 
 #### How to launch
 
