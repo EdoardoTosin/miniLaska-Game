@@ -1,9 +1,9 @@
 #include "startMenu.h"
-
 #include <stdio.h>
 #include <stdlib.h>
+#include "definitions.h"
 
-void printStartMenu(){
+void printStartMenu(void){
   system(CLEAR);
   puts("/====================/");
   puts("       MAIN MENU      ");
@@ -16,7 +16,7 @@ void printStartMenu(){
   return;
 }
 
-void printStartGame(){
+void printStartGame(void){
   int subChoice1 = 0;
   system(CLEAR);
   puts("E' stato scelto il submenu 1");
@@ -55,7 +55,7 @@ void printStartGame(){
   return;
 }
 
-void printRules(){
+void printRules(void){
   int subChoice2 = 0;
   system(CLEAR);
   puts("E' stato scelto il submenu 2");
@@ -82,7 +82,7 @@ void printRules(){
   return;
 }
 
-void printCredits(){
+void printCredits(void){
   int subChoice3 = 0;
   system("cls");
   puts("E' stato scelto il submenu 3");
@@ -109,7 +109,7 @@ void printCredits(){
   return;
 }
 
-int startMenu() {
+int startMenu(void) {
   int choice = 0;
   while (choice != 4) {
     printStartMenu();
