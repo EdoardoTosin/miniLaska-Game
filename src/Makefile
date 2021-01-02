@@ -1,9 +1,6 @@
 miniLaska: miniLaska.o endGame.o gameControl.o objectCreation.o printGame.o startGame.o startMenu.o struct.o
 	cc miniLaska.o endGame.o gameControl.o objectCreation.o printGame.o startGame.o startMenu.o struct.o -o miniLaska
 
-struct.o: struct.c struct.h
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm struct.c
-
 objectCreation.o: objectCreation.c objectCreation.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm objectCreation.c
 
