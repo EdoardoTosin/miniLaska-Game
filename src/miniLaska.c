@@ -13,7 +13,8 @@
 #include "endGame.h"
 #include "gameControl.h"
 #include "startGame.h"
-#include "readFile.h"
+#include "printRules.h"
+#include "printCredits.h"
 #include "startMenu.h"
 
 

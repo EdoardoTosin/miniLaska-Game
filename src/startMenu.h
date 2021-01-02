@@ -1,9 +1,9 @@
-void printStartMenu(void);
+void mainMenu(void);
 
-void printStartGame(void);
+void startGameMenu(void);
 
-void printRules(void);
+void rulesMenu(void);
 
-void printCredits(void);
+void creditsMenu(void);
 
-int startMenu(void);
+void printMenu(void);

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "definitions.h"
 
-void printStartMenu(void){
+void mainMenu(void){
   system(CLEAR);
   puts("/====================/");
   puts("       MAIN MENU      ");
@@ -16,13 +16,13 @@ void printStartMenu(void){
   return;
 }
 
-void printStartGame(void){
+void startGameMenu(void){
   int subChoice1 = 0;
   system(CLEAR);
   puts("E' stato scelto il submenu 1");
   while (subChoice1 != 2) {
     puts("/====================/");
-    puts("          START MENU    ");
+    puts("          START GAME MENU    ");
     puts("/====================/");
     puts("1. Player vs Player");
     puts("2. PC vs Player");
@@ -55,7 +55,7 @@ void printStartGame(void){
   return;
 }
 
-void printRules(void){
+void rulesMenu(void){
   int subChoice2 = 0;
   system(CLEAR);
   puts("E' stato scelto il submenu 2");
@@ -63,8 +63,9 @@ void printRules(void){
     puts("/====================/");
     puts("           RULES    ");
     puts("/====================/");
-    /*
-    Print rules*/
+
+    printRules();
+
     puts("1. Return");
     puts("2. Exit");
     printf("\n");
@@ -82,16 +83,17 @@ void printRules(void){
   return;
 }
 
-void printCredits(void){
+void creditsMenu(void){
   int subChoice3 = 0;
   system(CLEAR);
   puts("E' stato scelto il submenu 3");
   while (subChoice3 != 2) {
     puts("/====================/");
-    puts("           CREDITS    ");
+    puts("        CREDITS       ");
     puts("/====================/");
-    /*
-    Print credits*/
+
+    printCredits();
+
     puts("1. Return");
     puts("2. Exit");
     printf("\n");
@@ -109,20 +111,20 @@ void printCredits(void){
   return;
 }
 
-int startMenu(void) {
+void printMenu(void) {
   int choice = 0;
   while (choice != 4) {
-    printStartMenu();
+    mainMenu();
     scanf("%d", &choice);
     switch (choice) {
       case 1:
-        printStartGame();
+        startGameMenu();
         break;
       case 2:
-        printRules();
+        rulesMenu();
         break;
       case 3:
-        printCredits();
+        creditsMenu();
         break;
       case 4:
         printf("E' stato scelto di uscire");
@@ -132,5 +134,5 @@ int startMenu(void) {
         puts("Invalid Input!");
       }
   }
-  return 0;
+  return;
 }
