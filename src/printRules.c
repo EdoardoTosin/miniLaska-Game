@@ -2,5 +2,6 @@
 
 void printRules(void){
 
+    printf("\n");
     return;
 }

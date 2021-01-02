@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "struct.h"
 #include "definitions.h"
+#include "printGame.h"
+#include "gameControl.h"
 
 void match(void) {
     int choice, index;

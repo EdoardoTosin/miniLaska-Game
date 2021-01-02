@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "definitions.h"
+#include "printCredits.h"
+#include "printRules.h"
 
 void mainMenu(void){
   system(CLEAR);
