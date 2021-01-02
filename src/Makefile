@@ -1,4 +1,4 @@
-all: miniLaska
+all: miniLaska clean
 
 miniLaska: miniLaska.o endGame.o gameControl.o objectCreation.o printGame.o startGame.o startMenu.o
 	cc miniLaska.o endGame.o gameControl.o objectCreation.o printGame.o startGame.o startMenu.o -o miniLaska
