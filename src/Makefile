@@ -1,4 +1,4 @@
-all: miniLaska
+all: miniLaska clean
 
 miniLaska: miniLaska.o endGame.o gameControl.o objectCreation.o printGame.o startGame.o startMenu.o
 	cc miniLaska.o endGame.o gameControl.o objectCreation.o printGame.o startGame.o startMenu.o -o miniLaska
@@ -24,5 +24,6 @@ startMenu.o: startMenu.c startMenu.h
 miniLaska.o: miniLaska.c
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -g -lm miniLaska.c
 
+.PHONY: clean
 clean:
-	-rm *.o $(objects) miniLaska
+	rm -rf *.o
