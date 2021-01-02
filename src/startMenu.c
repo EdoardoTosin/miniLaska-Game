@@ -84,7 +84,7 @@ void printRules(void){
 
 void printCredits(void){
   int subChoice3 = 0;
-  system("cls");
+  system(CLEAR);
   puts("E' stato scelto il submenu 3");
   while (subChoice3 != 2) {
     puts("/====================/");
