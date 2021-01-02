@@ -24,5 +24,5 @@ startMenu.o: startMenu.c startMenu.h
 miniLaska.o: miniLaska.c
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -g -lm miniLaska.c
 
-clean :
+clean:
 	-rm *.o $(objects) miniLaska
