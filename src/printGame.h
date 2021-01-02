@@ -1,4 +1,4 @@
-
+#include "struct.h"
 
 void print_board(BoardPointer board);
 

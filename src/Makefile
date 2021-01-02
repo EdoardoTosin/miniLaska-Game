@@ -17,7 +17,7 @@ startGame.o: startGame.c startGame.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm startGame.c
 
 startMenu.o: startMenu.c startMenu.h
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm startMenue.c
+	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm startMenu.c
 
 miniLaska.o: miniLaska.c
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm miniLaska.c

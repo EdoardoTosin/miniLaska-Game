@@ -1,4 +1,5 @@
-
+#include "struct.h"
+#include <stdbool.h>
 
 /* da spostare in file utility
 bool isDiff(BoardPointer board1, BoardPointer board2) {
