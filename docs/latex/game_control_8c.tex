@@ -1,0 +1,207 @@
+\hypertarget{game_control_8c}{}\doxysection{src/game\+Control.c File Reference}
+\label{game_control_8c}\index{src/gameControl.c@{src/gameControl.c}}
+{\ttfamily \#include \char`\"{}game\+Control.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}{get\+Height}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+\item 
+int \mbox{\hyperlink{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}{get\+Team}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+\item 
+int \mbox{\hyperlink{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}{get\+Rank}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+\item 
+bool \mbox{\hyperlink{game_control_8c_ad33ea6e40b3a39dac51d93f87d3f0855}{cella\+\_\+vuota}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+\item 
+int \mbox{\hyperlink{game_control_8c_a78bc1ff05138154d1a9ffc04745bf5d5}{avanzamento}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$mosse, int turno)
+\item 
+void \mbox{\hyperlink{game_control_8c_ad02259ecac9f0e96018ec7f55c3d6249}{svuota\+\_\+cella}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+\item 
+void \mbox{\hyperlink{game_control_8c_a8c5858b00afea6929850f4f49359e7f7}{aggiorna\+\_\+cella}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+\item 
+void \mbox{\hyperlink{game_control_8c_a610698d4853f7409e30c3c4e8eaf9968}{promozione}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{struct_pedina}{Pedina}} $\ast$piece, int i, int j)
+\item 
+void \mbox{\hyperlink{game_control_8c_a02c1bc534a050e0cd2c5550ce6f1b9e0}{spostamento\+\_\+soldato}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
+\item 
+void \mbox{\hyperlink{game_control_8c_af1ef88f7d2a49a210b4a1ef17bf9eca4}{spostamento\+\_\+mangiata}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
+\item 
+void \mbox{\hyperlink{game_control_8c_a77505059ac539c3e75c6cc9c088901d6}{esegui\+Spostamento}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} m)
+\item 
+void \mbox{\hyperlink{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}{copy\+Content}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$cella, int row, int col)
+\item 
+void \mbox{\hyperlink{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}{revert}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$iniziale, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$mezzo, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$finale, struct \mbox{\hyperlink{structmossa}{mossa}} \mbox{\hyperlink{structmossa}{mossa}})
+\item 
+struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$ \mbox{\hyperlink{game_control_8c_ae088462f6725ab271e25db0242820e4b}{copy\+Cella}} (struct \mbox{\hyperlink{struct_cella}{Cella}} cella)
+\item 
+int \mbox{\hyperlink{game_control_8c_a9f84e7bef524e75dede5ec9a28559d2a}{minimax}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, bool is\+Max, int depth, int somma)
+\item 
+int \mbox{\hyperlink{game_control_8c_a60af6d5e1e080d6c16491a68e5c44ea3}{find\+Best\+Move}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$mosse, int mosse\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_control_8c_a8c5858b00afea6929850f4f49359e7f7}\label{game_control_8c_a8c5858b00afea6929850f4f49359e7f7}} 
+\index{gameControl.c@{gameControl.c}!aggiorna\_cella@{aggiorna\_cella}}
+\index{aggiorna\_cella@{aggiorna\_cella}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{aggiorna\_cella()}{aggiorna\_cella()}}
+{\footnotesize\ttfamily void aggiorna\+\_\+cella (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a78bc1ff05138154d1a9ffc04745bf5d5}\label{game_control_8c_a78bc1ff05138154d1a9ffc04745bf5d5}} 
+\index{gameControl.c@{gameControl.c}!avanzamento@{avanzamento}}
+\index{avanzamento@{avanzamento}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{avanzamento()}{avanzamento()}}
+{\footnotesize\ttfamily int avanzamento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$}]{mosse,  }\item[{int}]{turno }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_ad33ea6e40b3a39dac51d93f87d3f0855}\label{game_control_8c_ad33ea6e40b3a39dac51d93f87d3f0855}} 
+\index{gameControl.c@{gameControl.c}!cella\_vuota@{cella\_vuota}}
+\index{cella\_vuota@{cella\_vuota}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{cella\_vuota()}{cella\_vuota()}}
+{\footnotesize\ttfamily bool cella\+\_\+vuota (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_ae088462f6725ab271e25db0242820e4b}\label{game_control_8c_ae088462f6725ab271e25db0242820e4b}} 
+\index{gameControl.c@{gameControl.c}!copyCella@{copyCella}}
+\index{copyCella@{copyCella}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{copyCella()}{copyCella()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_cella}{Cella}}$\ast$ copy\+Cella (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_cella}{Cella}}}]{cella }\end{DoxyParamCaption})}
+
+
+
+Definition at line 194 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}\label{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}} 
+\index{gameControl.c@{gameControl.c}!copyContent@{copyContent}}
+\index{copyContent@{copyContent}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{copyContent()}{copyContent()}}
+{\footnotesize\ttfamily void copy\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{cella,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Definition at line 174 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a77505059ac539c3e75c6cc9c088901d6}\label{game_control_8c_a77505059ac539c3e75c6cc9c088901d6}} 
+\index{gameControl.c@{gameControl.c}!eseguiSpostamento@{eseguiSpostamento}}
+\index{eseguiSpostamento@{eseguiSpostamento}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{eseguiSpostamento()}{eseguiSpostamento()}}
+{\footnotesize\ttfamily void esegui\+Spostamento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line 166 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a60af6d5e1e080d6c16491a68e5c44ea3}\label{game_control_8c_a60af6d5e1e080d6c16491a68e5c44ea3}} 
+\index{gameControl.c@{gameControl.c}!findBestMove@{findBestMove}}
+\index{findBestMove@{findBestMove}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{findBestMove()}{findBestMove()}}
+{\footnotesize\ttfamily int find\+Best\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$}]{mosse,  }\item[{int}]{mosse\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 266 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}\label{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}} 
+\index{gameControl.c@{gameControl.c}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily int get\+Height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 24 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}\label{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}} 
+\index{gameControl.c@{gameControl.c}!getRank@{getRank}}
+\index{getRank@{getRank}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{getRank()}{getRank()}}
+{\footnotesize\ttfamily int get\+Rank (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}\label{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}} 
+\index{gameControl.c@{gameControl.c}!getTeam@{getTeam}}
+\index{getTeam@{getTeam}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{getTeam()}{getTeam()}}
+{\footnotesize\ttfamily int get\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a9f84e7bef524e75dede5ec9a28559d2a}\label{game_control_8c_a9f84e7bef524e75dede5ec9a28559d2a}} 
+\index{gameControl.c@{gameControl.c}!minimax@{minimax}}
+\index{minimax@{minimax}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{minimax()}{minimax()}}
+{\footnotesize\ttfamily int minimax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{bool}]{is\+Max,  }\item[{int}]{depth,  }\item[{int}]{somma }\end{DoxyParamCaption})}
+
+
+
+Definition at line 207 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a610698d4853f7409e30c3c4e8eaf9968}\label{game_control_8c_a610698d4853f7409e30c3c4e8eaf9968}} 
+\index{gameControl.c@{gameControl.c}!promozione@{promozione}}
+\index{promozione@{promozione}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{promozione()}{promozione()}}
+{\footnotesize\ttfamily void promozione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_pedina}{Pedina}} $\ast$}]{piece,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 111 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}\label{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}} 
+\index{gameControl.c@{gameControl.c}!revert@{revert}}
+\index{revert@{revert}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{revert()}{revert()}}
+{\footnotesize\ttfamily void revert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{iniziale,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{mezzo,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{finale,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} \mbox{\hyperlink{structmossa}{mossa}} \mbox{\hyperlink{structmossa}{mossa}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 184 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_af1ef88f7d2a49a210b4a1ef17bf9eca4}\label{game_control_8c_af1ef88f7d2a49a210b4a1ef17bf9eca4}} 
+\index{gameControl.c@{gameControl.c}!spostamento\_mangiata@{spostamento\_mangiata}}
+\index{spostamento\_mangiata@{spostamento\_mangiata}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{spostamento\_mangiata()}{spostamento\_mangiata()}}
+{\footnotesize\ttfamily void spostamento\+\_\+mangiata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a02c1bc534a050e0cd2c5550ce6f1b9e0}\label{game_control_8c_a02c1bc534a050e0cd2c5550ce6f1b9e0}} 
+\index{gameControl.c@{gameControl.c}!spostamento\_soldato@{spostamento\_soldato}}
+\index{spostamento\_soldato@{spostamento\_soldato}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{spostamento\_soldato()}{spostamento\_soldato()}}
+{\footnotesize\ttfamily void spostamento\+\_\+soldato (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_ad02259ecac9f0e96018ec7f55c3d6249}\label{game_control_8c_ad02259ecac9f0e96018ec7f55c3d6249}} 
+\index{gameControl.c@{gameControl.c}!svuota\_cella@{svuota\_cella}}
+\index{svuota\_cella@{svuota\_cella}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{svuota\_cella()}{svuota\_cella()}}
+{\footnotesize\ttfamily void svuota\+\_\+cella (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file game\+Control.\+c.
+
