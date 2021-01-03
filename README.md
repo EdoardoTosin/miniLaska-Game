@@ -1,13 +1,15 @@
 # :red_circle: miniLaska Game :white_circle:
 
-#### Clone our repository, compile and run
+### Clone our repository, compile and run
 
-`$ git clone https://github.com/EdoardoTosin/miniLaska-Game`
-`$ cd /miniLaska-Game/src/`
-`$ make`
-`$ ./miniLaska`
+```
+$ git clone https://github.com/EdoardoTosin/miniLaska-Game
+$ cd /miniLaska-Game/src/
+$ make
+$ ./miniLaska
+```
 
-#### Main Function
+### Main Function
 ```c
 int main() {
   char start='0';
