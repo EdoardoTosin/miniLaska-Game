@@ -1,11 +1,10 @@
 # :red_circle: miniLaska Game :white_circle:
 
-#### How to compile
+#### Clone our repository, compile and run
 
+`$ git clone https://github.com/EdoardoTosin/miniLaska-Game`
+`$ cd /miniLaska-Game/src/`
 `$ make`
-
-#### How to launch
-
 `$ ./miniLaska`
 
 #### Main Function
