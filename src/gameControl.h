@@ -6,21 +6,21 @@ int getTeam(BoardPointer board,int i,int j);
 
 int getRank(BoardPointer board,int i,int j);
 
-int cella_vuota(BoardPointer board,int i, int j);
+int isEmpty(BoardPointer board,int i, int j);
 
-void promozione(BoardPointer board, struct Pedina *piece, int i, int j);
+void promotion(BoardPointer board, struct Pedina *piece, int i, int j);
 
-int avanzamento(BoardPointer board,struct mossa *mosse, int turno);
+int step(BoardPointer board,struct mossa *mosse, int turno);
 
-void aggiorna_cella(BoardPointer board, int i, int j);
+void updateCellContent(BoardPointer board, int i, int j);
 
-void svuota_cella(BoardPointer board, int i, int j);
+void deleteCellContent(BoardPointer board, int i, int j);
 
-void spostamento_soldato(BoardPointer board, struct mossa mosse);
+void normalStep(BoardPointer board, struct mossa mosse);
 
-void spostamento_mangiata(BoardPointer board, struct mossa mosse);
+void eatStep(BoardPointer board, struct mossa mosse);
 
-void eseguiSpostamento(BoardPointer board,struct mossa m);
+void executeStep(BoardPointer board,struct mossa m);
 
 void copyContent(BoardPointer board, struct Cella *cella,int row,int col);
 
