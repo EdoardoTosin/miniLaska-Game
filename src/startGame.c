@@ -15,7 +15,7 @@ void match(void) {
     printBoard(board);
     while (!end) {
         printf("\n");
-        struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*15);
+        MossaPointer mosse=(MossaPointer)malloc(sizeof(struct mossa)*15);
         index=avanzamento(board, mosse, turno);
         if (index==0) {
             end=1;

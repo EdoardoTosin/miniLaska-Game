@@ -6,35 +6,28 @@ struct Pedina{
     char p;
     int rank;
 };
-/*
-typedef struct Pedina* pedina_p;*/
+
+typedef struct Pedina* PedinaPointer;
+
 struct Cella{
     int height;
-    struct Pedina* piece;
+    PedinaPointer piece;
 };
 
-/*
-typedef struct Square*cella_c;*/
-
 typedef struct Cella** BoardPointer;
-/*
-int partita=0;
-int turno=1;
-typedef struct Board board_b;*/
 
 struct Posizione{
     int row;
     int col;
 };
-/*
-typedef struct Posizione *posizione_p;*/
+
+typedef struct Posizione* PosizionePointer;
 
 struct mossa{
-    struct Posizione startPos;
-    struct Posizione endPos;
+    PosizionePointer startPos;
+    PosizionePointer endPos;
 };
 
-/*
-typedef struct mossa* mossa_m;*/
+typedef struct mossa* MossaPointer;
 
 #endif
