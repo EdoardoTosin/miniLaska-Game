@@ -39,7 +39,7 @@ void printBoard(BoardPointer board) {
     printf("\n");
 }
 
-void print_mosse(struct mossa *mosse, int dim) {
+void printMoves(struct mossa *mosse, int dim) {
     int i;
     for (i=0; i<dim; i++)
         printf("Mossa n.%d %c %d - %c %d\n", i + 1, ROW+mosse[i].startPos.row, mosse[i].startPos.col, ROW+mosse[i].endPos.row, mosse[i].endPos.col);

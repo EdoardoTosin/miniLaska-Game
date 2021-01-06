@@ -1,5 +1,5 @@
 #include "struct.h"
 
-void print_board(BoardPointer board);
+void printBoard(BoardPointer board);
 
-void print_mosse(struct mossa *mosse, int dim);
+void printMoves(struct mossa *mosse, int dim);

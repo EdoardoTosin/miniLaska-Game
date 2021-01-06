@@ -26,7 +26,7 @@ void match(void) {
         else{
             if (turno==1) {
                 printf("TURNO GIOCATORE %c\n", player);
-                print_mosse(mosse,index);
+                printMoves(mosse,index);
                 int mossa=findBestMove(board, mosse, index);
                 printf("mossa%d\n",mossa+1);
                 eseguiSpostamento(board, mosse[mossa]);
@@ -38,7 +38,7 @@ void match(void) {
             }
             else{
                 printf("TURNO GIOCATORE %c\n", player);
-                print_mosse(mosse, index);
+                printMoves(mosse, index);
                 printf("\nInserire numero mossa: ");
                 do{
                     scanf/*_s*/("%d", &choice);
