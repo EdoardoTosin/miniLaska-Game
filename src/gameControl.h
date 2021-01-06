@@ -28,6 +28,6 @@ void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struc
 
 struct Cella * copyCella(struct Cella cella);
 
-int minimax(BoardPointer board, bool isMax, int depth,int somma);
+int minimax(BoardPointer board, int isMax, int depth,int somma);
 
 int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize);

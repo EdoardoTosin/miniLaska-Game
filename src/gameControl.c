@@ -188,7 +188,7 @@ struct Cella * copyCella(struct Cella cella) {
     return c;
 }
 
-int minimax(BoardPointer board, bool isMax, int depth,int somma) {
+int minimax(BoardPointer board, int isMax, int depth,int somma) {
     int i, best;
     struct mossa *mosse=(struct mossa*) malloc(sizeof(struct mossa)*15);
     int index=avanzamento(board, mosse, isMax ? 1:2);
@@ -263,7 +263,7 @@ int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize) {
         if (mosseSize==1){
             moveVal= mangiata? 1:0;
         }else{
-            moveVal = minimax(board, false,0,mangiata ? 1 : 0);
+            moveVal = minimax(board, 0,0,mangiata ? 1 : 0);
         }
         if (moveVal > bestVal) {
             bestMove = i;
