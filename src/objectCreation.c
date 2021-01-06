@@ -19,11 +19,11 @@ void create_pedina(BoardPointer board) {
 
 BoardPointer initialize() {
     int i, j, h;
-    BoardPointer mat = (struct Cella**)malloc(DIM * sizeof(struct Cella*));
+    BoardPointer mat = (struct Cella**) malloc(DIM * sizeof(struct Cella*));
     for(i=0; i<DIM; i++) {
         mat[i] = (struct Cella*) malloc(DIM * sizeof(struct Cella));
         for(j=0; j<DIM; j++) {
-            mat[i][j].piece = (struct Pedina*) malloc(HEIGHT*sizeof(struct Pedina));
+            mat[i][j].piece = (struct Pedina*) malloc(HEIGHT * sizeof(struct Pedina));
             for(h=0; h<HEIGHT; h++) {
                 mat[i][j].piece[h].team = 0;
                 mat[i][j].piece[h].p = '-';
