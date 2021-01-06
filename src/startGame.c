@@ -9,7 +9,7 @@
 
 void match(void) {
     int choice, index;
-    int end=0, turno=1, i=0, j=0;
+    int end=0, turno=1, i=0, j=0, k=0;
     char player='R';
     int mossa;
     MossaPointer mosse;
@@ -18,9 +18,9 @@ void match(void) {
     while (!end) {
         printf("\n");
         mosse=(MossaPointer)malloc(sizeof(struct mossa)*15);
-        for (int j = 0; j < 15; ++j) {
-            mosse[j].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
-            mosse[j].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
+        for (k = 0; k < 15; ++j) {
+            mosse[k].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
+            mosse[k].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
         }
         index=avanzamento(board, mosse, turno);
         if (index==0) {
@@ -58,9 +58,9 @@ void match(void) {
                 j++;
             }
         }
-        for (int j = 0; j < 15; ++j) {
-            free(mosse[j].startPos);
-            free(mosse[j].endPos);
+        for (k = 0; k < 15; ++j) {
+            free(mosse[k].startPos);
+            free(mosse[k].endPos);
         }
         free(mosse);
     }

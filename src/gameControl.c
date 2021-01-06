@@ -204,9 +204,10 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
     struct Cella*finale;
     int imezzo;
     int jmezzo;
+    int j;
     struct Cella*mezzo;
     MossaPointer mosse=(MossaPointer) malloc(sizeof(struct mossa)*15);
-    for (int j = 0; j < 15; ++j) {
+    for (j = 0; j < 15; ++j) {
         mosse[j].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
         mosse[j].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
     }
@@ -240,7 +241,7 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
                 free(mezzo);
             }
         }
-        for (int j = 0; j < 15; ++j) {
+        for (j = 0; j < 15; ++j) {
             free(mosse[j].startPos);
             free(mosse[j].endPos);
         }
@@ -265,7 +266,7 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
                 free(mezzo);
             }
         }
-        for (int j = 0; j < 15; ++j) {
+        for (j = 0; j < 15; ++j) {
             free(mosse[j].startPos);
             free(mosse[j].endPos);
         }
