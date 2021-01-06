@@ -198,6 +198,7 @@ struct Cella * copyCella(struct Cella cella) {
 
 int minimax(BoardPointer board, int isMax, int depth,int somma) {
     int i, best;
+    int index;
     int mangiata;
     struct Cella*iniziale;
     struct Cella*finale;
@@ -205,7 +206,11 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
     int jmezzo;
     struct Cella*mezzo;
     MossaPointer mosse=(MossaPointer) malloc(sizeof(struct mossa)*15);
-    int index=avanzamento(board, mosse, isMax ? 1:2);
+    for (int j = 0; j < 15; ++j) {
+        mosse[j].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
+        mosse[j].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
+    }
+    index=avanzamento(board, mosse, isMax ? 1:2);
 
     if (index == 0 && !isMax)
         return INT_MAX;
@@ -235,6 +240,10 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
                 free(mezzo);
             }
         }
+        for (int j = 0; j < 15; ++j) {
+            free(mosse[j].startPos);
+            free(mosse[j].endPos);
+        }
         free(mosse);
         return best;
     }
@@ -255,6 +264,10 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
             if(mezzo != NULL) {
                 free(mezzo);
             }
+        }
+        for (int j = 0; j < 15; ++j) {
+            free(mosse[j].startPos);
+            free(mosse[j].endPos);
         }
         free(mosse);
         return best;

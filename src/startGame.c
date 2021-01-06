@@ -18,6 +18,10 @@ void match(void) {
     while (!end) {
         printf("\n");
         mosse=(MossaPointer)malloc(sizeof(struct mossa)*15);
+        for (int j = 0; j < 15; ++j) {
+            mosse[j].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
+            mosse[j].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
+        }
         index=avanzamento(board, mosse, turno);
         if (index==0) {
             end=1;
@@ -53,6 +57,10 @@ void match(void) {
                 player='R';
                 j++;
             }
+        }
+        for (int j = 0; j < 15; ++j) {
+            free(mosse[j].startPos);
+            free(mosse[j].endPos);
         }
         free(mosse);
     }
