@@ -11,6 +11,7 @@ void match(void) {
     int choice, index;
     int end=0, turno=1, i=0, j=0;
     char player='R';
+    int mossa;
     BoardPointer board = initialize();
     printBoard(board);
     while (!end) {
@@ -28,7 +29,7 @@ void match(void) {
             if (turno==1) {
                 printf("TURNO GIOCATORE %c\n", player);
                 printMoves(mosse,index);
-                int mossa=findBestMove(board, mosse, index);
+                mossa=findBestMove(board, mosse, index);
                 printf("mossa%d\n",mossa+1);
                 eseguiSpostamento(board, mosse[mossa]);
                 printBoard(board);

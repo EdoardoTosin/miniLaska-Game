@@ -35,25 +35,32 @@ int avanzamento(BoardPointer board, MossaPointer mosse, int turno) {
     int index = 0;
     int i, j, i1, j1;
     int soloMangiata = 0; /*serve per vedere se è stata trovata almeno una mangiata*/
+    int puntoMedioRiga;
+    int puntoMedioColonna;
+    int condizioneAnd;
+    int condizioneOr;
+    int isNormalStep;
+    int teamPuntoMedio;
+    int mangiata;
     for(i=0; i<DIM; i++) {
         for(j=0; j<DIM; j++) {
             if((i+j)%2==0 && getTeam(board, i, j) == turno)
                 for(i1=i-2; i1<=i+2; i1++) {
                     for(j1=j-2; j1<=j+2; j1++) {
-                        int puntoMedioRiga = (i + i1)/2;
-                        int puntoMedioColonna = (j + j1)/2;
-                        int condizioneAnd = (i1+j1) %2 ==0 && i1 != i && j1 != j;
+                        puntoMedioRiga = (i + i1)/2;
+                        puntoMedioColonna = (j + j1)/2;
+                        condizioneAnd = (i1+j1) %2 ==0 && i1 != i && j1 != j;
                         condizioneAnd = condizioneAnd && i1 < DIM && i1 >= 0;
                         condizioneAnd = condizioneAnd && j1 < DIM && j1 >= 0;
                         condizioneAnd = condizioneAnd && cella_vuota(board, i1, j1);
-                        int condizioneOr = (turno==1) && i1 > i;
+                        condizioneOr = (turno==1) && i1 > i;
                         condizioneOr = condizioneOr || (turno == 2 && i1<i);
                         condizioneOr = condizioneOr || getRank(board, i, j) == 2;
                         condizioneAnd = condizioneAnd && condizioneOr;
-                        int isNormalStep = abs(i1-i)==1;
+                        isNormalStep = abs(i1-i)==1;
                         if(condizioneAnd) {
-                            int teamPuntoMedio = getTeam(board, puntoMedioRiga, puntoMedioColonna);
-                            int mangiata = (teamPuntoMedio != 0 && teamPuntoMedio != turno && !isNormalStep);
+                            teamPuntoMedio = getTeam(board, puntoMedioRiga, puntoMedioColonna);
+                            mangiata = (teamPuntoMedio != 0 && teamPuntoMedio != turno && !isNormalStep);
                             if((!soloMangiata && (isNormalStep || mangiata)) || (soloMangiata && mangiata)) {
                                 if(!soloMangiata && mangiata) {
                                     index = 0;
@@ -166,11 +173,12 @@ void copyContent(BoardPointer board, struct Cella *cella,int row,int col) {
 }
 
 void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struct Cella*finale, struct mossa mossa) {
+    int i,j;
     copyContent(board,iniziale,mossa.startPos->row,mossa.startPos->col);
     copyContent(board,finale,mossa.endPos->row,mossa.endPos->col);
     if(mezzo != NULL) {
-        int i=(mossa.startPos->row+mossa.endPos->row)/2;
-        int j=(mossa.startPos->col+mossa.endPos->col)/2;
+        i=(mossa.startPos->row+mossa.endPos->row)/2;
+        j=(mossa.startPos->col+mossa.endPos->col)/2;
         copyContent(board,mezzo,i,j);
     }
 }
@@ -190,6 +198,12 @@ struct Cella * copyCella(struct Cella cella) {
 
 int minimax(BoardPointer board, int isMax, int depth,int somma) {
     int i, best;
+    int mangiata;
+    struct Cella*iniziale;
+    struct Cella*finale;
+    int imezzo;
+    int jmezzo;
+    struct Cella*mezzo;
     MossaPointer mosse=(MossaPointer) malloc(sizeof(struct mossa)*15);
     int index=avanzamento(board, mosse, isMax ? 1:2);
 
@@ -202,16 +216,16 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
     if (depth == MAX_DEPTH)
         return somma;
 
-    int mangiata = abs(mosse->endPos->row-mosse->startPos->row)!=1;
+    mangiata = abs(mosse->endPos->row-mosse->startPos->row)!=1;
 
     if (isMax) {
         best = INT_MIN;
         for (i=0; i<index; i++) {
-            struct Cella*iniziale = copyCella(board[mosse[i].startPos->row][mosse[i].startPos->col]);
-            struct Cella*finale = copyCella(board[mosse[i].endPos->row][mosse[i].endPos->col]);
-            int imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
-            int jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
-            struct Cella*mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
+            iniziale = copyCella(board[mosse[i].startPos->row][mosse[i].startPos->col]);
+            finale = copyCella(board[mosse[i].endPos->row][mosse[i].endPos->col]);
+            imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
+            jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
+            mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
             eseguiSpostamento(board,mosse[i]);
             best = MAX(best, minimax(board, !isMax,depth + 1, somma + (mangiata ? 1 : 0)) );
             revert(board,iniziale,mezzo,finale,mosse[i]);
@@ -228,11 +242,11 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
     else{
         best = INT_MAX;
         for (i=0; i<index; i++) {
-            struct Cella*iniziale = copyCella(board[mosse[i].startPos->row][mosse[i].startPos->col]);
-            struct Cella*finale = copyCella(board[mosse[i].endPos->row][mosse[i].endPos->col]);
-            int imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
-            int jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
-            struct Cella*mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
+            iniziale = copyCella(board[mosse[i].startPos->row][mosse[i].startPos->col]);
+            finale = copyCella(board[mosse[i].endPos->row][mosse[i].endPos->col]);
+            imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
+            jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
+            mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
             eseguiSpostamento(board, mosse[i]);
             best = MIN(best, minimax(board, !isMax, depth+1, somma + (mangiata ? -1 : 0)));
             revert(board,iniziale,mezzo,finale,mosse[i]);
@@ -252,13 +266,19 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
     int moveVal=0;
     int bestVal = INT_MIN;
     int bestMove = 0;
+    int mangiata;
+    struct Cella*iniziale;
+    struct Cella*finale;
+    int imezzo;
+    int jmezzo;
+    struct Cella*mezzo;
     for (i=0; i<mosseSize; i++) {
-        int mangiata = abs(mosse->endPos->row-mosse->startPos->row)!=1;
-        struct Cella*iniziale = copyCella(board[mosse[i].startPos->row][mosse[i].startPos->col]);
-        struct Cella*finale = copyCella(board[mosse[i].endPos->row][mosse[i].endPos->col]);
-        int imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
-        int jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
-        struct Cella*mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
+        mangiata = abs(mosse->endPos->row-mosse->startPos->row)!=1;
+        iniziale = copyCella(board[mosse[i].startPos->row][mosse[i].startPos->col]);
+        finale = copyCella(board[mosse[i].endPos->row][mosse[i].endPos->col]);
+        imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
+        jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
+        mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
         eseguiSpostamento(board,mosse[i]);
         if (mosseSize==1){
             moveVal= mangiata? 1:0;
