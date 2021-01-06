@@ -3,7 +3,7 @@
 #include "struct.h"
 #include "definitions.h"
 
-void print_board(BoardPointer board) {
+void printBoard(BoardPointer board) {
     char white=1;
     int i, j, k, l;
     /*system(CLEAR);*/

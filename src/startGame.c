@@ -11,7 +11,7 @@ void match(void) {
     int end=0, turno=1, i=0, j=0;
     char player='R';
     BoardPointer board = initialize();
-    print_board(board);
+    printBoard(board);
     while (!end) {
         printf("\n");
         struct mossa *mosse=(struct mossa *)malloc(sizeof(struct mossa)*15);
@@ -30,7 +30,7 @@ void match(void) {
                 int mossa=findBestMove(board, mosse, index);
                 printf("mossa%d\n",mossa+1);
                 eseguiSpostamento(board, mosse[mossa]);
-                print_board(board);
+                printBoard(board);
                 printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa+1);
                 turno=2;
                 player='G';
@@ -44,7 +44,7 @@ void match(void) {
                     scanf/*_s*/("%d", &choice);
                 } while (choice<1 || choice>index);
                 eseguiSpostamento(board, mosse[choice -1 ]);
-                print_board(board);
+                printBoard(board);
                 printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
                 turno=1;
                 player='R';
