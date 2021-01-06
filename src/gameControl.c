@@ -1,25 +1,9 @@
 #include "gameControl.h"
 #include <stdlib.h>
-#include <stdbool.h>
 #include <limits.h>
 #include <stdio.h>
 #include "struct.h"
 #include "definitions.h"
-
-/* da spostare in file utility
-bool isDiff(BoardPointer board1, BoardPointer board2) {
-    for(int i=0;i<7;i++) {
-        for(int j=0;j<7;j++) {
-            for(int k=0;k<3;k++) {
-                if(board1->mat[i][k].piece[k].p != board2->mat[i][k].piece[k].p) {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-*/
 
 int getHeight(BoardPointer board, int i, int j) {
     if (board[i][j].height==0)
@@ -39,18 +23,18 @@ int getRank(BoardPointer board,int i,int j) {
     return board[i][j].piece[getHeight(board, i, j)-1].rank;
 }
 
-bool cella_vuota(BoardPointer board,int i, int j) {
+int cella_vuota(BoardPointer board,int i, int j) {
     int k;
     for (k=0; k<HEIGHT; k++)
         if (board[i][j].piece[k].team!=0)
-            return false;
-    return true;
+            return 0;
+    return 1;
 }
 
 int avanzamento(BoardPointer board,struct mossa *mosse, int turno) {
     int index = 0;
     int i, j, i1, j1;
-    bool soloMangiata = false; /*serve per vedere se è stata trovata almeno una mangiata*/
+    int soloMangiata = 0; /*serve per vedere se è stata trovata almeno una mangiata*/
     for(i=0; i<DIM; i++) {
         for(j=0; j<DIM; j++) {
             if((i+j)%2==0 && getTeam(board, i, j) == turno)
@@ -58,18 +42,18 @@ int avanzamento(BoardPointer board,struct mossa *mosse, int turno) {
                     for(j1=j-2; j1<=j+2; j1++) {
                         int puntoMedioRiga = (i + i1)/2;
                         int puntoMedioColonna = (j + j1)/2;
-                        bool condizioneAnd = (i1+j1) %2 ==0 && i1 != i && j1 != j;
+                        int condizioneAnd = (i1+j1) %2 ==0 && i1 != i && j1 != j;
                         condizioneAnd = condizioneAnd && i1 < DIM && i1 >= 0;
                         condizioneAnd = condizioneAnd && j1 < DIM && j1 >= 0;
                         condizioneAnd = condizioneAnd && cella_vuota(board, i1, j1);
-                        bool condizioneOr = (turno==1) && i1 > i;
+                        int condizioneOr = (turno==1) && i1 > i;
                         condizioneOr = condizioneOr || (turno == 2 && i1<i);
                         condizioneOr = condizioneOr || getRank(board, i, j) == 2;
                         condizioneAnd = condizioneAnd && condizioneOr;
-                        bool isNormalStep = abs(i1-i)==1;
+                        int isNormalStep = abs(i1-i)==1;
                         if(condizioneAnd) {
                             int teamPuntoMedio = getTeam(board, puntoMedioRiga, puntoMedioColonna);
-                            bool mangiata = (teamPuntoMedio != 0 && teamPuntoMedio != turno && !isNormalStep);
+                            int mangiata = (teamPuntoMedio != 0 && teamPuntoMedio != turno && !isNormalStep);
                             if((!soloMangiata && (isNormalStep || mangiata)) || (soloMangiata && mangiata)) {
                                 if(!soloMangiata && mangiata) {
                                     index = 0;
@@ -218,7 +202,7 @@ int minimax(BoardPointer board, bool isMax, int depth,int somma) {
     if (depth == MAX_DEPTH)
         return somma;
 
-    bool mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
+    int mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
 
     if (isMax) {
         best = INT_MIN;
@@ -269,7 +253,7 @@ int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize) {
     int bestVal = INT_MIN;
     int bestMove = 0;
     for (i=0; i<mosseSize; i++) {
-        bool mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
+        int mangiata = abs(mosse->endPos.row-mosse->startPos.row)!=1;
         struct Cella*iniziale = copyCella(board[mosse[i].startPos.row][mosse[i].startPos.col]);
         struct Cella*finale = copyCella(board[mosse[i].endPos.row][mosse[i].endPos.col]);
         int imezzo=(mosse[i].startPos.row+mosse[i].endPos.row)/2;
