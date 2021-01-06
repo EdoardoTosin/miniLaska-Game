@@ -12,11 +12,12 @@ void match(void) {
     int end=0, turno=1, i=0, j=0;
     char player='R';
     int mossa;
+    MossaPointer mosse;
     BoardPointer board = initialize();
     printBoard(board);
     while (!end) {
         printf("\n");
-        MossaPointer mosse=(MossaPointer)malloc(sizeof(struct mossa)*15);
+        mosse=(MossaPointer)malloc(sizeof(struct mossa)*15);
         index=avanzamento(board, mosse, turno);
         if (index==0) {
             end=1;
