@@ -3,7 +3,7 @@
 #include "struct.h"
 #include "definitions.h"
 
-void create_pedina(BoardPointer board) {
+void createPiece(BoardPointer board) {
     int i,j;
     for (i=0; i<DIM; i++) {
         for (j=0; j<DIM; j++) {
@@ -32,6 +32,6 @@ BoardPointer initialize() {
             }
         }
     }
-    create_pedina(mat);
+    createPiece(mat);
     return mat;
 }

@@ -5,6 +5,7 @@
 #include "definitions.h"
 #include "printGame.h"
 #include "gameControl.h"
+#include "objectCreation.h"
 
 void match(void) {
     int choice, index;
