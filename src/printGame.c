@@ -4,7 +4,7 @@
 #include "definitions.h"
 
 void printBoard(BoardPointer board) {
-    char white=1;
+    char white='$';
     int i, j, k, l;
     /*system(CLEAR);*/
     printf(" ");
