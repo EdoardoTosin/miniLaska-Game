@@ -18,7 +18,7 @@ void match(void) {
     while (!end) {
         printf("\n");
         mosse=(MossaPointer)malloc(sizeof(struct mossa)*15);
-        for (k = 0; k < 15; ++j) {
+        for (k = 0; k < 15; ++k) {
             mosse[k].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
             mosse[k].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
         }
@@ -58,7 +58,7 @@ void match(void) {
                 j++;
             }
         }
-        for (k = 0; k < 15; ++j) {
+        for (k = 0; k < 15; ++k) {
             free(mosse[k].startPos);
             free(mosse[k].endPos);
         }
