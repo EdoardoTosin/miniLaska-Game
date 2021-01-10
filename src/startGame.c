@@ -22,7 +22,7 @@ void match(void) {
             mosse[k].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
             mosse[k].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
         }
-        index=avanzamento(board, mosse, turno);
+        index=step(board, mosse, turno);
         if (index==0) {
             end=1;
             if (turno==1)
@@ -36,7 +36,7 @@ void match(void) {
                 printMoves(mosse,index);
                 mossa=findBestMove(board, mosse, index);
                 printf("mossa%d\n",mossa+1);
-                eseguiSpostamento(board, mosse[mossa]);
+                executeStep(board, mosse[mossa]);
                 printBoard(board);
                 printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa+1);
                 turno=2;
@@ -50,7 +50,7 @@ void match(void) {
                 do{
                     scanf/*_s*/("%d", &choice);
                 } while (choice<1 || choice>index);
-                eseguiSpostamento(board, mosse[choice -1 ]);
+                executeStep(board, mosse[choice -1 ]);
                 printBoard(board);
                 printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
                 turno=1;

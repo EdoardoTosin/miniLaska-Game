@@ -23,7 +23,7 @@ int getRank(BoardPointer board,int i,int j) {
     return board[i][j].piece[getHeight(board, i, j)-1].rank;
 }
 
-int cella_vuota(BoardPointer board,int i, int j) {
+int isEmpty(BoardPointer board,int i, int j) {
     int k;
     for (k=0; k<HEIGHT; k++)
         if (board[i][j].piece[k].team!=0)
@@ -31,7 +31,7 @@ int cella_vuota(BoardPointer board,int i, int j) {
     return 1;
 }
 
-int avanzamento(BoardPointer board, MossaPointer mosse, int turno) {
+int step(BoardPointer board, MossaPointer mosse, int turno) {
     int index = 0;
     int i, j, i1, j1;
     int soloMangiata = 0; /*serve per vedere se è stata trovata almeno una mangiata*/
@@ -52,7 +52,7 @@ int avanzamento(BoardPointer board, MossaPointer mosse, int turno) {
                         condizioneAnd = (i1+j1) %2 ==0 && i1 != i && j1 != j;
                         condizioneAnd = condizioneAnd && i1 < DIM && i1 >= 0;
                         condizioneAnd = condizioneAnd && j1 < DIM && j1 >= 0;
-                        condizioneAnd = condizioneAnd && cella_vuota(board, i1, j1);
+                        condizioneAnd = condizioneAnd && isEmpty(board, i1, j1);
                         condizioneOr = (turno==1) && i1 > i;
                         condizioneOr = condizioneOr || (turno == 2 && i1<i);
                         condizioneOr = condizioneOr || getRank(board, i, j) == 2;
@@ -80,7 +80,7 @@ int avanzamento(BoardPointer board, MossaPointer mosse, int turno) {
     return index;
 }
 
-void svuota_cella(BoardPointer board, int i, int j) {
+void deleteCellContent(BoardPointer board, int i, int j) {
     int k;
     int height=getHeight(board, i, j);
     for (k=0; k<height; k++){
@@ -91,7 +91,7 @@ void svuota_cella(BoardPointer board, int i, int j) {
     board[i][j].height=0;
 }
 
-void aggiorna_cella(BoardPointer board, int i, int j) {
+void updateCellContent(BoardPointer board, int i, int j) {
     int height=getHeight(board, i, j);
     board[i][j].piece[height-1].team = 0;
     board[i][j].piece[height-1].p = '-';
@@ -99,7 +99,7 @@ void aggiorna_cella(BoardPointer board, int i, int j) {
     board[i][j].height=height-1;
 }
 
-void promozione(BoardPointer board, PedinaPointer piece, int i, int j) {
+void promotion(BoardPointer board, PedinaPointer piece, int i, int j) {
     int altezza=getHeight(board, i, j);
     if (piece[altezza-1].p=='g' && i==0) {
         piece[altezza-1].p='G';
@@ -111,7 +111,7 @@ void promozione(BoardPointer board, PedinaPointer piece, int i, int j) {
     }
 }
 
-void spostamento_soldato(BoardPointer board, struct mossa mosse) {
+void normalStep(BoardPointer board, struct mossa mosse) {
     int i;
     int height=getHeight(board, mosse.startPos->row, mosse.startPos->col);
     for (i=0; i<height; i++) {
@@ -120,11 +120,11 @@ void spostamento_soldato(BoardPointer board, struct mossa mosse) {
         board[mosse.endPos->row][mosse.endPos->col].piece[i].rank = board[mosse.startPos->row][mosse.startPos->col].piece[i].rank;
     }
     board[mosse.endPos->row][mosse.endPos->col].height=height;
-    svuota_cella(board,mosse.startPos->row,mosse.startPos->col);
-    promozione(board,board[mosse.endPos->row][mosse.endPos->col].piece,mosse.endPos->row,mosse.endPos->col);
+    deleteCellContent(board,mosse.startPos->row,mosse.startPos->col);
+    promotion(board,board[mosse.endPos->row][mosse.endPos->col].piece,mosse.endPos->row,mosse.endPos->col);
 }
 
-void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
+void eatStep(BoardPointer board, struct mossa mosse) {
     int k;
     int i=(mosse.startPos->row+mosse.endPos->row)/2;
     int j=(mosse.startPos->col+mosse.endPos->col)/2;
@@ -149,16 +149,16 @@ void spostamento_mangiata(BoardPointer board, struct mossa mosse) {
         }
         board[mosse.endPos->row][mosse.endPos->col].height=altezzattuale+1;
     }
-    svuota_cella(board, mosse.startPos->row, mosse.startPos->col);
-    aggiorna_cella(board, i, j);
-    promozione(board, board[mosse.endPos->row][mosse.endPos->col].piece, mosse.endPos->row,mosse.endPos->col);
+    deleteCellContent(board, mosse.startPos->row, mosse.startPos->col);
+    updateCellContent(board, i, j);
+    promotion(board, board[mosse.endPos->row][mosse.endPos->col].piece, mosse.endPos->row,mosse.endPos->col);
 }
 
-void eseguiSpostamento(BoardPointer board,struct mossa m) {
+void executeStep(BoardPointer board,struct mossa m) {
     if (abs(m.endPos->row-m.startPos->row)==1)
-        spostamento_soldato(board, m);
+        normalStep(board, m);
     else
-        spostamento_mangiata(board, m);
+        eatStep(board, m);
 }
 
 
@@ -211,7 +211,7 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
         mosse[j].startPos= (PosizionePointer) malloc(sizeof(struct Posizione));
         mosse[j].endPos= (PosizionePointer) malloc(sizeof(struct Posizione));
     }
-    index=avanzamento(board, mosse, isMax ? 1:2);
+    index=step(board, mosse, isMax ? 1:2);
 
     if (index == 0 && !isMax)
         return INT_MAX;
@@ -232,7 +232,7 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
             imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
             jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
             mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
-            eseguiSpostamento(board,mosse[i]);
+            executeStep(board,mosse[i]);
             best = MAX(best, minimax(board, !isMax,depth + 1, somma + (mangiata ? 1 : 0)) );
             revert(board,iniziale,mezzo,finale,mosse[i]);
             free(iniziale);
@@ -257,7 +257,7 @@ int minimax(BoardPointer board, int isMax, int depth,int somma) {
             imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
             jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
             mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
-            eseguiSpostamento(board, mosse[i]);
+            executeStep(board, mosse[i]);
             best = MIN(best, minimax(board, !isMax, depth+1, somma + (mangiata ? -1 : 0)));
             revert(board,iniziale,mezzo,finale,mosse[i]);
             free(iniziale);
@@ -293,7 +293,7 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
         imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
         jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
         mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
-        eseguiSpostamento(board,mosse[i]);
+        executeStep(board,mosse[i]);
         if (mosseSize==1){
             moveVal= mangiata? 1:0;
         }else{
