@@ -12,7 +12,7 @@ int getHeight(BoardPointer board, int i, int j) {
         return board[i][j].height;
 }
 
-int getTeam(BoardPointer board,int i,int j) {
+int getTeam(BoardPointer board,int i, int j) {
     if (board[i][j].height==0)
         return 0;
     else
@@ -154,7 +154,7 @@ void eatStep(BoardPointer board, struct mossa mosse) {
     promotion(board, board[mosse.endPos->row][mosse.endPos->col].piece, mosse.endPos->row,mosse.endPos->col);
 }
 
-void executeStep(BoardPointer board,struct mossa m) {
+void executeStep(BoardPointer board, struct mossa m) {
     if (abs(m.endPos->row-m.startPos->row)==1)
         normalStep(board, m);
     else
@@ -162,7 +162,7 @@ void executeStep(BoardPointer board,struct mossa m) {
 }
 
 
-void copyContent(BoardPointer board, struct Cella *cella,int row,int col) {
+void copyContent(BoardPointer board, struct Cella *cella, int row, int col) {
     int i;
     for(i=0;i<HEIGHT;i++) {
         board[row][col].piece[i].team = cella->piece[i].team;
@@ -172,7 +172,7 @@ void copyContent(BoardPointer board, struct Cella *cella,int row,int col) {
     }
 }
 
-void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struct Cella*finale, struct mossa mossa) {
+void revert(BoardPointer board, struct Cella* iniziale, struct Cella*mezzo, struct Cella*finale, struct mossa mossa) {
     int i,j;
     copyContent(board,iniziale,mossa.startPos->row,mossa.startPos->col);
     copyContent(board,finale,mossa.endPos->row,mossa.endPos->col);
@@ -196,7 +196,7 @@ struct Cella* copyCella(struct Cella cella) {
     return c;
 }
 
-int minimax(BoardPointer board, int isMax, int depth,int somma) {
+int minimax(BoardPointer board, int isMax, int depth, int somma) {
     int i, best;
     int index;
     int mangiata;
@@ -311,7 +311,7 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
             free(mezzo);
         }
     }
-    printf("The value of the best Move is : %d\n\n", bestVal);
+    printf("The value of the best move is : %d\n\n", bestVal);
 
     return bestMove;
 }

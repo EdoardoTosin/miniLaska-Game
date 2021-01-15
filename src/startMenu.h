@@ -2,7 +2,7 @@ void mainMenu(void);
 /**
   * Stampa il menù principale all'avvio del gioco.
 **/
-void startGameMenu(void);
+int startGameMenu(void);
 /**
   * Stampa il menù della selezione della modalità di gioco.
 **/
