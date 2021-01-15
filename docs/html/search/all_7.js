@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['height_23',['height',['../struct_cella.html#ad12fc34ce789bce6c8a05d8a17138534',1,'Cella::height()'],['../definitions_8h.html#aed89bd71aee8be823e8a20ec4e093c1e',1,'HEIGHT():&#160;definitions.h']]]
+  ['initialize_23',['initialize',['../object_creation_8c.html#aa84a2026830d09ed5522fce51fd1e416',1,'initialize():&#160;objectCreation.c'],['../object_creation_8h.html#aa84a2026830d09ed5522fce51fd1e416',1,'initialize():&#160;objectCreation.c']]],
+  ['isempty_24',['isEmpty',['../game_control_8c.html#a34ccd549fbd118d18f95171896ea732b',1,'isEmpty(BoardPointer board, int i, int j):&#160;gameControl.c'],['../game_control_8h.html#a34ccd549fbd118d18f95171896ea732b',1,'isEmpty(BoardPointer board, int i, int j):&#160;gameControl.c']]]
 ];

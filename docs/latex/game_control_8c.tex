@@ -2,7 +2,6 @@
 \label{game_control_8c}\index{src/gameControl.c@{src/gameControl.c}}
 {\ttfamily \#include \char`\"{}game\+Control.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$limits.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}struct.\+h\char`\"{}}\newline
@@ -16,21 +15,21 @@ int \mbox{\hyperlink{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}{get\+Tea
 \item 
 int \mbox{\hyperlink{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}{get\+Rank}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
 \item 
-bool \mbox{\hyperlink{game_control_8c_ad33ea6e40b3a39dac51d93f87d3f0855}{cella\+\_\+vuota}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+int \mbox{\hyperlink{game_control_8c_a34ccd549fbd118d18f95171896ea732b}{is\+Empty}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
 \item 
-int \mbox{\hyperlink{game_control_8c_a78bc1ff05138154d1a9ffc04745bf5d5}{avanzamento}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$mosse, int turno)
+int \mbox{\hyperlink{game_control_8c_a716fcb56407d5eb8edcfa513520dbae6}{step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, \mbox{\hyperlink{struct_8h_a6ba2a6c2c3abade2ea6f84313b829b2d}{Mossa\+Pointer}} mosse, int turno)
 \item 
-void \mbox{\hyperlink{game_control_8c_ad02259ecac9f0e96018ec7f55c3d6249}{svuota\+\_\+cella}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+void \mbox{\hyperlink{game_control_8c_acf084b734d8a2ae3a560210917b50c14}{delete\+Cell\+Content}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
 \item 
-void \mbox{\hyperlink{game_control_8c_a8c5858b00afea6929850f4f49359e7f7}{aggiorna\+\_\+cella}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
+void \mbox{\hyperlink{game_control_8c_ac690fcb3c4dd447350751014344a9114}{update\+Cell\+Content}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
 \item 
-void \mbox{\hyperlink{game_control_8c_a610698d4853f7409e30c3c4e8eaf9968}{promozione}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{struct_pedina}{Pedina}} $\ast$piece, int i, int j)
+void \mbox{\hyperlink{game_control_8c_ac977acdce8e15d0dc32c056b2a85792a}{promotion}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, \mbox{\hyperlink{struct_8h_ab42912e006e4e667cb7c40f9c07abc45}{Pedina\+Pointer}} piece, int i, int j)
 \item 
-void \mbox{\hyperlink{game_control_8c_a02c1bc534a050e0cd2c5550ce6f1b9e0}{spostamento\+\_\+soldato}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
+void \mbox{\hyperlink{game_control_8c_a07d27bdfda928a5476b34ebbee7560e2}{normal\+Step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
 \item 
-void \mbox{\hyperlink{game_control_8c_af1ef88f7d2a49a210b4a1ef17bf9eca4}{spostamento\+\_\+mangiata}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
+void \mbox{\hyperlink{game_control_8c_a25f4fad66ccbeffc8b5f11b591cb6c0f}{eat\+Step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
 \item 
-void \mbox{\hyperlink{game_control_8c_a77505059ac539c3e75c6cc9c088901d6}{esegui\+Spostamento}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} m)
+void \mbox{\hyperlink{game_control_8c_ae742a68a066c4c8d3e3de9ff8d997b37}{execute\+Step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} m)
 \item 
 void \mbox{\hyperlink{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}{copy\+Content}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$cella, int row, int col)
 \item 
@@ -38,52 +37,22 @@ void \mbox{\hyperlink{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}{revert}
 \item 
 struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$ \mbox{\hyperlink{game_control_8c_ae088462f6725ab271e25db0242820e4b}{copy\+Cella}} (struct \mbox{\hyperlink{struct_cella}{Cella}} cella)
 \item 
-int \mbox{\hyperlink{game_control_8c_a9f84e7bef524e75dede5ec9a28559d2a}{minimax}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, bool is\+Max, int depth, int somma)
+int \mbox{\hyperlink{game_control_8c_ac5dff201d10612f0b00ab318fb21fd07}{minimax}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int is\+Max, int depth, int somma)
 \item 
-int \mbox{\hyperlink{game_control_8c_a60af6d5e1e080d6c16491a68e5c44ea3}{find\+Best\+Move}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$mosse, int mosse\+Size)
+int \mbox{\hyperlink{game_control_8c_a074d48e7efa85e812327e38d89422c5d}{find\+Best\+Move}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, \mbox{\hyperlink{struct_8h_a6ba2a6c2c3abade2ea6f84313b829b2d}{Mossa\+Pointer}} mosse, int mosse\+Size)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{game_control_8c_a8c5858b00afea6929850f4f49359e7f7}\label{game_control_8c_a8c5858b00afea6929850f4f49359e7f7}} 
-\index{gameControl.c@{gameControl.c}!aggiorna\_cella@{aggiorna\_cella}}
-\index{aggiorna\_cella@{aggiorna\_cella}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{aggiorna\_cella()}{aggiorna\_cella()}}
-{\footnotesize\ttfamily void aggiorna\+\_\+cella (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
-
-
-
-Definition at line 103 of file game\+Control.\+c.
-
-\mbox{\Hypertarget{game_control_8c_a78bc1ff05138154d1a9ffc04745bf5d5}\label{game_control_8c_a78bc1ff05138154d1a9ffc04745bf5d5}} 
-\index{gameControl.c@{gameControl.c}!avanzamento@{avanzamento}}
-\index{avanzamento@{avanzamento}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{avanzamento()}{avanzamento()}}
-{\footnotesize\ttfamily int avanzamento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$}]{mosse,  }\item[{int}]{turno }\end{DoxyParamCaption})}
-
-
-
-Definition at line 50 of file game\+Control.\+c.
-
-\mbox{\Hypertarget{game_control_8c_ad33ea6e40b3a39dac51d93f87d3f0855}\label{game_control_8c_ad33ea6e40b3a39dac51d93f87d3f0855}} 
-\index{gameControl.c@{gameControl.c}!cella\_vuota@{cella\_vuota}}
-\index{cella\_vuota@{cella\_vuota}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{cella\_vuota()}{cella\_vuota()}}
-{\footnotesize\ttfamily bool cella\+\_\+vuota (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
-
-
-
-Definition at line 42 of file game\+Control.\+c.
-
 \mbox{\Hypertarget{game_control_8c_ae088462f6725ab271e25db0242820e4b}\label{game_control_8c_ae088462f6725ab271e25db0242820e4b}} 
 \index{gameControl.c@{gameControl.c}!copyCella@{copyCella}}
 \index{copyCella@{copyCella}!gameControl.c@{gameControl.c}}
 \doxysubsubsection{\texorpdfstring{copyCella()}{copyCella()}}
 {\footnotesize\ttfamily struct \mbox{\hyperlink{struct_cella}{Cella}}$\ast$ copy\+Cella (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_cella}{Cella}}}]{cella }\end{DoxyParamCaption})}
 
+Torna indietro di una mossa (per il PC). 
 
-
-Definition at line 194 of file game\+Control.\+c.
+Definition at line 186 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}\label{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}} 
 \index{gameControl.c@{gameControl.c}!copyContent@{copyContent}}
@@ -91,29 +60,49 @@ Definition at line 194 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{copyContent()}{copyContent()}}
 {\footnotesize\ttfamily void copy\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{cella,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
 
+Controlla quale mossa eseguire tra lo spostamento e la mangiata. 
 
+Definition at line 165 of file game\+Control.\+c.
 
-Definition at line 174 of file game\+Control.\+c.
+\mbox{\Hypertarget{game_control_8c_acf084b734d8a2ae3a560210917b50c14}\label{game_control_8c_acf084b734d8a2ae3a560210917b50c14}} 
+\index{gameControl.c@{gameControl.c}!deleteCellContent@{deleteCellContent}}
+\index{deleteCellContent@{deleteCellContent}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{deleteCellContent()}{deleteCellContent()}}
+{\footnotesize\ttfamily void delete\+Cell\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{game_control_8c_a77505059ac539c3e75c6cc9c088901d6}\label{game_control_8c_a77505059ac539c3e75c6cc9c088901d6}} 
-\index{gameControl.c@{gameControl.c}!eseguiSpostamento@{eseguiSpostamento}}
-\index{eseguiSpostamento@{eseguiSpostamento}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{eseguiSpostamento()}{eseguiSpostamento()}}
-{\footnotesize\ttfamily void esegui\+Spostamento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{m }\end{DoxyParamCaption})}
+Rimuove la pedina più in alto (comandante) dalla cella data. 
 
+Definition at line 83 of file game\+Control.\+c.
 
+\mbox{\Hypertarget{game_control_8c_a25f4fad66ccbeffc8b5f11b591cb6c0f}\label{game_control_8c_a25f4fad66ccbeffc8b5f11b591cb6c0f}} 
+\index{gameControl.c@{gameControl.c}!eatStep@{eatStep}}
+\index{eatStep@{eatStep}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{eatStep()}{eatStep()}}
+{\footnotesize\ttfamily void eat\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
 
-Definition at line 166 of file game\+Control.\+c.
+Esegue la normale mossa di spostamento. 
 
-\mbox{\Hypertarget{game_control_8c_a60af6d5e1e080d6c16491a68e5c44ea3}\label{game_control_8c_a60af6d5e1e080d6c16491a68e5c44ea3}} 
+Definition at line 127 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_ae742a68a066c4c8d3e3de9ff8d997b37}\label{game_control_8c_ae742a68a066c4c8d3e3de9ff8d997b37}} 
+\index{gameControl.c@{gameControl.c}!executeStep@{executeStep}}
+\index{executeStep@{executeStep}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{executeStep()}{executeStep()}}
+{\footnotesize\ttfamily void execute\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{m }\end{DoxyParamCaption})}
+
+Esegue la mossa di mangiata. 
+
+Definition at line 157 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a074d48e7efa85e812327e38d89422c5d}\label{game_control_8c_a074d48e7efa85e812327e38d89422c5d}} 
 \index{gameControl.c@{gameControl.c}!findBestMove@{findBestMove}}
 \index{findBestMove@{findBestMove}!gameControl.c@{gameControl.c}}
 \doxysubsubsection{\texorpdfstring{findBestMove()}{findBestMove()}}
-{\footnotesize\ttfamily int find\+Best\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$}]{mosse,  }\item[{int}]{mosse\+Size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int find\+Best\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{\mbox{\hyperlink{struct_8h_a6ba2a6c2c3abade2ea6f84313b829b2d}{Mossa\+Pointer}}}]{mosse,  }\item[{int}]{mosse\+Size }\end{DoxyParamCaption})}
 
 
 
-Definition at line 266 of file game\+Control.\+c.
+Definition at line 278 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}\label{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}} 
 \index{gameControl.c@{gameControl.c}!getHeight@{getHeight}}
@@ -123,7 +112,7 @@ Definition at line 266 of file game\+Control.\+c.
 
 
 
-Definition at line 24 of file game\+Control.\+c.
+Definition at line 8 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}\label{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}} 
 \index{gameControl.c@{gameControl.c}!getRank@{getRank}}
@@ -131,9 +120,9 @@ Definition at line 24 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{getRank()}{getRank()}}
 {\footnotesize\ttfamily int get\+Rank (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
+Data la matrice e date le coordinate, restituisce il team della pedina comandante. 
 
-
-Definition at line 38 of file game\+Control.\+c.
+Definition at line 22 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}\label{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}} 
 \index{gameControl.c@{gameControl.c}!getTeam@{getTeam}}
@@ -141,67 +130,77 @@ Definition at line 38 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{getTeam()}{getTeam()}}
 {\footnotesize\ttfamily int get\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
+Data la matrice e date le coordinate, restituisce l\textquotesingle{}altezza della cella. 
 
+Definition at line 15 of file game\+Control.\+c.
 
-Definition at line 31 of file game\+Control.\+c.
+\mbox{\Hypertarget{game_control_8c_a34ccd549fbd118d18f95171896ea732b}\label{game_control_8c_a34ccd549fbd118d18f95171896ea732b}} 
+\index{gameControl.c@{gameControl.c}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily int is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{game_control_8c_a9f84e7bef524e75dede5ec9a28559d2a}\label{game_control_8c_a9f84e7bef524e75dede5ec9a28559d2a}} 
+Data la matrice e date le coordinate, restituisce il grado della pedina in posizione più alta. 
+
+Definition at line 26 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_ac5dff201d10612f0b00ab318fb21fd07}\label{game_control_8c_ac5dff201d10612f0b00ab318fb21fd07}} 
 \index{gameControl.c@{gameControl.c}!minimax@{minimax}}
 \index{minimax@{minimax}!gameControl.c@{gameControl.c}}
 \doxysubsubsection{\texorpdfstring{minimax()}{minimax()}}
-{\footnotesize\ttfamily int minimax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{bool}]{is\+Max,  }\item[{int}]{depth,  }\item[{int}]{somma }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int minimax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{is\+Max,  }\item[{int}]{depth,  }\item[{int}]{somma }\end{DoxyParamCaption})}
 
+Torna a una cella uguale a quella che voglio copiare. 
 
+Definition at line 199 of file game\+Control.\+c.
 
-Definition at line 207 of file game\+Control.\+c.
+\mbox{\Hypertarget{game_control_8c_a07d27bdfda928a5476b34ebbee7560e2}\label{game_control_8c_a07d27bdfda928a5476b34ebbee7560e2}} 
+\index{gameControl.c@{gameControl.c}!normalStep@{normalStep}}
+\index{normalStep@{normalStep}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{normalStep()}{normalStep()}}
+{\footnotesize\ttfamily void normal\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{game_control_8c_a610698d4853f7409e30c3c4e8eaf9968}\label{game_control_8c_a610698d4853f7409e30c3c4e8eaf9968}} 
-\index{gameControl.c@{gameControl.c}!promozione@{promozione}}
-\index{promozione@{promozione}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{promozione()}{promozione()}}
-{\footnotesize\ttfamily void promozione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_pedina}{Pedina}} $\ast$}]{piece,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+Svuota l\textquotesingle{}intera celle dalle pedine. 
 
+Definition at line 114 of file game\+Control.\+c.
 
+\mbox{\Hypertarget{game_control_8c_ac977acdce8e15d0dc32c056b2a85792a}\label{game_control_8c_ac977acdce8e15d0dc32c056b2a85792a}} 
+\index{gameControl.c@{gameControl.c}!promotion@{promotion}}
+\index{promotion@{promotion}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{promotion()}{promotion()}}
+{\footnotesize\ttfamily void promotion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{\mbox{\hyperlink{struct_8h_ab42912e006e4e667cb7c40f9c07abc45}{Pedina\+Pointer}}}]{piece,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Definition at line 111 of file game\+Control.\+c.
+Data la matrice e le coordinate, controlla se la cella è vuota 
+
+Definition at line 102 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}\label{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}} 
 \index{gameControl.c@{gameControl.c}!revert@{revert}}
 \index{revert@{revert}!gameControl.c@{gameControl.c}}
 \doxysubsubsection{\texorpdfstring{revert()}{revert()}}
-{\footnotesize\ttfamily void revert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{iniziale,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{mezzo,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{finale,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} \mbox{\hyperlink{structmossa}{mossa}} \mbox{\hyperlink{structmossa}{mossa}}}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void revert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{iniziale,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{mezzo,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{finale,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mossa }\end{DoxyParamCaption})}
+
+Copia il contenuto da una cella all\textquotesingle{}altra. 
+
+Definition at line 175 of file game\+Control.\+c.
+
+\mbox{\Hypertarget{game_control_8c_a716fcb56407d5eb8edcfa513520dbae6}\label{game_control_8c_a716fcb56407d5eb8edcfa513520dbae6}} 
+\index{gameControl.c@{gameControl.c}!step@{step}}
+\index{step@{step}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily int step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{\mbox{\hyperlink{struct_8h_a6ba2a6c2c3abade2ea6f84313b829b2d}{Mossa\+Pointer}}}]{mosse,  }\item[{int}]{turno }\end{DoxyParamCaption})}
 
 
 
-Definition at line 184 of file game\+Control.\+c.
+Definition at line 34 of file game\+Control.\+c.
 
-\mbox{\Hypertarget{game_control_8c_af1ef88f7d2a49a210b4a1ef17bf9eca4}\label{game_control_8c_af1ef88f7d2a49a210b4a1ef17bf9eca4}} 
-\index{gameControl.c@{gameControl.c}!spostamento\_mangiata@{spostamento\_mangiata}}
-\index{spostamento\_mangiata@{spostamento\_mangiata}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{spostamento\_mangiata()}{spostamento\_mangiata()}}
-{\footnotesize\ttfamily void spostamento\+\_\+mangiata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{game_control_8c_ac690fcb3c4dd447350751014344a9114}\label{game_control_8c_ac690fcb3c4dd447350751014344a9114}} 
+\index{gameControl.c@{gameControl.c}!updateCellContent@{updateCellContent}}
+\index{updateCellContent@{updateCellContent}!gameControl.c@{gameControl.c}}
+\doxysubsubsection{\texorpdfstring{updateCellContent()}{updateCellContent()}}
+{\footnotesize\ttfamily void update\+Cell\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
+Trova tutte le possibili per il giocatore del turno corrente. 
 
-
-Definition at line 136 of file game\+Control.\+c.
-
-\mbox{\Hypertarget{game_control_8c_a02c1bc534a050e0cd2c5550ce6f1b9e0}\label{game_control_8c_a02c1bc534a050e0cd2c5550ce6f1b9e0}} 
-\index{gameControl.c@{gameControl.c}!spostamento\_soldato@{spostamento\_soldato}}
-\index{spostamento\_soldato@{spostamento\_soldato}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{spostamento\_soldato()}{spostamento\_soldato()}}
-{\footnotesize\ttfamily void spostamento\+\_\+soldato (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
-
-
-
-Definition at line 123 of file game\+Control.\+c.
-
-\mbox{\Hypertarget{game_control_8c_ad02259ecac9f0e96018ec7f55c3d6249}\label{game_control_8c_ad02259ecac9f0e96018ec7f55c3d6249}} 
-\index{gameControl.c@{gameControl.c}!svuota\_cella@{svuota\_cella}}
-\index{svuota\_cella@{svuota\_cella}!gameControl.c@{gameControl.c}}
-\doxysubsubsection{\texorpdfstring{svuota\_cella()}{svuota\_cella()}}
-{\footnotesize\ttfamily void svuota\+\_\+cella (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
-
-
-
-Definition at line 92 of file game\+Control.\+c.
+Definition at line 94 of file game\+Control.\+c.
 

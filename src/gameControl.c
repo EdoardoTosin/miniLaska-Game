@@ -183,7 +183,7 @@ void revert(BoardPointer board, struct Cella* iniziale,struct Cella*mezzo, struc
     }
 }
 
-struct Cella * copyCella(struct Cella cella) {
+struct Cella* copyCella(struct Cella cella) {
     int i;
     struct Cella * c = (struct Cella*) malloc(sizeof(struct Cella));
     c->piece = (PedinaPointer) malloc(HEIGHT*sizeof(struct Pedina));

@@ -72,7 +72,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="struct_8h_source.html">struct.h</a>&quot;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
 </div>
 <p><a href="game_control_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -84,142 +83,34 @@ Functions</h2></td></tr>
 <tr class="separator:aeb164671a70ca9cfeaae6b43956916b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8952aa8d2c9ad5caab4e06ce060c946c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a8952aa8d2c9ad5caab4e06ce060c946c">getRank</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int i, int j)</td></tr>
 <tr class="separator:a8952aa8d2c9ad5caab4e06ce060c946c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad33ea6e40b3a39dac51d93f87d3f0855"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#ad33ea6e40b3a39dac51d93f87d3f0855">cella_vuota</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int i, int j)</td></tr>
-<tr class="separator:ad33ea6e40b3a39dac51d93f87d3f0855"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a610698d4853f7409e30c3c4e8eaf9968"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a610698d4853f7409e30c3c4e8eaf9968">promozione</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="struct_pedina.html">Pedina</a> *piece, int i, int j)</td></tr>
-<tr class="separator:a610698d4853f7409e30c3c4e8eaf9968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78bc1ff05138154d1a9ffc04745bf5d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a78bc1ff05138154d1a9ffc04745bf5d5">avanzamento</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> *mosse, int turno)</td></tr>
-<tr class="separator:a78bc1ff05138154d1a9ffc04745bf5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c5858b00afea6929850f4f49359e7f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a8c5858b00afea6929850f4f49359e7f7">aggiorna_cella</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int i, int j)</td></tr>
-<tr class="separator:a8c5858b00afea6929850f4f49359e7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad02259ecac9f0e96018ec7f55c3d6249"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#ad02259ecac9f0e96018ec7f55c3d6249">svuota_cella</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int i, int j)</td></tr>
-<tr class="separator:ad02259ecac9f0e96018ec7f55c3d6249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02c1bc534a050e0cd2c5550ce6f1b9e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a02c1bc534a050e0cd2c5550ce6f1b9e0">spostamento_soldato</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> mosse)</td></tr>
-<tr class="separator:a02c1bc534a050e0cd2c5550ce6f1b9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1ef88f7d2a49a210b4a1ef17bf9eca4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#af1ef88f7d2a49a210b4a1ef17bf9eca4">spostamento_mangiata</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> mosse)</td></tr>
-<tr class="separator:af1ef88f7d2a49a210b4a1ef17bf9eca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77505059ac539c3e75c6cc9c088901d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a77505059ac539c3e75c6cc9c088901d6">eseguiSpostamento</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> m)</td></tr>
-<tr class="separator:a77505059ac539c3e75c6cc9c088901d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ccd549fbd118d18f95171896ea732b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a34ccd549fbd118d18f95171896ea732b">isEmpty</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int i, int j)</td></tr>
+<tr class="separator:a34ccd549fbd118d18f95171896ea732b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac977acdce8e15d0dc32c056b2a85792a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#ac977acdce8e15d0dc32c056b2a85792a">promotion</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, <a class="el" href="struct_8h.html#ab42912e006e4e667cb7c40f9c07abc45">PedinaPointer</a> piece, int i, int j)</td></tr>
+<tr class="separator:ac977acdce8e15d0dc32c056b2a85792a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77b291c0660b39448b2ef56fa7e07d42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a77b291c0660b39448b2ef56fa7e07d42">step</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> *mosse, int turno)</td></tr>
+<tr class="separator:a77b291c0660b39448b2ef56fa7e07d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac690fcb3c4dd447350751014344a9114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#ac690fcb3c4dd447350751014344a9114">updateCellContent</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int i, int j)</td></tr>
+<tr class="separator:ac690fcb3c4dd447350751014344a9114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf084b734d8a2ae3a560210917b50c14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#acf084b734d8a2ae3a560210917b50c14">deleteCellContent</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int i, int j)</td></tr>
+<tr class="separator:acf084b734d8a2ae3a560210917b50c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d27bdfda928a5476b34ebbee7560e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a07d27bdfda928a5476b34ebbee7560e2">normalStep</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> mosse)</td></tr>
+<tr class="separator:a07d27bdfda928a5476b34ebbee7560e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25f4fad66ccbeffc8b5f11b591cb6c0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a25f4fad66ccbeffc8b5f11b591cb6c0f">eatStep</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> mosse)</td></tr>
+<tr class="separator:a25f4fad66ccbeffc8b5f11b591cb6c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae742a68a066c4c8d3e3de9ff8d997b37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> m)</td></tr>
+<tr class="separator:ae742a68a066c4c8d3e3de9ff8d997b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41575517ce76e9b0f17fd1b082acf929"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a41575517ce76e9b0f17fd1b082acf929">copyContent</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="struct_cella.html">Cella</a> *cella, int row, int col)</td></tr>
 <tr class="separator:a41575517ce76e9b0f17fd1b082acf929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2291ec76da5e8847772a5f4f920dda1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a2291ec76da5e8847772a5f4f920dda1f">revert</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="struct_cella.html">Cella</a> *iniziale, struct <a class="el" href="struct_cella.html">Cella</a> *mezzo, struct <a class="el" href="struct_cella.html">Cella</a> *finale, struct <a class="el" href="structmossa.html">mossa</a> <a class="el" href="structmossa.html">mossa</a>)</td></tr>
 <tr class="separator:a2291ec76da5e8847772a5f4f920dda1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae088462f6725ab271e25db0242820e4b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_cella.html">Cella</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#ae088462f6725ab271e25db0242820e4b">copyCella</a> (struct <a class="el" href="struct_cella.html">Cella</a> cella)</td></tr>
 <tr class="separator:ae088462f6725ab271e25db0242820e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f84e7bef524e75dede5ec9a28559d2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a9f84e7bef524e75dede5ec9a28559d2a">minimax</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, bool isMax, int depth, int somma)</td></tr>
-<tr class="separator:a9f84e7bef524e75dede5ec9a28559d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5dff201d10612f0b00ab318fb21fd07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#ac5dff201d10612f0b00ab318fb21fd07">minimax</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, int isMax, int depth, int somma)</td></tr>
+<tr class="separator:ac5dff201d10612f0b00ab318fb21fd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60af6d5e1e080d6c16491a68e5c44ea3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_control_8h.html#a60af6d5e1e080d6c16491a68e5c44ea3">findBestMove</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board, struct <a class="el" href="structmossa.html">mossa</a> *mosse, int mosseSize)</td></tr>
 <tr class="separator:a60af6d5e1e080d6c16491a68e5c44ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8c5858b00afea6929850f4f49359e7f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c5858b00afea6929850f4f49359e7f7">&#9670;&nbsp;</a></span>aggiorna_cella()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void aggiorna_cella </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
-          <td class="paramname"><em>board</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00103">103</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
-
-</div>
-</div>
-<a id="a78bc1ff05138154d1a9ffc04745bf5d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78bc1ff05138154d1a9ffc04745bf5d5">&#9670;&nbsp;</a></span>avanzamento()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int avanzamento </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
-          <td class="paramname"><em>board</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="structmossa.html">mossa</a> *&#160;</td>
-          <td class="paramname"><em>mosse</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>turno</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00050">50</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
-
-</div>
-</div>
-<a id="ad33ea6e40b3a39dac51d93f87d3f0855"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad33ea6e40b3a39dac51d93f87d3f0855">&#9670;&nbsp;</a></span>cella_vuota()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool cella_vuota </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
-          <td class="paramname"><em>board</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00042">42</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
-
-</div>
-</div>
 <a id="ae088462f6725ab271e25db0242820e4b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae088462f6725ab271e25db0242820e4b">&#9670;&nbsp;</a></span>copyCella()</h2>
 
@@ -235,8 +126,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Torna indietro di una mossa (per il PC). </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00194">194</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00186">186</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
@@ -277,19 +169,88 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Controlla quale mossa eseguire tra lo spostamento e la mangiata. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00174">174</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00165">165</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
-<a id="a77505059ac539c3e75c6cc9c088901d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77505059ac539c3e75c6cc9c088901d6">&#9670;&nbsp;</a></span>eseguiSpostamento()</h2>
+<a id="acf084b734d8a2ae3a560210917b50c14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf084b734d8a2ae3a560210917b50c14">&#9670;&nbsp;</a></span>deleteCellContent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void eseguiSpostamento </td>
+          <td class="memname">void deleteCellContent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rimuove la pedina più in alto (comandante) dalla cella data. </p>
+
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00083">83</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+
+</div>
+</div>
+<a id="a25f4fad66ccbeffc8b5f11b591cb6c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25f4fad66ccbeffc8b5f11b591cb6c0f">&#9670;&nbsp;</a></span>eatStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eatStep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structmossa.html">mossa</a>&#160;</td>
+          <td class="paramname"><em>mosse</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Esegue la normale mossa di spostamento. </p>
+
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00127">127</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+
+</div>
+</div>
+<a id="ae742a68a066c4c8d3e3de9ff8d997b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae742a68a066c4c8d3e3de9ff8d997b37">&#9670;&nbsp;</a></span>executeStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void executeStep </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
           <td class="paramname"><em>board</em>, </td>
@@ -307,8 +268,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Esegue la mossa di mangiata. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00166">166</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00157">157</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
@@ -343,8 +305,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00266">266</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p>Algoritmo per trovare i punteggi delle mosse. </p>
 
 </div>
 </div>
@@ -380,7 +341,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00024">24</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00008">8</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
@@ -415,8 +376,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Data la matrice e date le coordinate, restituisce il team della pedina comandante. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00038">38</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00022">22</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
@@ -451,13 +413,51 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Data la matrice e date le coordinate, restituisce l'altezza della cella. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00031">31</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00015">15</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
-<a id="a9f84e7bef524e75dede5ec9a28559d2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f84e7bef524e75dede5ec9a28559d2a">&#9670;&nbsp;</a></span>minimax()</h2>
+<a id="a34ccd549fbd118d18f95171896ea732b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ccd549fbd118d18f95171896ea732b">&#9670;&nbsp;</a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isEmpty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Data la matrice e date le coordinate, restituisce il grado della pedina in posizione più alta. </p>
+
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00026">26</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+
+</div>
+</div>
+<a id="ac5dff201d10612f0b00ab318fb21fd07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5dff201d10612f0b00ab318fb21fd07">&#9670;&nbsp;</a></span>minimax()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,7 +471,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>isMax</em>, </td>
         </tr>
         <tr>
@@ -493,19 +493,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Torna a una cella uguale a quella che voglio copiare. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00207">207</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00199">199</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
-<a id="a610698d4853f7409e30c3c4e8eaf9968"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a610698d4853f7409e30c3c4e8eaf9968">&#9670;&nbsp;</a></span>promozione()</h2>
+<a id="a07d27bdfda928a5476b34ebbee7560e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d27bdfda928a5476b34ebbee7560e2">&#9670;&nbsp;</a></span>normalStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void promozione </td>
+          <td class="memname">void normalStep </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
           <td class="paramname"><em>board</em>, </td>
@@ -513,7 +514,38 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_pedina.html">Pedina</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structmossa.html">mossa</a>&#160;</td>
+          <td class="paramname"><em>mosse</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Svuota l'intera celle dalle pedine. </p>
+
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00114">114</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+
+</div>
+</div>
+<a id="ac977acdce8e15d0dc32c056b2a85792a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac977acdce8e15d0dc32c056b2a85792a">&#9670;&nbsp;</a></span>promotion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void promotion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_8h.html#ab42912e006e4e667cb7c40f9c07abc45">PedinaPointer</a>&#160;</td>
           <td class="paramname"><em>piece</em>, </td>
         </tr>
         <tr>
@@ -535,8 +567,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Data la matrice e le coordinate, controlla se la cella è vuota </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00111">111</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00102">102</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
@@ -583,19 +616,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Copia il contenuto da una cella all'altra. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00184">184</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00175">175</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
-<a id="af1ef88f7d2a49a210b4a1ef17bf9eca4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1ef88f7d2a49a210b4a1ef17bf9eca4">&#9670;&nbsp;</a></span>spostamento_mangiata()</h2>
+<a id="a77b291c0660b39448b2ef56fa7e07d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b291c0660b39448b2ef56fa7e07d42">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void spostamento_mangiata </td>
+          <td class="memname">int step </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
           <td class="paramname"><em>board</em>, </td>
@@ -603,8 +637,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct <a class="el" href="structmossa.html">mossa</a>&#160;</td>
-          <td class="paramname"><em>mosse</em>&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structmossa.html">mossa</a> *&#160;</td>
+          <td class="paramname"><em>mosse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>turno</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -613,49 +653,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00136">136</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p>Esegue la promozione della pedina data alla funzione. </p>
 
 </div>
 </div>
-<a id="a02c1bc534a050e0cd2c5550ce6f1b9e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02c1bc534a050e0cd2c5550ce6f1b9e0">&#9670;&nbsp;</a></span>spostamento_soldato()</h2>
+<a id="ac690fcb3c4dd447350751014344a9114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac690fcb3c4dd447350751014344a9114">&#9670;&nbsp;</a></span>updateCellContent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void spostamento_soldato </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
-          <td class="paramname"><em>board</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="structmossa.html">mossa</a>&#160;</td>
-          <td class="paramname"><em>mosse</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00123">123</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
-
-</div>
-</div>
-<a id="ad02259ecac9f0e96018ec7f55c3d6249"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad02259ecac9f0e96018ec7f55c3d6249">&#9670;&nbsp;</a></span>svuota_cella()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void svuota_cella </td>
+          <td class="memname">void updateCellContent </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td>
           <td class="paramname"><em>board</em>, </td>
@@ -679,8 +688,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Trova tutte le possibili per il giocatore del turno corrente. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00092">92</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_control_8c_source.html#l00094">94</a> of file <a class="el" href="game_control_8c_source.html">gameControl.c</a>.</p>
 
 </div>
 </div>
