@@ -50,7 +50,8 @@ int startGameMenu(void){
         else if (subChoice1 == 3)
             return 3;
         else if (subChoice1 == 4) {
-            puts("Bye Bye!!!\n");
+            system(CLEAR);
+            puts("Bye Bye!!!");
             exit(0);
         }
         else
@@ -77,7 +78,8 @@ void rulesMenu(void){
         if (subChoice2 == 1)
             return;
         else if (subChoice2 == 2) {
-            puts("Bye Bye!!!\n");
+            system(CLEAR);
+            puts("Bye Bye!!!");
             exit(0);
         }
         else
@@ -106,7 +108,8 @@ void creditsMenu(void){
             return;
         }
         else if (subChoice3 == 2) {
-            puts("Bye Bye!!!\n");
+            system(CLEAR);
+            puts("Bye Bye!!!");
             exit(0);
         }
         else
@@ -136,7 +139,8 @@ void printMenu(void) {
         else if (choice == 3)
             creditsMenu();
         else if (choice == 4){
-            puts("Bye Bye!!!\n");
+            system(CLEAR);
+            puts("Bye Bye!!!");
             exit(0);
         }
         else
