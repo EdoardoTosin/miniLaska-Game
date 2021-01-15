@@ -4,6 +4,7 @@
 #include "definitions.h"
 #include "printCredits.h"
 #include "printRules.h"
+#include "startGame.h"
 
 void mainMenu(void){
   system(CLEAR);
@@ -36,11 +37,13 @@ void startGameMenu(void){
       puts("E' stato scelta l'opzione 1");
       /*
       Launch Player vs Player game mode*/
+      match(1);
     }
     else if (subChoice1 == 2) {
       puts("E' stato scelta l'opzione 2");
       /*
       Launch PC vs Player game mode*/
+      match(2);
     }
     else if (subChoice1 == 3) {
       puts("E' stato scelto di tornare al menu precedente");
@@ -121,17 +124,16 @@ void printMenu(void) {
     switch (choice) {
       case 1:
         startGameMenu();
-        break;
+        exit(0);
       case 2:
         rulesMenu();
-        break;
+        exit(0);
       case 3:
         creditsMenu();
-        break;
+        exit(0);
       case 4:
         printf("E' stato scelto di uscire");
         exit(0);
-        break;
       default:
         puts("Invalid Input!");
       }

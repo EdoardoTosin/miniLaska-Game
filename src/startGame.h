@@ -1,6 +1,6 @@
 
 
-void match(void);
+void match(int mode);
 /**
   * Inizializza e gestisce la partita.
 **/

@@ -7,7 +7,7 @@
 #include "gameControl.h"
 #include "objectCreation.h"
 
-void match(void) {
+void match(int mode) {
     int choice, index;
     int end=0, turno=1, i=0, j=0, k=0;
     char player='R';
@@ -33,12 +33,24 @@ void match(void) {
         else{
             if (turno==1) {
                 printf("TURNO GIOCATORE %c\n", player);
-                printMoves(mosse,index);
-                mossa=findBestMove(board, mosse, index);
-                printf("mossa%d\n",mossa+1);
-                executeStep(board, mosse[mossa]);
-                printBoard(board);
-                printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa+1);
+                printMoves(mosse, index);
+                if (mode==1){
+                  printf("\nInserire numero mossa: ");
+                  do{
+                      scanf/*_s*/("%d", &choice);
+                  } while (choice<1 || choice>index);
+                  executeStep(board, mosse[choice -1 ]);
+                  printBoard(board);
+                  printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
+                }
+                else{
+                  mossa=findBestMove(board, mosse, index);
+                  printf("mossa%d\n",mossa+1);
+                  executeStep(board, mosse[mossa]);
+                  printBoard(board);
+                  printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa+1);
+                }
+
                 turno=2;
                 player='G';
                 i++;
