@@ -5,7 +5,7 @@ To run this project, compile it locally using make:
 
 ```
 $ git clone https://github.com/EdoardoTosin/miniLaska-Game.git
-$ cd /miniLaska-Game/src/
+$ cd /miniLaska-Game/
 $ make
 $ ./miniLaska
 ```
