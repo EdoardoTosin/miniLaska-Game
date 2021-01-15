@@ -1,3 +1,7 @@
+void consume(void);
+/**
+  * Consuma ogni residuo dopo una scanf.
+**/
 void mainMenu(void);
 /**
   * Stampa il menù principale all'avvio del gioco.

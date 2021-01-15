@@ -6,6 +6,11 @@
 #include "printRules.h"
 #include "startGame.h"
 
+void consume(void){
+    int ch;
+    while((ch = getchar()) != '\n' || ch != '\n');
+}
+
 void mainMenu(void){
     system(CLEAR);
     puts("/====================/");
@@ -20,8 +25,9 @@ void mainMenu(void){
 
 int startGameMenu(void){
     int subChoice1 = 0;
-    system(CLEAR);
+    int ch;
     while (subChoice1 != 2) {
+        system(CLEAR);
         puts("/====================/");
         puts("   START GAME MENU    ");
         puts("/====================/");
@@ -30,36 +36,31 @@ int startGameMenu(void){
         puts("3. Return");
         puts("4. Exit");
         printf("\n");
-        scanf("%d", &subChoice1);
-        if (subChoice1 == 1) {
-            puts("E' stato scelta l'opzione 1");
+        scanf(" %d", &subChoice1);
+        if (subChoice1 == 1)
             /** Launch Player vs Player game mode
               */
             return 1;
-        }
-        else if (subChoice1 == 2) {
-            puts("E' stato scelta l'opzione 2");
+        else if (subChoice1 == 2)
             /** Launch PC vs Player game mode
               */
             return 2;
-        }
-        else if (subChoice1 == 3) {
-            puts("E' stato scelto di tornare al menu precedente");
+        else if (subChoice1 == 3)
             return 3;
-        }
         else if (subChoice1 == 4) {
             puts("E' stato scelto di uscire");
             exit(0);
         }
         else
             puts("Invalid Input");
+        while((ch = getchar()) != '\n' || ch != '\n');
     }
 }
 
 void rulesMenu(void){
     int subChoice2 = 0;
-    system(CLEAR);
     while (subChoice2 != 2) {
+        system(CLEAR);
         puts("/====================/");
         puts("         RULES        ");
         puts("/====================/");
@@ -69,11 +70,10 @@ void rulesMenu(void){
         puts("1. Return");
         puts("2. Exit");
         printf("\n");
-        scanf("%d", &subChoice2);
-        if (subChoice2 == 1) {
-            puts("E' stato scelto di tornare al menu precedente");
+        scanf(" %d", &subChoice2);
+        consume();
+        if (subChoice2 == 1)
             return;
-        }
         else if (subChoice2 == 2) {
             puts("E' stato scelto di uscire");
             exit(0);
@@ -86,8 +86,8 @@ void rulesMenu(void){
 
 void creditsMenu(void){
     int subChoice3 = 0;
-    system(CLEAR);
     while (subChoice3 != 2) {
+        system(CLEAR);
         puts("/====================/");
         puts("        CREDITS       ");
         puts("/====================/");
@@ -97,7 +97,8 @@ void creditsMenu(void){
         puts("1. Return");
         puts("2. Exit");
         printf("\n");
-        scanf("%d", &subChoice3);
+        scanf(" %d", &subChoice3);
+        consume();
         if (subChoice3 == 1) {
             puts("E' stato scelto di tornare al menu precedente");
             return;
@@ -118,6 +119,7 @@ void printMenu(void) {
         mainMenu();
         do{
             scanf(" %d", &choice);
+            consume();
         } while (choice<=0 && choice>=4);
 
         if (choice == 1){
