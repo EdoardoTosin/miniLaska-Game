@@ -85,7 +85,6 @@ void rulesMenu(void){
         else
             puts("Invalid Input");
     }
-    return;
 }
 
 void creditsMenu(void){
@@ -146,5 +145,4 @@ void printMenu(void) {
         else
             puts("Invalid Input!");
     }
-    return;
 }

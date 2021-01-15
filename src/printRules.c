@@ -17,5 +17,4 @@ void printRules(void){
     puts("- all the opponent's pieces have been captured, or");
     puts("- the opponent resigns.");
     printf("\n");
-    return;
 }

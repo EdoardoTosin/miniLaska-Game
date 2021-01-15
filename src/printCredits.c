@@ -23,5 +23,4 @@ void printCredits(void){
     puts("OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE");
     puts("SOFTWARE.");
     printf("\n");
-    return;
 }

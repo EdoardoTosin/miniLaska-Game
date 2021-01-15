@@ -16,6 +16,14 @@
 
 
 int main(void) {
+    system(CLEAR);
+    puts("/====================/");
+    puts("       miniLaska      ");
+    puts("/====================/");
+    int c, d;
+    for (c = 1; c <= 32767; c++)
+       for (d = 1; d <= 32767; d++)
+       {}
     printMenu();
     return 0;
 }
