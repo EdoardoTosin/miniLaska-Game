@@ -120,19 +120,22 @@ void printMenu(void) {
   int choice = 0;
   while (choice != 4) {
     mainMenu();
-    scanf("%d", &choice);
+    do{
+      scanf("%d", &choice);
+    } while (choice>=4 && choice<=0);
     switch (choice) {
       case 1:
         startGameMenu();
-        exit(0);
+        break;
       case 2:
         rulesMenu();
-        exit(0);
+        break;
       case 3:
         creditsMenu();
-        exit(0);
+        break;
       case 4:
         printf("E' stato scelto di uscire");
+        break;
         exit(0);
       default:
         puts("Invalid Input!");
