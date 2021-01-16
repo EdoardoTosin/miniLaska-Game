@@ -6,7 +6,7 @@ rm -rf build
 mkdir build
 cd build
 
-#Genrate build folder
+#Generate build folder
 cmake ../.
 #make, execute compile command
 make
