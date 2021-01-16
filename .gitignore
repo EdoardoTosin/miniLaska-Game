@@ -5,3 +5,4 @@ miniLaska
 *.exe
 *.o
 Doxyfile
+/build
