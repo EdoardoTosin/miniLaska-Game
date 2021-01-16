@@ -18,7 +18,7 @@ There are a few other changes in the rules, as well. Capturing is mandatory when
 * all the opponent's pieces have been captured, or
 * the opponent resigns.
 
-(Source: Wikipedia.org)
+(Source: [Wikipedia.org](https://en.wikipedia.org/wiki/Lasca))
 
 ## Setup
 To run this project, compile it locally using make and have fun.
