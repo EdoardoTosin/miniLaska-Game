@@ -20,6 +20,16 @@ void delayTimer(int timeDelay) {
   #endif
 }
 
+void printExit() {
+  system(CLEAR);
+  puts("/====================/");
+  puts("      BYE BYE!!!      ");
+  puts("/====================/");
+  delayTimer(2);
+  system(CLEAR);
+  return;
+}
+
 void consume(void) {
   int ch;
   while ((ch = getchar()) != '\n' || ch != '\n');
@@ -58,8 +68,7 @@ int startGameMenu(void) {
     else if (subChoice1 == 3)
       return 3;
     else if (subChoice1 == 4) {
-      system(CLEAR);
-      puts("Bye Bye!!!");
+      printExit();
       exit(0);
     } else
       puts("Invalid Input");
@@ -85,8 +94,7 @@ void rulesMenu(void) {
     if (subChoice2 == 1)
       return;
     else if (subChoice2 == 2) {
-      system(CLEAR);
-      puts("Bye Bye!!!");
+      printExit();
       exit(0);
     } else
       puts("Invalid Input");
@@ -112,8 +120,7 @@ void creditsMenu(void) {
       puts("E' stato scelto di tornare al menu precedente");
       return;
     } else if (subChoice3 == 2) {
-      system(CLEAR);
-      puts("Bye Bye!!!");
+      printExit();
       exit(0);
     } else
       puts("Invalid Input");
@@ -140,8 +147,7 @@ void controlMenu(void) {
     else if (choice == 3)
       creditsMenu();
     else if (choice == 4) {
-      system(CLEAR);
-      puts("Bye Bye!!!");
+      printExit();
       exit(0);
     } else
       puts("Invalid Input!");

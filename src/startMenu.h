@@ -4,6 +4,10 @@
 */
 void delayTimer(int timeDelay);
 /*!
+   \brief Print a message before exiting the program
+*/
+void printExit();
+/*!
    \brief Consume every residue from a previous scanf.
 */
 void consume(void);
