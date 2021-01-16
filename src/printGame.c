@@ -9,7 +9,7 @@
 void printBoard(BoardPointer board) {
   char white = '$';
   int i, j, k, l;
-  /*system(CLEAR);*/
+  system(CLEAR);
   printf(" ");
   for (j = 0; j < DIM; j++)
     printf("   %d", j);
