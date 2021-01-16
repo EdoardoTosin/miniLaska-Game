@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>miniLaska-Game: src/objectCreation.c File Reference</title>
+<title>miniLaska: src/objectCreation.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">miniLaska-Game
+   <div id="projectname">miniLaska
    </div>
   </td>
  </tr>
@@ -81,8 +81,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9d8e9f37a458e7059b795b56d7764e8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_creation_8c.html#a9d8e9f37a458e7059b795b56d7764e8e">createPiece</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board)</td></tr>
+<tr class="memdesc:a9d8e9f37a458e7059b795b56d7764e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create pieces in the correct cell before the start of the game.  <a href="object_creation_8c.html#a9d8e9f37a458e7059b795b56d7764e8e">More...</a><br /></td></tr>
 <tr class="separator:a9d8e9f37a458e7059b795b56d7764e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa84a2026830d09ed5522fce51fd1e416"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_creation_8c.html#aa84a2026830d09ed5522fce51fd1e416">initialize</a> ()</td></tr>
+<tr class="memdesc:aa84a2026830d09ed5522fce51fd1e416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the board.  <a href="object_creation_8c.html#aa84a2026830d09ed5522fce51fd1e416">More...</a><br /></td></tr>
 <tr class="separator:aa84a2026830d09ed5522fce51fd1e416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -102,7 +104,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="object_creation_8c_source.html#l00006">6</a> of file <a class="el" href="object_creation_8c_source.html">objectCreation.c</a>.</p>
+<p>Create pieces in the correct cell before the start of the game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">board</td><td>Struct where pieces are created. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="object_creation_8c_source.html#l00009">9</a> of file <a class="el" href="object_creation_8c_source.html">objectCreation.c</a>.</p>
 
 </div>
 </div>
@@ -120,9 +130,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Posiziona le pedine prima dell'inizio del giocatore </p>
 
-<p class="definition">Definition at line <a class="el" href="object_creation_8c_source.html#l00020">20</a> of file <a class="el" href="object_creation_8c_source.html">objectCreation.c</a>.</p>
+<p>Create the board. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">mat</td><td>Struct where pieces need to be placed before starting the game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="object_creation_8c_source.html#l00023">23</a> of file <a class="el" href="object_creation_8c_source.html">objectCreation.c</a>.</p>
 
 </div>
 </div>

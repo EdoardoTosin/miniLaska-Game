@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>miniLaska-Game: src/definitions.h Source File</title>
+<title>miniLaska: src/definitions.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">miniLaska-Game
+   <div id="projectname">miniLaska
    </div>
   </td>
  </tr>
@@ -69,25 +69,21 @@ $(function() {
 <div class="title">definitions.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="definitions_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="definitions_8h.html#ac25189db92959bff3c6c2adf4c34b50a">    1</a></span>&#160;<span class="preprocessor">#define DIM 7</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="definitions_8h.html#aed89bd71aee8be823e8a20ec4e093c1e">    2</a></span>&#160;<span class="preprocessor">#define HEIGHT 3</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="definitions_8h.html#ac6f18a9e1d00b4637522b1b469a92021">    3</a></span>&#160;<span class="preprocessor">#define ROW 65</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="definitions_8h.html#a5db49eeef5c9bb774f02996f684df238">    4</a></span>&#160;<span class="preprocessor">#define MAX_DEPTH 4</span></div>
+<a href="definitions_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="definitions_8h.html#ac25189db92959bff3c6c2adf4c34b50a">    1</a></span>&#160;<span class="preprocessor">#define DIM (7)</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="definitions_8h.html#aed89bd71aee8be823e8a20ec4e093c1e">    2</a></span>&#160;<span class="preprocessor">#define HEIGHT (3)</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="definitions_8h.html#ac6f18a9e1d00b4637522b1b469a92021">    3</a></span>&#160;<span class="preprocessor">#define ROW (65)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="definitions_8h.html#a5db49eeef5c9bb774f02996f684df238">    4</a></span>&#160;<span class="preprocessor">#define MAX_DEPTH (4)</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="definitions_8h.html#aacc3ee1a7f283f8ef65cea31f4436a95">    6</a></span>&#160;<span class="preprocessor">#define MAX(x, y) (((x) &gt; (y)) ? (x) : (y))</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="definitions_8h.html#a74e75242132eaabbc1c512488a135926">    7</a></span>&#160;<span class="preprocessor">#define MIN(x, y) (((x) &lt; (y)) ? (x) : (y))</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define CLEAR &quot;cls&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="definitions_8h.html#a611cc9b5f655508482f3d7a9751c182a">   12</a></span>&#160;<span class="preprocessor">#define CLEAR &quot;clear&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">#define false 0</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">#define true 1</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">typedef int bool;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define CLEAR &quot;cls&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="definitions_8h.html#a611cc9b5f655508482f3d7a9751c182a">   14</a></span>&#160;<span class="preprocessor">#define CLEAR &quot;clear&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

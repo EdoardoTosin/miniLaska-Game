@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['endgame_2ec_75',['endGame.c',['../end_game_8c.html',1,'']]],
-  ['endgame_2eh_76',['endGame.h',['../end_game_8h.html',1,'']]]
+  ['gamecontrol_2ec_76',['gameControl.c',['../game_control_8c.html',1,'']]],
+  ['gamecontrol_2eh_77',['gameControl.h',['../game_control_8h.html',1,'']]]
 ];

@@ -8,9 +8,9 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{object_creation_8c_a9d8e9f37a458e7059b795b56d7764e8e}{create\+Piece}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board)
-\item 
+\begin{DoxyCompactList}\small\item\em Create pieces in the correct cell before the start of the game. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} \mbox{\hyperlink{object_creation_8c_aa84a2026830d09ed5522fce51fd1e416}{initialize}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Create the board. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -22,7 +22,16 @@ void \mbox{\hyperlink{object_creation_8c_a9d8e9f37a458e7059b795b56d7764e8e}{crea
 
 
 
-Definition at line 6 of file object\+Creation.\+c.
+Create pieces in the correct cell before the start of the game. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where pieces are created. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file object\+Creation.\+c.
 
 \mbox{\Hypertarget{object_creation_8c_aa84a2026830d09ed5522fce51fd1e416}\label{object_creation_8c_aa84a2026830d09ed5522fce51fd1e416}} 
 \index{objectCreation.c@{objectCreation.c}!initialize@{initialize}}
@@ -30,7 +39,16 @@ Definition at line 6 of file object\+Creation.\+c.
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Posiziona le pedine prima dell\textquotesingle{}inizio del giocatore 
 
-Definition at line 20 of file object\+Creation.\+c.
+
+Create the board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em mat} & Struct where pieces need to be placed before starting the game. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file object\+Creation.\+c.
 

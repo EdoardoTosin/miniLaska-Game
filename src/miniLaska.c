@@ -27,9 +27,9 @@
 
 #include "startMenu.h"
 
-/**
- * Main entry point of the program.
- */
+/*!
+   \brief Main entry point of the program.
+*/
 int main(void) {
   system(CLEAR);
   puts("/====================/");

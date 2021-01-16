@@ -10,35 +10,35 @@
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}{get\+Height}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
-\item 
+\begin{DoxyCompactList}\small\item\em Count the number of pieces inside a cell. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}{get\+Team}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
-\item 
+\begin{DoxyCompactList}\small\item\em Find which team the topmost piece belongs to. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}{get\+Rank}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
-\item 
+\begin{DoxyCompactList}\small\item\em Find the rank the topmost piece has. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_control_8c_a34ccd549fbd118d18f95171896ea732b}{is\+Empty}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
-\item 
+\begin{DoxyCompactList}\small\item\em Check if the cell is empty from any piece. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_control_8c_a716fcb56407d5eb8edcfa513520dbae6}{step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, \mbox{\hyperlink{struct_8h_a6ba2a6c2c3abade2ea6f84313b829b2d}{Mossa\+Pointer}} mosse, int turno)
 \item 
 void \mbox{\hyperlink{game_control_8c_acf084b734d8a2ae3a560210917b50c14}{delete\+Cell\+Content}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
-\item 
+\begin{DoxyCompactList}\small\item\em Remove any piece from the given cell of the board. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_control_8c_ac690fcb3c4dd447350751014344a9114}{update\+Cell\+Content}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int i, int j)
-\item 
+\begin{DoxyCompactList}\small\item\em Remove the topmost piece from the given cell of the board. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_control_8c_ac977acdce8e15d0dc32c056b2a85792a}{promotion}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, \mbox{\hyperlink{struct_8h_ab42912e006e4e667cb7c40f9c07abc45}{Pedina\+Pointer}} piece, int i, int j)
-\item 
+\begin{DoxyCompactList}\small\item\em Promote the topmost piece to rank 2. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_control_8c_a07d27bdfda928a5476b34ebbee7560e2}{normal\+Step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
-\item 
+\begin{DoxyCompactList}\small\item\em Execute the normal move. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_control_8c_a25f4fad66ccbeffc8b5f11b591cb6c0f}{eat\+Step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} mosse)
-\item 
+\begin{DoxyCompactList}\small\item\em Execute the eat move. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_control_8c_ae742a68a066c4c8d3e3de9ff8d997b37}{execute\+Step}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} m)
-\item 
+\begin{DoxyCompactList}\small\item\em Check which move to do between a normal move and an eat move. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}{copy\+Content}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$cella, int row, int col)
-\item 
+\begin{DoxyCompactList}\small\item\em Copy the content from cella to board. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}{revert}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$iniziale, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$mezzo, struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$finale, struct \mbox{\hyperlink{structmossa}{mossa}} \mbox{\hyperlink{structmossa}{mossa}})
-\item 
+\begin{DoxyCompactList}\small\item\em Revert a single move (for PC). \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$ \mbox{\hyperlink{game_control_8c_ae088462f6725ab271e25db0242820e4b}{copy\+Cella}} (struct \mbox{\hyperlink{struct_cella}{Cella}} cella)
-\item 
+\begin{DoxyCompactList}\small\item\em Copy a cell from board. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_control_8c_ac5dff201d10612f0b00ab318fb21fd07}{minimax}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int is\+Max, int depth, int somma)
-\item 
+\begin{DoxyCompactList}\small\item\em Algorithm for finding move scores. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_control_8c_a074d48e7efa85e812327e38d89422c5d}{find\+Best\+Move}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, \mbox{\hyperlink{struct_8h_a6ba2a6c2c3abade2ea6f84313b829b2d}{Mossa\+Pointer}} mosse, int mosse\+Size)
 \end{DoxyCompactItemize}
 
@@ -50,9 +50,20 @@ int \mbox{\hyperlink{game_control_8c_a074d48e7efa85e812327e38d89422c5d}{find\+Be
 \doxysubsubsection{\texorpdfstring{copyCella()}{copyCella()}}
 {\footnotesize\ttfamily struct \mbox{\hyperlink{struct_cella}{Cella}}$\ast$ copy\+Cella (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_cella}{Cella}}}]{cella }\end{DoxyParamCaption})}
 
-Torna indietro di una mossa (per il PC). 
 
-Definition at line 186 of file game\+Control.\+c.
+
+Copy a cell from board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cella} & \\
+\hline
+\mbox{\texttt{ out}}  & {\em c} & Copy of the cell \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 189 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}\label{game_control_8c_a41575517ce76e9b0f17fd1b082acf929}} 
 \index{gameControl.c@{gameControl.c}!copyContent@{copyContent}}
@@ -60,9 +71,24 @@ Definition at line 186 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{copyContent()}{copyContent()}}
 {\footnotesize\ttfamily void copy\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{cella,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
 
-Controlla quale mossa eseguire tra lo spostamento e la mangiata. 
 
-Definition at line 165 of file game\+Control.\+c.
+
+Copy the content from cella to board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cella} & Struct where will be copied the cell from. \\
+\hline
+\mbox{\texttt{ in}}  & {\em row} & Coordinate of the board where to find the cell that need to be copied. \\
+\hline
+\mbox{\texttt{ in}}  & {\em col} & Coordinate of the board where to find the cell that need to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 168 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_acf084b734d8a2ae3a560210917b50c14}\label{game_control_8c_acf084b734d8a2ae3a560210917b50c14}} 
 \index{gameControl.c@{gameControl.c}!deleteCellContent@{deleteCellContent}}
@@ -70,9 +96,22 @@ Definition at line 165 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{deleteCellContent()}{deleteCellContent()}}
 {\footnotesize\ttfamily void delete\+Cell\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Rimuove la pedina più in alto (comandante) dalla cella data. 
 
-Definition at line 83 of file game\+Control.\+c.
+
+Remove any piece from the given cell of the board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Coordinate of the board row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Coordinate of the board column. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a25f4fad66ccbeffc8b5f11b591cb6c0f}\label{game_control_8c_a25f4fad66ccbeffc8b5f11b591cb6c0f}} 
 \index{gameControl.c@{gameControl.c}!eatStep@{eatStep}}
@@ -80,9 +119,20 @@ Definition at line 83 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{eatStep()}{eatStep()}}
 {\footnotesize\ttfamily void eat\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
 
-Esegue la normale mossa di spostamento. 
 
-Definition at line 127 of file game\+Control.\+c.
+
+Execute the eat move. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mosse} & Struct containing the start and end coordinates to make the move. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_ae742a68a066c4c8d3e3de9ff8d997b37}\label{game_control_8c_ae742a68a066c4c8d3e3de9ff8d997b37}} 
 \index{gameControl.c@{gameControl.c}!executeStep@{executeStep}}
@@ -90,9 +140,20 @@ Definition at line 127 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{executeStep()}{executeStep()}}
 {\footnotesize\ttfamily void execute\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{m }\end{DoxyParamCaption})}
 
-Esegue la mossa di mangiata. 
 
-Definition at line 157 of file game\+Control.\+c.
+
+Check which move to do between a normal move and an eat move. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & Struct containing the start and end coordinates of a given move. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a074d48e7efa85e812327e38d89422c5d}\label{game_control_8c_a074d48e7efa85e812327e38d89422c5d}} 
 \index{gameControl.c@{gameControl.c}!findBestMove@{findBestMove}}
@@ -102,7 +163,7 @@ Definition at line 157 of file game\+Control.\+c.
 
 
 
-Definition at line 278 of file game\+Control.\+c.
+Definition at line 279 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}\label{game_control_8c_a4c4c3f1c585afe702113f5235743c3da}} 
 \index{gameControl.c@{gameControl.c}!getHeight@{getHeight}}
@@ -112,7 +173,23 @@ Definition at line 278 of file game\+Control.\+c.
 
 
 
-Definition at line 8 of file game\+Control.\+c.
+Count the number of pieces inside a cell. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Coordinate of the board row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Coordinate of the board column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the number of pieces contained inside the cell (integer up to 3 included, 0 otherwise when there is no piece). 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}\label{game_control_8c_a8952aa8d2c9ad5caab4e06ce060c946c}} 
 \index{gameControl.c@{gameControl.c}!getRank@{getRank}}
@@ -120,9 +197,25 @@ Definition at line 8 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{getRank()}{getRank()}}
 {\footnotesize\ttfamily int get\+Rank (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Data la matrice e date le coordinate, restituisce il team della pedina comandante. 
 
-Definition at line 22 of file game\+Control.\+c.
+
+Find the rank the topmost piece has. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Coordinate of the board row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Coordinate of the board column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the number of rank of the piece (1 for a normal piece, 2 if it\textquotesingle{}s a commander). 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}\label{game_control_8c_aeb164671a70ca9cfeaae6b43956916b1}} 
 \index{gameControl.c@{gameControl.c}!getTeam@{getTeam}}
@@ -130,9 +223,25 @@ Definition at line 22 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{getTeam()}{getTeam()}}
 {\footnotesize\ttfamily int get\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Data la matrice e date le coordinate, restituisce l\textquotesingle{}altezza della cella. 
 
-Definition at line 15 of file game\+Control.\+c.
+
+Find which team the topmost piece belongs to. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Coordinate of the board row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Coordinate of the board column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the number of the player the piece belongs to (0 if there is any piece inside the cell). 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a34ccd549fbd118d18f95171896ea732b}\label{game_control_8c_a34ccd549fbd118d18f95171896ea732b}} 
 \index{gameControl.c@{gameControl.c}!isEmpty@{isEmpty}}
@@ -140,9 +249,25 @@ Definition at line 15 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
 {\footnotesize\ttfamily int is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Data la matrice e date le coordinate, restituisce il grado della pedina in posizione più alta. 
 
-Definition at line 26 of file game\+Control.\+c.
+
+Check if the cell is empty from any piece. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Coordinate of the board row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Coordinate of the board column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 if empty, 1 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_ac5dff201d10612f0b00ab318fb21fd07}\label{game_control_8c_ac5dff201d10612f0b00ab318fb21fd07}} 
 \index{gameControl.c@{gameControl.c}!minimax@{minimax}}
@@ -150,9 +275,26 @@ Definition at line 26 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{minimax()}{minimax()}}
 {\footnotesize\ttfamily int minimax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{is\+Max,  }\item[{int}]{depth,  }\item[{int}]{somma }\end{DoxyParamCaption})}
 
-Torna a una cella uguale a quella che voglio copiare. 
 
-Definition at line 199 of file game\+Control.\+c.
+
+Algorithm for finding move scores. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+Max} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em depth} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em somma} & \\
+\hline
+\mbox{\texttt{ out}}  & {\em best} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 202 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a07d27bdfda928a5476b34ebbee7560e2}\label{game_control_8c_a07d27bdfda928a5476b34ebbee7560e2}} 
 \index{gameControl.c@{gameControl.c}!normalStep@{normalStep}}
@@ -160,9 +302,20 @@ Definition at line 199 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{normalStep()}{normalStep()}}
 {\footnotesize\ttfamily void normal\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mosse }\end{DoxyParamCaption})}
 
-Svuota l\textquotesingle{}intera celle dalle pedine. 
 
-Definition at line 114 of file game\+Control.\+c.
+
+Execute the normal move. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mosse} & Struct containing the start and end coordinates to make the move. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_ac977acdce8e15d0dc32c056b2a85792a}\label{game_control_8c_ac977acdce8e15d0dc32c056b2a85792a}} 
 \index{gameControl.c@{gameControl.c}!promotion@{promotion}}
@@ -170,9 +323,24 @@ Definition at line 114 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{promotion()}{promotion()}}
 {\footnotesize\ttfamily void promotion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{\mbox{\hyperlink{struct_8h_ab42912e006e4e667cb7c40f9c07abc45}{Pedina\+Pointer}}}]{piece,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Data la matrice e le coordinate, controlla se la cella è vuota 
 
-Definition at line 102 of file game\+Control.\+c.
+
+Promote the topmost piece to rank 2. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em piece} & Piece that need to be promoted. \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Coordinate of the board row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Coordinate of the board column. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}\label{game_control_8c_a2291ec76da5e8847772a5f4f920dda1f}} 
 \index{gameControl.c@{gameControl.c}!revert@{revert}}
@@ -180,9 +348,26 @@ Definition at line 102 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{revert()}{revert()}}
 {\footnotesize\ttfamily void revert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{iniziale,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{mezzo,  }\item[{struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$}]{finale,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}}}]{mossa }\end{DoxyParamCaption})}
 
-Copia il contenuto da una cella all\textquotesingle{}altra. 
 
-Definition at line 175 of file game\+Control.\+c.
+
+Revert a single move (for PC). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em iniziale} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em mezzo} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em finale} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em mossa} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_a716fcb56407d5eb8edcfa513520dbae6}\label{game_control_8c_a716fcb56407d5eb8edcfa513520dbae6}} 
 \index{gameControl.c@{gameControl.c}!step@{step}}
@@ -192,7 +377,7 @@ Definition at line 175 of file game\+Control.\+c.
 
 
 
-Definition at line 34 of file game\+Control.\+c.
+Definition at line 39 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8c_ac690fcb3c4dd447350751014344a9114}\label{game_control_8c_ac690fcb3c4dd447350751014344a9114}} 
 \index{gameControl.c@{gameControl.c}!updateCellContent@{updateCellContent}}
@@ -200,7 +385,20 @@ Definition at line 34 of file game\+Control.\+c.
 \doxysubsubsection{\texorpdfstring{updateCellContent()}{updateCellContent()}}
 {\footnotesize\ttfamily void update\+Cell\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Trova tutte le possibili per il giocatore del turno corrente. 
 
-Definition at line 94 of file game\+Control.\+c.
+
+Remove the topmost piece from the given cell of the board. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em board} & Struct where all pieces are located. \\
+\hline
+\mbox{\texttt{ in}}  & {\em i} & Coordinate of the board row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Coordinate of the board column. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file game\+Control.\+c.
 

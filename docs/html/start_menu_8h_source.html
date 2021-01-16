@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>miniLaska-Game: src/startMenu.h Source File</title>
+<title>miniLaska: src/startMenu.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">miniLaska-Game
+   <div id="projectname">miniLaska
    </div>
   </td>
  </tr>
@@ -69,16 +69,21 @@ $(function() {
 <div class="title">startMenu.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="start_menu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a29c2128f12316ca1ce77fd1d686f6ec7">mainMenu</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a019c53d8b2e1d8872a77d2c180261666">startGameMenu</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a37a45f403b3fe5b3d89e1862eb328e5b">rulesMenu</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a935aaea0065361102a61da573b1e3298">creditsMenu</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#ad0d0f0ce9c3289b4bd6ecfae02494b2f">printMenu</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="astart_menu_8h_html_a019c53d8b2e1d8872a77d2c180261666"><div class="ttname"><a href="start_menu_8h.html#a019c53d8b2e1d8872a77d2c180261666">startGameMenu</a></div><div class="ttdeci">void startGameMenu(void)</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00021">startMenu.c:21</a></div></div>
-<div class="ttc" id="astart_menu_8h_html_a29c2128f12316ca1ce77fd1d686f6ec7"><div class="ttname"><a href="start_menu_8h.html#a29c2128f12316ca1ce77fd1d686f6ec7">mainMenu</a></div><div class="ttdeci">void mainMenu(void)</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00008">startMenu.c:8</a></div></div>
-<div class="ttc" id="astart_menu_8h_html_a37a45f403b3fe5b3d89e1862eb328e5b"><div class="ttname"><a href="start_menu_8h.html#a37a45f403b3fe5b3d89e1862eb328e5b">rulesMenu</a></div><div class="ttdeci">void rulesMenu(void)</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00060">startMenu.c:60</a></div></div>
-<div class="ttc" id="astart_menu_8h_html_a935aaea0065361102a61da573b1e3298"><div class="ttname"><a href="start_menu_8h.html#a935aaea0065361102a61da573b1e3298">creditsMenu</a></div><div class="ttdeci">void creditsMenu(void)</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00088">startMenu.c:88</a></div></div>
-<div class="ttc" id="astart_menu_8h_html_ad0d0f0ce9c3289b4bd6ecfae02494b2f"><div class="ttname"><a href="start_menu_8h.html#ad0d0f0ce9c3289b4bd6ecfae02494b2f">printMenu</a></div><div class="ttdeci">void printMenu(void)</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00116">startMenu.c:116</a></div></div>
+<a href="start_menu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a6dadda41bf834bc919f456bf4bf7601e">delayTimer</a>(<span class="keywordtype">int</span> timeDelay);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#aea14db07f0abfbc611d17cef0301806c">consume</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#af1d8664aa0ba51a5705c94e24a4f923d">printMainMenu</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> <a class="code" href="start_menu_8h.html#a9ea1a4123d355954dca09ae4760c07d7">startGameMenu</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a37a45f403b3fe5b3d89e1862eb328e5b">rulesMenu</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a935aaea0065361102a61da573b1e3298">creditsMenu</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_menu_8h.html#a1eb51dc3afa533c5d9ecf5641e7ae7a8">controlMenu</a>(<span class="keywordtype">void</span>);</div>
+<div class="ttc" id="astart_menu_8h_html_a1eb51dc3afa533c5d9ecf5641e7ae7a8"><div class="ttname"><a href="start_menu_8h.html#a1eb51dc3afa533c5d9ecf5641e7ae7a8">controlMenu</a></div><div class="ttdeci">void controlMenu(void)</div><div class="ttdoc">Check the choice selected from the the main menu.</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00123">startMenu.c:123</a></div></div>
+<div class="ttc" id="astart_menu_8h_html_a37a45f403b3fe5b3d89e1862eb328e5b"><div class="ttname"><a href="start_menu_8h.html#a37a45f403b3fe5b3d89e1862eb328e5b">rulesMenu</a></div><div class="ttdeci">void rulesMenu(void)</div><div class="ttdoc">Print the rule menu page.</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00070">startMenu.c:70</a></div></div>
+<div class="ttc" id="astart_menu_8h_html_a6dadda41bf834bc919f456bf4bf7601e"><div class="ttname"><a href="start_menu_8h.html#a6dadda41bf834bc919f456bf4bf7601e">delayTimer</a></div><div class="ttdeci">void delayTimer(int timeDelay)</div><div class="ttdoc">Call the system sleep with closs-platform compatibility.</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00015">startMenu.c:15</a></div></div>
+<div class="ttc" id="astart_menu_8h_html_a935aaea0065361102a61da573b1e3298"><div class="ttname"><a href="start_menu_8h.html#a935aaea0065361102a61da573b1e3298">creditsMenu</a></div><div class="ttdeci">void creditsMenu(void)</div><div class="ttdoc">Print the credits menu page.</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00096">startMenu.c:96</a></div></div>
+<div class="ttc" id="astart_menu_8h_html_a9ea1a4123d355954dca09ae4760c07d7"><div class="ttname"><a href="start_menu_8h.html#a9ea1a4123d355954dca09ae4760c07d7">startGameMenu</a></div><div class="ttdeci">int startGameMenu(void)</div><div class="ttdoc">Print the match mode menu to select beetween PC vs Player or Player vs Player.</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00040">startMenu.c:40</a></div></div>
+<div class="ttc" id="astart_menu_8h_html_aea14db07f0abfbc611d17cef0301806c"><div class="ttname"><a href="start_menu_8h.html#aea14db07f0abfbc611d17cef0301806c">consume</a></div><div class="ttdeci">void consume(void)</div><div class="ttdoc">Consume every residue from a previous scanf.</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00023">startMenu.c:23</a></div></div>
+<div class="ttc" id="astart_menu_8h_html_af1d8664aa0ba51a5705c94e24a4f923d"><div class="ttname"><a href="start_menu_8h.html#af1d8664aa0ba51a5705c94e24a4f923d">printMainMenu</a></div><div class="ttdeci">void printMainMenu(void)</div><div class="ttdoc">Print the main menu when launching the game.</div><div class="ttdef"><b>Definition:</b> <a href="start_menu_8c_source.html#l00028">startMenu.c:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

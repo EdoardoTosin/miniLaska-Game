@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>miniLaska-Game: src/printGame.c File Reference</title>
+<title>miniLaska: src/printGame.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">miniLaska-Game
+   <div id="projectname">miniLaska
    </div>
   </td>
  </tr>
@@ -73,6 +73,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="print_game_8h_source.html">printGame.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="struct_8h_source.html">struct.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="definitions_8h_source.html">definitions.h</a>&quot;</code><br />
 </div>
@@ -81,8 +82,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af30559ebffecd62fa9cfd25f74421e64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a> (<a class="el" href="struct_8h.html#abba586de97a173dea16a1cc5f248ff91">BoardPointer</a> board)</td></tr>
+<tr class="memdesc:af30559ebffecd62fa9cfd25f74421e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print board and the pieces contained in the cells.  <a href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">More...</a><br /></td></tr>
 <tr class="separator:af30559ebffecd62fa9cfd25f74421e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fa5609969245fe96a71aaf4cd0283f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">printMoves</a> (<a class="el" href="struct_8h.html#a6ba2a6c2c3abade2ea6f84313b829b2d">MossaPointer</a> mosse, int dim)</td></tr>
+<tr class="memdesc:a4fa5609969245fe96a71aaf4cd0283f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a list of the possible moves the player of that turn can do.  <a href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">More...</a><br /></td></tr>
 <tr class="separator:a4fa5609969245fe96a71aaf4cd0283f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -102,7 +105,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="print_game_8c_source.html#l00006">6</a> of file <a class="el" href="print_game_8c_source.html">printGame.c</a>.</p>
+<p>Print board and the pieces contained in the cells. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">board</td><td>Struct where all pieces are located. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="print_game_8c_source.html#l00011">11</a> of file <a class="el" href="print_game_8c_source.html">printGame.c</a>.</p>
 
 </div>
 </div>
@@ -132,7 +143,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="print_game_8c_source.html#l00042">42</a> of file <a class="el" href="print_game_8c_source.html">printGame.c</a>.</p>
+<p>Print a list of the possible moves the player of that turn can do. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mosse</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dim</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="print_game_8c_source.html#l00046">46</a> of file <a class="el" href="print_game_8c_source.html">printGame.c</a>.</p>
 
 </div>
 </div>
