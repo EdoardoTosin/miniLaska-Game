@@ -1,26 +1,30 @@
+/*!
+   \brief Call the system sleep with closs-platform compatibility.
+   @param timeDelay Time of the sleep.
+*/
 void delayTimer(int timeDelay);
-
+/*!
+   \brief Consume every residue from a previous scanf.
+*/
 void consume(void);
-/**
-  * Consuma ogni residuo dopo una scanf.
-**/
-void mainMenu(void);
-/**
-  * Stampa il menù principale all'avvio del gioco.
-**/
+/*!
+   \brief Print the main menu when launching the game.
+*/
+void printMainMenu(void);
+/*!
+   \brief Print the match mode menu to select beetween PC vs Player or Player vs Player.
+   \return Return the number selected (1, 2 or 3).
+*/
 int startGameMenu(void);
-/**
-  * Stampa il menù della selezione della modalità di gioco.
-**/
+/*!
+   \brief Print the rule menu page.
+*/
 void rulesMenu(void);
-/**
-  * Chiama la funzione di stampa del menu delle regole.
-**/
+/*!
+   \brief Print the credits menu page.
+*/
 void creditsMenu(void);
-/**
-  * Chiala la funzione di stampa dei crediti.
-**/
-void printMenu(void);
-/**
-  * Controlla la scelta del menu selezionato.
-**/
+/*!
+   \brief Check the choice selected from the the main menu.
+*/
+void controlMenu(void);

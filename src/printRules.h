@@ -1,6 +1,4 @@
-
-
+/*!
+   \brief print the rules' page
+*/
 void printRules(void);
-/**
-  * Stampa le regole del gioco.
-**/

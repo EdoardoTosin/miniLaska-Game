@@ -25,7 +25,7 @@ void consume(void) {
   while ((ch = getchar()) != '\n' || ch != '\n');
 }
 
-void mainMenu(void) {
+void printMainMenu(void) {
   system(CLEAR);
   puts("/====================/");
   puts("       MAIN MENU      ");
@@ -126,11 +126,11 @@ void creditsMenu(void) {
   }
 }
 
-void printMenu(void) {
+void controlMenu(void) {
   int choice = 0;
   int res = 0;
   while (choice != 4) {
-    mainMenu();
+    printMainMenu();
     do {
       scanf(" %d", & choice);
       consume();

@@ -36,6 +36,6 @@ int main(void) {
   puts("       miniLaska      ");
   puts("/====================/");
   delayTimer(2);
-  printMenu();
+  controlMenu();
   return 0;
 }
