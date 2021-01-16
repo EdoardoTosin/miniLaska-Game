@@ -26,6 +26,8 @@ To run this project, compile it locally using make and have fun.
 ### For Windows users:
 * Install Mingw-w64 via the [SourceForge](https://sourceforge.net/projects/mingw-w64/) website
 * Add the path to your Mingw-w64 bin folder to the Windows PATH environment variable
+* Install [Chocolatey](https://chocolatey.org/install) package manager and then install make with the command
+  ```choco install make```
 * Download the project from [here](https://github.com/EdoardoTosin/miniLaska-Game/archive/main.zip) or via ``git``
 * Run the following commands:
 
