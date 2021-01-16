@@ -1,16 +1,13 @@
 all: miniLaska clean
 
-miniLaska: src/miniLaska.o src/endGame.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o
-	cc src/miniLaska.o src/endGame.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o -o miniLaska
+miniLaska: src/miniLaska.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o
+	cc src/miniLaska.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o -o miniLaska
 
 objectCreation.o: objectCreation.c objectCreation.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -g -lm objectCreation.c
 
 printGame.o: printGame.c printGame.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -g -lm printGame.c
-
-endGame.o: endGame.c endGame.h
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -g -lm endGame.c
 
 gameControl.o: gameControl.c gameControl.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -g -lm gameControl.c

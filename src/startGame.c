@@ -14,6 +14,8 @@
 
 #include "objectCreation.h"
 
+#include "startMenu.h"
+
 void match(int mode) {
   int choice, index;
   int end = 0, turno = 1, i = 0, j = 0, k = 0;
@@ -33,9 +35,10 @@ void match(int mode) {
     if (index == 0) {
       end = 1;
       if (turno == 1)
-        printf("Ha vinto il giocatore G in %d mosse\n\n", i);
+        printf("Player G wins the game with %d move!!!\n\n", i);
       else
-        printf("Ha vinto il giocatore R in %d mosse\n\n", j);
+        printf("Player R wins the game with %d move!!!\n\n", j);
+      delayTimer(5);
     } else {
       if (turno == 1) {
         printf("TURNO GIOCATORE %c\n", player);
