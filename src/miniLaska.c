@@ -33,13 +33,13 @@
  * Main entry point of the program.
  */
 int main(void) {
-  int c, d;
+  int i, j;
+  int timeDelay = 5;
   system(CLEAR);
   puts("/====================/");
   puts("       miniLaska      ");
   puts("/====================/");
-  for (c = 1; c <= 32767; c++)
-    for (d = 1; d <= 32767; d++) {}
+  delayTimer(timeDelay);
   printMenu();
   return 0;
 }

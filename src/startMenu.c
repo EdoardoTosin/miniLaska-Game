@@ -12,6 +12,14 @@
 
 #include "startGame.h"
 
+void delayTimer(int timeDelay) {
+  #ifdef _WIN32
+  Sleep(timeDelay);
+  #else
+  sleep(timeDelay);
+  #endif
+}
+
 void consume(void) {
   int ch;
   while ((ch = getchar()) != '\n' || ch != '\n');
@@ -130,10 +138,9 @@ void printMenu(void) {
 
     if (choice == 1) {
       res = startGameMenu();
-      if (res == 1)
-        match(1);
-      else if (res == 2)
-        match(2);
+      if (res == 1 || res == 2){
+        match(res);
+      }
     } else if (choice == 2)
       rulesMenu();
     else if (choice == 3)

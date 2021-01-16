@@ -7,7 +7,16 @@
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
 #ifdef _WIN32
+#include <Windows.h>
 #define CLEAR "cls"
 #else
+#include <unistd.h>
 #define CLEAR "clear"
 #endif
+/*
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+*/

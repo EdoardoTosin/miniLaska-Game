@@ -1,3 +1,5 @@
+void delayTimer(int timeDelay);
+
 void consume(void);
 /**
   * Consuma ogni residuo dopo una scanf.
