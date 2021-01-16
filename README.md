@@ -24,9 +24,9 @@ There are a few other changes in the rules, as well. Capturing is mandatory when
 To run this project, compile it locally using make and have fun.
 
 ### For Windows users:
-* Install Mingw-w64 via the SourceForge website
+* Install Mingw-w64 via the [SourceForge](https://sourceforge.net/projects/mingw-w64/) website
 * Add the path to your Mingw-w64 bin folder to the Windows PATH environment variable
-* Download the code via git command or directly with a browser
+* Download the code via git command or [here](https://github.com/EdoardoTosin/miniLaska-Game/archive/main.zip)
 * Run the following commands:
 
   ```
