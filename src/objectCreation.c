@@ -6,6 +6,8 @@
 
 #include "definitions.h"
 
+#include <stdio.h>
+
 void createPiece(BoardPointer board) {
   int i, j;
   for (i = 0; i < DIM; i++) {
@@ -23,10 +25,22 @@ void createPiece(BoardPointer board) {
 BoardPointer initialize() {
   int i, j, h;
   BoardPointer mat = (BoardPointer) malloc(DIM * sizeof(struct Cella * ));
+    if(mat==NULL) {
+        printf("Error! memory not allocated.");
+        exit(EXIT_FAILURE);
+    }
   for (i = 0; i < DIM; i++) {
     mat[i] = (struct Cella * ) malloc(DIM * sizeof(struct Cella));
+      if(mat[i]==NULL) {
+          printf("Error! memory not allocated.");
+          exit(EXIT_FAILURE);
+      }
     for (j = 0; j < DIM; j++) {
       mat[i][j].piece = (PedinaPointer) malloc(HEIGHT * sizeof(struct Pedina));
+        if(mat[i][j].piece==NULL) {
+            printf("Error! memory not allocated.");
+            exit(EXIT_FAILURE);
+        }
       for (h = 0; h < HEIGHT; h++) {
         mat[i][j].piece[h].team = 0;
         mat[i][j].piece[h].p = '-';
