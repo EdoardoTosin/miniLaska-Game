@@ -16,11 +16,11 @@ G |g  |$$$|g  |$$$|g  |$$$|g  |
   +---+---+---+---+---+---+---+
 
 TURNO GIOCATORE R
-Choice n.1 C 0 - D 1
-Choice n.2 C 2 - D 1
-Choice n.3 C 2 - D 3
-Choice n.4 C 4 - D 3
-Choice n.5 C 4 - D 5
-Choice n.6 C 6 - D 5
+Choice n.1: C 0 -> D 1
+Choice n.2: C 2 -> D 1
+Choice n.3: C 2 -> D 3
+Choice n.4: C 4 -> D 3
+Choice n.5: C 4 -> D 5
+Choice n.6: C 6 -> D 5
 
 Insert number:
