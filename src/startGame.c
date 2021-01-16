@@ -34,44 +34,48 @@ void match(int mode) {
     index = step(board, mosse, turno);
     if (index == 0) {
       end = 1;
-      if (turno == 1)
-        printf("Player G wins the game with %d move!!!\n\n", i);
+      if (turno == 1){
+        if (mode == 1)
+          printf("Player G wins the game with %d moves!!!\n\n", i);
+        else
+          printf("PC wins the game with %d moves!!!\n\n", i);
+      }
       else
-        printf("Player R wins the game with %d move!!!\n\n", j);
+        printf("Player R wins the game with %d moves!!!\n\n", j);
       delayTimer(5);
     } else {
       if (turno == 1) {
-        printf("TURNO GIOCATORE %c\n", player);
+        printf("TURN PLAYER %c\n", player);
         printMoves(mosse, index);
         if (mode == 1) {
-          printf("\nInserire numero mossa: ");
+          printf("\nInsert number: ");
           do {
             scanf /*_s*/("%d", & choice);
           } while (choice < 1 || choice > index);
           executeStep(board, mosse[choice - 1]);
           printBoard(board);
-          printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
+          printf("Player %c made the following move %d\n", player, choice);
         } else {
           mossa = findBestMove(board, mosse, index);
           printf("mossa%d\n", mossa + 1);
           executeStep(board, mosse[mossa]);
           printBoard(board);
-          printf("Il giocatore %c ha eseguito la mossa %d\n", player, mossa + 1);
+          printf("PC %c made the move number %d\n", player, mossa + 1);
         }
 
         turno = 2;
         player = 'G';
         i++;
       } else {
-        printf("TURNO GIOCATORE %c\n", player);
+        printf("TURN PLAYER %c\n", player);
         printMoves(mosse, index);
-        printf("\nInserire numero mossa: ");
+        printf("\nInsert number: ");
         do {
           scanf /*_s*/("%d", & choice);
         } while (choice < 1 || choice > index);
         executeStep(board, mosse[choice - 1]);
         printBoard(board);
-        printf("Il giocatore %c ha eseguito la mossa %d\n", player, choice);
+        printf("Player %c made the move number %d\n", player, choice);
         turno = 1;
         player = 'R';
         j++;
