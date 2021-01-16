@@ -281,11 +281,11 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
     int bestVal = INT_MIN;
     int bestMove = 0;
     int mangiata;
-    struct Cella*iniziale;
-    struct Cella*finale;
+    struct Cella* iniziale;
+    struct Cella* finale;
     int imezzo;
     int jmezzo;
-    struct Cella*mezzo;
+    struct Cella* mezzo;
     for (i=0; i<mosseSize; i++) {
         mangiata = abs(mosse->endPos->row-mosse->startPos->row)!=1;
         iniziale = copyCella(board[mosse[i].startPos->row][mosse[i].startPos->col]);
@@ -295,9 +295,9 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
         mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
         executeStep(board, mosse[i]);
         if (mosseSize==1){
-            moveVal= mangiata? 1:0;
+            moveVal = mangiata ? 1 : 0;
         }else{
-            moveVal = minimax(board, 0,0,mangiata ? 1 : 0);
+            moveVal = minimax(board, 0, 0, mangiata ? 1 : 0);
         }
         if (moveVal > bestVal) {
             bestMove = i;
