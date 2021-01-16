@@ -19,7 +19,7 @@ int getTeam(BoardPointer board, int i, int j) {
         return board[i][j].piece[getHeight(board, i, j) - 1].team;
 }
 
-int getRank(BoardPointer board, int i,int j) {
+int getRank(BoardPointer board, int i, int j) {
     return board[i][j].piece[getHeight(board, i, j)-1].rank;
 }
 
@@ -173,13 +173,13 @@ void copyContent(BoardPointer board, struct Cella *cella, int row, int col) {
 }
 
 void revert(BoardPointer board, struct Cella* iniziale, struct Cella*mezzo, struct Cella*finale, struct mossa mossa) {
-    int i,j;
+    int i, j;
     copyContent(board,iniziale,mossa.startPos->row,mossa.startPos->col);
     copyContent(board,finale,mossa.endPos->row,mossa.endPos->col);
     if(mezzo != NULL) {
         i=(mossa.startPos->row+mossa.endPos->row)/2;
         j=(mossa.startPos->col+mossa.endPos->col)/2;
-        copyContent(board,mezzo,i,j);
+        copyContent(board, mezzo, i, j);
     }
 }
 
@@ -187,7 +187,7 @@ struct Cella* copyCella(struct Cella cella) {
     int i;
     struct Cella * c = (struct Cella*) malloc(sizeof(struct Cella));
     c->piece = (PedinaPointer) malloc(HEIGHT*sizeof(struct Pedina));
-    for(i=0;i<HEIGHT;i++) {
+    for(i=0; i<HEIGHT; i++) {
         c->piece[i].team = cella.piece[i].team;
         c->piece[i].p = cella.piece[i].p;
         c->piece[i].rank = cella.piece[i].rank;
@@ -234,7 +234,7 @@ int minimax(BoardPointer board, int isMax, int depth, int somma) {
             mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
             executeStep(board,mosse[i]);
             best = MAX(best, minimax(board, !isMax,depth + 1, somma + (mangiata ? 1 : 0)) );
-            revert(board,iniziale,mezzo,finale,mosse[i]);
+            revert(board, iniziale, mezzo, finale, mosse[i]);
             free(iniziale);
             free(finale);
             if(mezzo != NULL) {
@@ -259,7 +259,7 @@ int minimax(BoardPointer board, int isMax, int depth, int somma) {
             mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
             executeStep(board, mosse[i]);
             best = MIN(best, minimax(board, !isMax, depth+1, somma + (mangiata ? -1 : 0)));
-            revert(board,iniziale,mezzo,finale,mosse[i]);
+            revert(board, iniziale, mezzo, finale, mosse[i]);
             free(iniziale);
             free(finale);
             if(mezzo != NULL) {
@@ -293,7 +293,7 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
         imezzo=(mosse[i].startPos->row+mosse[i].endPos->row)/2;
         jmezzo=(mosse[i].startPos->col+mosse[i].endPos->col)/2;
         mezzo = mangiata ? copyCella(board[imezzo][jmezzo]): NULL;
-        executeStep(board,mosse[i]);
+        executeStep(board, mosse[i]);
         if (mosseSize==1){
             moveVal= mangiata? 1:0;
         }else{
@@ -304,7 +304,7 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
             bestVal=moveVal;
         }
 
-        revert(board,iniziale,mezzo,finale,mosse[i]);
+        revert(board, iniziale, mezzo, finale, mosse[i]);
         free(iniziale);
         free(finale);
         if(mezzo != NULL) {

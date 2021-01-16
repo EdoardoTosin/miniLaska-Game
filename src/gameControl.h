@@ -16,7 +16,7 @@ int getHeight(BoardPointer board, int i, int j);
    @param[in] j Coordinate of the board column.
    \return Return the number of the player the piece belongs to (0 if there is any piece inside the cell).
 */
-int getTeam(BoardPointer board, int i,int j);
+int getTeam(BoardPointer board, int i, int j);
 /*!
    \brief Find the rank the topmost piece has.
    @param[in] board Struct where all pieces are located.
@@ -24,7 +24,7 @@ int getTeam(BoardPointer board, int i,int j);
    @param[in] j Coordinate of the board column.
    \return Return the number of rank of the piece (1 for a normal piece, 2 if it's a commander).
 */
-int getRank(BoardPointer board, int i,int j);
+int getRank(BoardPointer board, int i, int j);
 /*!
    \brief Check if the cell is empty from any piece.
    @param[in] board Struct where all pieces are located.
