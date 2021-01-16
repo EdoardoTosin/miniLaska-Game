@@ -1,11 +1,12 @@
 #include "struct.h"
-#include <stdbool.h>
 
+/*!
+   \brief Create piece in the correct cell before the start of the game.
+   @param[in] board Struct where pieces need to be located.
+*/
 void createPiece(BoardPointer board) ;
-/**
-  * Posiziona le pedine prima dell'inizio del giocatore
-**/
+/*!
+   \brief Create piece in the correct cell before the start of the game.
+   @param[out] mat Struct where pieces need to be located.
+*/
 BoardPointer initialize();
-/**
-  * Crea la tavola di gioco e inizializza tutto a 0
-**/
