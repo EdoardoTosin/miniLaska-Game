@@ -57,7 +57,7 @@ void match(int mode) {
           printf("Player %c made the following move %d\n", player, choice);
         } else {
           mossa = findBestMove(board, mosse, index);
-          printf("mossa%d\n", mossa + 1);
+          printf("Move%d\n", mossa + 1);
           executeStep(board, mosse[mossa]);
           printBoard(board);
           printf("PC %c made the move number %d\n", player, mossa + 1);
