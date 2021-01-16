@@ -12,18 +12,18 @@ int getHeight(BoardPointer board, int i, int j) {
         return board[i][j].height;
 }
 
-int getTeam(BoardPointer board,int i, int j) {
+int getTeam(BoardPointer board, int i, int j) {
     if (board[i][j].height==0)
         return 0;
     else
         return board[i][j].piece[getHeight(board, i, j) - 1].team;
 }
 
-int getRank(BoardPointer board,int i,int j) {
+int getRank(BoardPointer board, int i,int j) {
     return board[i][j].piece[getHeight(board, i, j)-1].rank;
 }
 
-int isEmpty(BoardPointer board,int i, int j) {
+int isEmpty(BoardPointer board, int i, int j) {
     int k;
     for (k=0; k<HEIGHT; k++)
         if (board[i][j].piece[k].team!=0)
