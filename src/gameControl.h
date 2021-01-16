@@ -36,11 +36,11 @@ int isEmpty(BoardPointer board, int i, int j);
 /*!
    \brief Find all possible moves of the current player.
    @param[in] board Struct where all pieces are located.
-   @param[in] *mosse Struct to store the start and end coordinates for a given move.
+   @param[in] mosse Struct to store the start and end coordinates for a given move.
    @param[in] turno Value containing the player of the current turn.
    \return Return the number of moves that have been found.
 */
-int step(BoardPointer board, struct mossa *mosse, int turno);
+int step(BoardPointer board, struct mossa* mosse, int turno);
 /*!
    \brief Remove any piece from the given cell of the board.
    @param[in] board Struct where all pieces are located.
@@ -81,26 +81,43 @@ void eatStep(BoardPointer board, struct mossa mosse);
    @param[in] m Struct containing the start and end coordinates of a given move.
 */
 void executeStep(BoardPointer board, struct mossa m);
-/**
-  * Controlla quale mossa eseguire tra lo spostamento e la mangiata.
-**/
-void copyContent(BoardPointer board, struct Cella *cella, int row, int col);
-/**
-  * Copia il contenuto da una cella all'altra.
-**/
+/*!
+   \brief Copy the content from cella to board.
+   @param[in] board Struct where all pieces are located.
+   @param[in] cella Struct where will be copied the cell from.
+   @param[in] row Coordinate of the board where to find the cell that need to be copied.
+   @param[in] col Coordinate of the board where to find the cell that need to be copied.
+*/
+void copyContent(BoardPointer board, struct Cella* cella, int row, int col);
+/*!
+   \brief Revert a single move (for PC).
+   @param[in] board Struct where all pieces are located.
+   @param[in] iniziale
+   @param[in] mezzo
+   @param[in] finale
+   @param[in] mossa
+*/
 void revert(BoardPointer board, struct Cella* iniziale, struct Cella* mezzo, struct Cella* finale, struct mossa mossa);
-/**
-  * Torna indietro di una mossa (per il PC).
-**/
+/*!
+   \brief Copy a cell from board
+   @param[in] cella
+   @param[out] c Copy of the cell
+*/
 struct Cella* copyCella(struct Cella cella);
-/**
-  * Torna a una cella uguale a quella che voglio copiare.
-**/
+/*!
+   \brief Algorithm for finding move scores
+   @param[in] board Struct where all pieces are located.
+   @param[in] isMax
+   @param[in] depth
+   @param[in] somma
+   @param[out] best
+*/
 int minimax(BoardPointer board, int isMax, int depth, int somma);
-/**
-  * Algoritmo per trovare i punteggi delle mosse.
-**/
+/*!
+   \brief Find the best move based on the score.
+   @param[in] board Struct where all pieces are located.
+   @param[in] mosse
+   @param[in] mosseSize
+   @param[out] bestMove
+*/
 int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize);
-/**
-  * Trova la mossa migliore in base al punteggio.
-**/
