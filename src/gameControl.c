@@ -6,8 +6,6 @@
 
 #include <stdio.h>
 
-#include "struct.h"
-
 #include "definitions.h"
 
 int getHeight(BoardPointer board, int i, int j) {

@@ -18,7 +18,7 @@
 
 void match(int mode) {
   int choice, index;
-  int end = 0, turno = 1, i = 0, j = 0, k = 0;
+  int end = 0, turno = 1, i = 0, j = 0, k;
   char player = 'R';
   int mossa;
   MossaPointer mosse;

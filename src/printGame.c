@@ -4,8 +4,6 @@
 
 #include <stdlib.h>
 
-#include "struct.h"
-
 #include "definitions.h"
 
 void printBoard(BoardPointer board) {

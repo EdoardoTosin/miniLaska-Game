@@ -74,6 +74,7 @@ int startGameMenu(void) {
       puts("Invalid Input");
     while ((ch = getchar()) != '\n' || ch != '\n');
   }
+  return 3;
 }
 
 void rulesMenu(void) {
@@ -129,7 +130,7 @@ void creditsMenu(void) {
 
 void controlMenu(void) {
   int choice = 0;
-  int res = 0;
+  int res;
   while (choice != 4) {
     printMainMenu();
     do {

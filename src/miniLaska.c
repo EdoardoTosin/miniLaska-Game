@@ -5,13 +5,7 @@
 
 #include <stdlib.h>
 
-#include <math.h>
-
-#include <limits.h>
-
 #include "definitions.h"
-
-#include "struct.h"
 
 #include "objectCreation.h"
 
