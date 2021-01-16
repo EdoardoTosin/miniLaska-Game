@@ -189,7 +189,15 @@ void revert(BoardPointer board, struct Cella * iniziale, struct Cella * mezzo, s
 struct Cella * copyCella(struct Cella cella) {
   int i;
   struct Cella * c = (struct Cella * ) malloc(sizeof(struct Cella));
+    if(c==NULL) {
+        printf("Error! memory not allocated.");
+        exit(EXIT_FAILURE);
+    }
   c -> piece = (PedinaPointer) malloc(HEIGHT * sizeof(struct Pedina));
+    if(c -> piece==NULL) {
+        printf("Error! memory not allocated.");
+        exit(EXIT_FAILURE);
+    }
   for (i = 0; i < HEIGHT; i++) {
     c -> piece[i].team = cella.piece[i].team;
     c -> piece[i].p = cella.piece[i].p;
@@ -210,9 +218,21 @@ int minimax(BoardPointer board, int isMax, int depth, int somma) {
   int j;
   struct Cella * mezzo;
   MossaPointer mosse = (MossaPointer) malloc(sizeof(struct mossa) * 15);
+    if(mosse==NULL) {
+        printf("Error! memory not allocated.");
+        exit(EXIT_FAILURE);
+    }
   for (j = 0; j < 15; ++j) {
     mosse[j].startPos = (PosizionePointer) malloc(sizeof(struct Posizione));
+      if(mosse[j].startPos==NULL) {
+          printf("Error! memory not allocated.");
+          exit(EXIT_FAILURE);
+      }
     mosse[j].endPos = (PosizionePointer) malloc(sizeof(struct Posizione));
+      if(mosse[j].endPos==NULL) {
+          printf("Error! memory not allocated.");
+          exit(EXIT_FAILURE);
+      }
   }
   index = step(board, mosse, isMax ? 1 : 2);
 

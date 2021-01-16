@@ -4,7 +4,7 @@
 * [General info](#general-info)
 * [Rules](#rules)
 * [Setup](#setup)
-* [Contact](#contact)
+* [Contacts](#contacts)
 
 ## General info
 This project is a variant of the game called Lasca (or Laska).
@@ -46,5 +46,5 @@ $ cd /miniLaska-Game/
 $ make
 $ ./miniLaska
 ```
-## Contact
+## Contacts
 Created by [Singh Baljinder](https://github.com/SinghBaljinder) and [Edoardo Tosin](https://github.com/EdoardoTosin)

@@ -27,9 +27,21 @@ void match(int mode) {
   while (!end) {
     printf("\n");
     mosse = (MossaPointer) malloc(sizeof(struct mossa) * 15);
+      if(mosse==NULL) {
+          printf("Error! memory not allocated.");
+          exit(EXIT_FAILURE);
+      }
     for (k = 0; k < 15; ++k) {
       mosse[k].startPos = (PosizionePointer) malloc(sizeof(struct Posizione));
+        if(mosse[k].startPos==NULL) {
+            printf("Error! memory not allocated.");
+            exit(EXIT_FAILURE);
+        }
       mosse[k].endPos = (PosizionePointer) malloc(sizeof(struct Posizione));
+        if(mosse[k].endPos==NULL) {
+            printf("Error! memory not allocated.");
+            exit(EXIT_FAILURE);
+        }
     }
     index = step(board, mosse, turno);
     if (index == 0) {
