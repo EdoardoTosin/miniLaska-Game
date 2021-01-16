@@ -46,5 +46,5 @@ void printBoard(BoardPointer board) {
 void printMoves(MossaPointer mosse, int dim) {
   int i;
   for (i = 0; i < dim; i++)
-    printf("Mossa n.%d %c %d - %c %d\n", i + 1, ROW + mosse[i].startPos -> row, mosse[i].startPos -> col, ROW + mosse[i].endPos -> row, mosse[i].endPos -> col);
+    printf("Move n.%d %c %d - %c %d\n", i + 1, ROW + mosse[i].startPos -> row, mosse[i].startPos -> col, ROW + mosse[i].endPos -> row, mosse[i].endPos -> col);
 }

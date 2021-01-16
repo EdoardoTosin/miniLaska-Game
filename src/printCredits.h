@@ -1,6 +1,4 @@
-
-
+/*!
+   \brief print the credits' page
+*/
 void printCredits(void);
-/**
-  * Stampa i credits del menu.
-**/
