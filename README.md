@@ -28,6 +28,7 @@ To run this project, compile it locally using make and have fun.
 * Add the path to your Mingw-w64 bin folder to the Windows PATH environment variable
 * Download the code via git command or directly with a browser
 * Run the following commands:
+
   ```
   $ make
   $ .\miniLaska
