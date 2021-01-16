@@ -1,12 +1,12 @@
 #include "struct.h"
 
 /*!
-   \brief Create piece in the correct cell before the start of the game.
-   @param[in] board Struct where pieces need to be located.
+   \brief Create pieces in the correct cell before the start of the game.
+   @param[in] board Struct where pieces are created.
 */
 void createPiece(BoardPointer board) ;
 /*!
-   \brief Create piece in the correct cell before the start of the game.
-   @param[out] mat Struct where pieces need to be located.
+   \brief Create the board.
+   @param[out] mat Struct where pieces need to be placed before starting the game.
 */
 BoardPointer initialize();
