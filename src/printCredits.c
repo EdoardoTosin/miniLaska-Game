@@ -3,7 +3,7 @@
 void printCredits(void) {
   puts("MIT License");
   puts("");
-  puts("Copyright (c) 2020 Edoardo Tosin & Singh Baljinder");
+  puts("Copyright (c) 2020 Singh Baljinder & Edoardo Tosin");
   puts("");
   puts("Permission is hereby granted, free of charge, to any person obtaining a copy");
   puts("of this software and associated documentation files (the \"Software\"), to deal");
