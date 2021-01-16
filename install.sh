@@ -11,6 +11,6 @@ cmake ../.
 #make, execute compile command
 make
 #run
-./main
+./miniLaska
 
 set +o errexit
