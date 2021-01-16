@@ -34,7 +34,7 @@ To run this project, compile it locally using make and have fun.
   $ .\miniLaska
   ```
 
-### For Linux user:
+### For Linux users:
 Run the following commands on terminal:
 ```
 $ sudo apt update
