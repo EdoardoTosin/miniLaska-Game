@@ -1,4 +1,4 @@
-# :red_circle: miniLaska Game :white_circle:
+# :red_circle: [miniLaska Game](https://github.com/EdoardoTosin/miniLaska-Game) :white_circle:
 
 ## Table of contents
 * [General info](#general-info)
