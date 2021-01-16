@@ -52,14 +52,8 @@ int startGameMenu(void) {
     printf("\n");
     scanf(" %d", & subChoice1);
     if (subChoice1 == 1)
-      /**
-       * Launch Player vs Player game mode
-       */
       return 1;
     else if (subChoice1 == 2)
-      /**
-       * Launch PC vs Player game mode
-       */
       return 2;
     else if (subChoice1 == 3)
       return 3;
