@@ -1,29 +1,29 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
-struct Pedina{
-    int team;
-    char p;
-    int rank;
+struct Pedina {
+  int team;
+  char p;
+  int rank;
 };
-typedef struct Pedina* PedinaPointer;
+typedef struct Pedina * PedinaPointer;
 
-struct Cella{
-    int height;
-    PedinaPointer piece;
+struct Cella {
+  int height;
+  PedinaPointer piece;
 };
-typedef struct Cella** BoardPointer;
+typedef struct Cella ** BoardPointer;
 
-struct Posizione{
-    int row;
-    int col;
+struct Posizione {
+  int row;
+  int col;
 };
-typedef struct Posizione* PosizionePointer;
+typedef struct Posizione * PosizionePointer;
 
-struct mossa{
-    PosizionePointer startPos;
-    PosizionePointer endPos;
+struct mossa {
+  PosizionePointer startPos;
+  PosizionePointer endPos;
 };
-typedef struct mossa* MossaPointer;
+typedef struct mossa * MossaPointer;
 
 #endif
