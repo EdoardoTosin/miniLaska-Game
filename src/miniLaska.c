@@ -1,5 +1,5 @@
 /*!
-   @mainpage Variant of the game called Lasca
+   @mainpage miniLaska Documentation
 */
 #include <stdio.h>
 
