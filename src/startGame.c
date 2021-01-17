@@ -62,6 +62,7 @@ void match(int mode) {
         if (mode == 1) {
           printf("\nInsert number: ");
           do {
+              printf("\nInsert number: ");
             scanf("%d", & choice);
           } while (choice < 1 || choice > index);
           executeStep(board, mosse[choice - 1]);
@@ -83,6 +84,7 @@ void match(int mode) {
         printMoves(mosse, index);
         printf("\nInsert number: ");
         do {
+            printf("\nInsert number: ");
           scanf("%d", & choice);
         } while (choice < 1 || choice > index);
         executeStep(board, mosse[choice - 1]);
