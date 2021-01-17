@@ -15,29 +15,29 @@ void printBoard(BoardPointer board) {
     printf("   %d", j);
   printf("\n");
   for (i = 0; i < DIM; i++) {
-    printf("  %c",206);
+    printf("  +");
     for (l = 0; l < DIM; l++)
-      printf("%c%c%c%c",205,205,205,206);
+      printf("---+");
     printf("\n%c ", ROW + i);
     for (j = 0; j < DIM; j++) {
       if ((i + j) % 2 == 0) {
-        printf("%c",186);
+        printf("|");
         for (k = 0; k < HEIGHT; k++)
           if (board[i][j].piece[k].p == '-')
             printf(" ");
           else
             printf("%c", board[i][j].piece[k].p);
       } else {
-        printf("%c",186);
+        printf("|");
         for (k = 0; k < HEIGHT; k++)
           printf("%c", white);
       }
     }
-    printf("%c\n",186);
+    printf("|\n");
   }
-  printf("  %c",206);
+  printf("  +");
   for (l = 0; l < DIM; l++)
-    printf("%c%c%c%c",205,205,205,206);
+    printf("---+");
   printf("\n");
 }
 
