@@ -148,7 +148,12 @@ void controlMenu(void) {
     else if (choice == 4) {
       printExit();
       exit(0);
-    } else
-      puts("Invalid Input!");
+    } else {
+      system(CLEAR);
+      puts("/====================/");
+      puts("     Invalid Input!   ");
+      puts("/====================/");
+      delayTimer(1);
+    }
   }
 }

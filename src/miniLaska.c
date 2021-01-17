@@ -29,7 +29,7 @@ int main(void) {
   puts("/====================/");
   puts("       miniLaska      ");
   puts("/====================/");
-  delayTimer(2);
+  delayTimer(1);
   controlMenu();
   return 0;
 }
