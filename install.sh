@@ -10,5 +10,3 @@ cd build
 cmake ../.
 #make, execute compile command
 make
-#run
-./miniLaska

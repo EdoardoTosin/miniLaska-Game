@@ -25,7 +25,7 @@ void printExit() {
   puts("/====================/");
   puts("      BYE BYE!!!      ");
   puts("/====================/");
-  delayTimer(2);
+  delayTimer(1);
   system(CLEAR);
   return;
 }
