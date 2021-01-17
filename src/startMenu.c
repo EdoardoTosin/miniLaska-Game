@@ -165,7 +165,7 @@ void creditsMenu(void) {
 
 void controlMenu(void) {
   int choice = 0;
-  int mode,strength;
+  int mode;
   while (choice != 4) {
     printMainMenu();
     scanf(" %d", & choice);
