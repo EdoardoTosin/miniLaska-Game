@@ -69,7 +69,7 @@ int difficultyMenu (void) {
         else if (subChoice1 == 3)
             return HARD;
         else if (subChoice1 == 4)
-            return 0;
+            return -1;
         else if (subChoice1 == 5) {
             printExit();
             exit(0);
@@ -101,7 +101,7 @@ int startGameMenu(void) {
       return (strength);
     }
     else if (subChoice1 == 3)
-      return 0;
+      return -1;
     else if (subChoice1 == 4) {
       printExit();
       exit(0);
@@ -174,9 +174,9 @@ void controlMenu(void) {
     if (choice == 1) {
       do{
         mode = startGameMenu();
-      } while (mode == 1);
-      if (mode != 0)
-        match(--mode);
+      } while (mode == 0);
+      if (mode > 0)
+        match(mode-1);
     } else if (choice == 2)
       rulesMenu();
     else if (choice == 3)
