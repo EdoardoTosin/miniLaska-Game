@@ -43,12 +43,8 @@ To run this project, compile it locally using make and have fun.
 ### For Linux users:
 Run the following commands on terminal:
 ```
-$ sudo apt update
-$ sudo apt install git gcc
-$ git clone https://github.com/EdoardoTosin/miniLaska-Game.git
-$ cd /miniLaska-Game/
-$ make
-$ ./miniLaska
+$ ./install.sh
+$ ./run.sh
 ```
 ## Contacts
 Created by [Singh Baljinder](https://github.com/SinghBaljinder) and [Edoardo Tosin](https://github.com/EdoardoTosin)
