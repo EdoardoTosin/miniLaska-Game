@@ -52,7 +52,7 @@ void match(int mode) {
         if (mode == 1)
           printf("Player R wins the game with %d moves!!!\n\n", i);
         else
-          printf("PC wins the game with %d moves!!!\n\n", i);
+          printf("Computer wins the game with %d moves!!!\n\n", i);
       }
       delayTimer(4);
     } else {
@@ -72,7 +72,7 @@ void match(int mode) {
           printf("Move%d\n", mossa + 1);
           executeStep(board, mosse[mossa]);
           printBoard(board);
-          printf("PC made the move number %d, %c %d -> %c %d\n", mossa + 1, ROW + mosse[mossa].startPos -> row, mosse[mossa].startPos -> col, ROW + mosse[mossa].endPos -> row, mosse[mossa].endPos -> col);
+          printf("Computer made the move number %d, %c %d -> %c %d\n", mossa + 1, ROW + mosse[mossa].startPos -> row, mosse[mossa].startPos -> col, ROW + mosse[mossa].endPos -> row, mosse[mossa].endPos -> col);
         }
 
         turno = 2;
