@@ -130,16 +130,16 @@ void creditsMenu(void) {
 
 void controlMenu(void) {
   int choice = 0;
-  int res;
+  int mode;
   while (choice != 4) {
     printMainMenu();
     scanf(" %d", & choice);
     consume();
 
     if (choice == 1) {
-      res = startGameMenu();
-      if (res == 1 || res == 2){
-        match(res);
+      mode = startGameMenu();
+      if (mode == 1 || mode == 2){
+        match(mode);
       }
     } else if (choice == 2)
       rulesMenu();
