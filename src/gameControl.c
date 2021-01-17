@@ -205,7 +205,7 @@ struct Cella * copyCella(struct Cella cella) {
   return c;
 }
 
-int minimax(BoardPointer board, int isMax, int depth, int somma) {
+int minimax(BoardPointer board, int isMax, int depth, int somma, int mode) {
   int i, best;
   int index;
   int mangiata;
@@ -240,7 +240,7 @@ int minimax(BoardPointer board, int isMax, int depth, int somma) {
   if (index == 0 && isMax)
     return INT_MIN;
 
-  if (depth == MAX_DEPTH)
+  if (depth == mode)
     return somma;
 
   mangiata = abs(mosse -> endPos -> row - mosse -> startPos -> row) != 1;
@@ -254,7 +254,7 @@ int minimax(BoardPointer board, int isMax, int depth, int somma) {
       jmezzo = (mosse[i].startPos -> col + mosse[i].endPos -> col) / 2;
       mezzo = mangiata ? copyCella(board[imezzo][jmezzo]) : NULL;
       executeStep(board, mosse[i]);
-      best = MAX(best, minimax(board, !isMax, depth + 1, somma + (mangiata ? 1 : 0)));
+      best = MAX(best, minimax(board, !isMax, depth + 1, somma + (mangiata ? 1 : 0), mode));
       revert(board, iniziale, mezzo, finale, mosse[i]);
       free(iniziale);
       free(finale);
@@ -277,7 +277,7 @@ int minimax(BoardPointer board, int isMax, int depth, int somma) {
       jmezzo = (mosse[i].startPos -> col + mosse[i].endPos -> col) / 2;
       mezzo = mangiata ? copyCella(board[imezzo][jmezzo]) : NULL;
       executeStep(board, mosse[i]);
-      best = MIN(best, minimax(board, !isMax, depth + 1, somma + (mangiata ? -1 : 0)));
+      best = MIN(best, minimax(board, !isMax, depth + 1, somma + (mangiata ? -1 : 0), mode));
       revert(board, iniziale, mezzo, finale, mosse[i]);
       free(iniziale);
       free(finale);
@@ -294,7 +294,7 @@ int minimax(BoardPointer board, int isMax, int depth, int somma) {
   }
 }
 
-int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
+int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize, int mode) {
   int i;
   int moveVal = 0;
   int bestVal = INT_MIN;
@@ -316,7 +316,7 @@ int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize) {
     if (mosseSize == 1) {
       moveVal = mangiata ? 1 : 0;
     } else {
-      moveVal = minimax(board, 0, 0, mangiata ? 1 : 0);
+      moveVal = minimax(board, 0, 0, mangiata ? 1 : 0, mode);
     }
     if (moveVal > bestVal) {
       bestMove = i;

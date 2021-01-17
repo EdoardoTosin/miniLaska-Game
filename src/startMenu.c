@@ -56,7 +56,7 @@ int startGameMenu(void) {
     puts("   START GAME MENU    ");
     puts("/====================/");
     puts("1. Player vs Player");
-    puts("2. PC vs Player");
+    puts("2. Computer vs Player");
     puts("3. Return");
     puts("4. Exit");
     printf("\n");
@@ -77,27 +77,27 @@ int startGameMenu(void) {
   return 3;
 }
 
-int difficultyenu (void) {
+int difficultyMenu (void) {
     int subChoice1 = 0;
     int ch;
     while (subChoice1 != 2) {
         system(CLEAR);
         puts("/====================/");
-        puts("      DIFFICOLTA      ");
+        puts("      DIFFICULTY      ");
         puts("/====================/");
-        puts("1. Principiante");
-        puts("2. Dilettante");
-        puts("3. Campione");
+        puts("1. Easy");
+        puts("2. Normal");
+        puts("3. Hard");
         puts("4. Return");
         puts("5. Exit");
         printf("\n");
         scanf(" %d", & subChoice1);
         if (subChoice1 == 1)
-            return 1;
+            return EASY;
         else if (subChoice1 == 2)
-            return 2;
+            return NORMAL;
         else if (subChoice1 == 3)
-            return 3;
+            return HARD;
         else if (subChoice1 == 4)
             return 4;
         else if (subChoice1 == 5) {
@@ -163,7 +163,7 @@ void creditsMenu(void) {
 
 void controlMenu(void) {
   int choice = 0;
-  int mode;
+  int mode, difficulty;
   while (choice != 4) {
     printMainMenu();
     scanf(" %d", & choice);
@@ -171,8 +171,12 @@ void controlMenu(void) {
 
     if (choice == 1) {
       mode = startGameMenu();
-      if (mode == 1 || mode == 2) {
-        match(mode);
+      if (mode == 1)
+        match(mode - 1);
+      else if (mode == 2){
+        difficulty = difficultyMenu();
+        if (difficulty < 4)
+          match(difficulty);
       }
     } else if (choice == 2)
       rulesMenu();

@@ -110,14 +110,16 @@ struct Cella* copyCella(struct Cella cella);
    @param[in] isMax
    @param[in] depth
    @param[in] somma
+   @param[in] mode
    @param[out] best
 */
-int minimax(BoardPointer board, int isMax, int depth, int somma);
+int minimax(BoardPointer board, int isMax, int depth, int somma, int mode);
 /*!
    \brief Find the best move based on the score.
    @param[in] board Struct where all pieces are located.
    @param[in] mosse
    @param[in] mosseSize
+   @param[in] mode
    @param[out] bestMove
 */
-int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize);
+int findBestMove(BoardPointer board, struct mossa* mosse, int mosseSize, int mode);

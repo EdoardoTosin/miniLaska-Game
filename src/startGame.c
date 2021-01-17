@@ -59,7 +59,7 @@ void match(int mode) {
       if (turno == 1) {
         printf("TURN PLAYER %c\n", player);
         printMoves(mosse, index);
-        if (mode == 1) {
+        if (mode == 0) {
           do {
               printf("\nInsert number: ");
             scanf("%d", & choice);
@@ -68,7 +68,7 @@ void match(int mode) {
           printBoard(board);
           printf("Player %c made the move number %d\n", player, choice);
         } else {
-          mossa = findBestMove(board, mosse, index);
+          mossa = findBestMove(board, mosse, index, mode);
           printf("Move%d\n", mossa + 1);
           executeStep(board, mosse[mossa]);
           printBoard(board);
