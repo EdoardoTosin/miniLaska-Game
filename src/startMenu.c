@@ -133,10 +133,8 @@ void controlMenu(void) {
   int res;
   while (choice != 4) {
     printMainMenu();
-    do {
-      scanf(" %d", & choice);
-      consume();
-    } while (choice < 1 || choice > 4);
+    scanf(" %d", & choice);
+    consume();
 
     if (choice == 1) {
       res = startGameMenu();
