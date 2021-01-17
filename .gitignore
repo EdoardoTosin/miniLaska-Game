@@ -6,4 +6,3 @@ miniLaska
 *.o
 Doxyfile
 /build
-install.sh
