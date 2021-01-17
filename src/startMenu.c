@@ -77,7 +77,7 @@ int startGameMenu(void) {
   return 3;
 }
 
-int difficoltà (void) {
+int difficultyenu (void) {
     int subChoice1 = 0;
     int ch;
     while (subChoice1 != 2) {
