@@ -43,6 +43,8 @@ To run this project, compile it locally using make and have fun.
 ### For Linux users:
 Run the following commands on terminal:
 ```
+$ git clone https://github.com/EdoardoTosin/miniLaska-Game.git
+$ cd miniLaska
 $ ./install.sh
 $ ./run.sh
 ```
