@@ -138,7 +138,7 @@ void controlMenu(void) {
 
     if (choice == 1) {
       mode = startGameMenu();
-      if (mode == 1 || mode == 2){
+      if (mode == 1 || mode == 2) {
         match(mode);
       }
     } else if (choice == 2)
