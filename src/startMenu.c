@@ -77,6 +77,39 @@ int startGameMenu(void) {
   return 3;
 }
 
+int difficoltà (void) {
+    int subChoice1 = 0;
+    int ch;
+    while (subChoice1 != 2) {
+        system(CLEAR);
+        puts("/====================/");
+        puts("      DIFFICOLTA      ");
+        puts("/====================/");
+        puts("1. Principiante");
+        puts("2. Dilettante");
+        puts("3. Campione");
+        puts("4. Return");
+        puts("5. Exit");
+        printf("\n");
+        scanf(" %d", & subChoice1);
+        if (subChoice1 == 1)
+            return 1;
+        else if (subChoice1 == 2)
+            return 2;
+        else if (subChoice1 == 3)
+            return 3;
+        else if (subChoice1 == 4)
+            return 4;
+        else if (subChoice1 == 5) {
+            printExit();
+            exit(0);
+        } else
+            puts("Invalid Input");
+        while ((ch = getchar()) != '\n' || ch != '\n');
+    }
+    return 3;
+}
+
 void rulesMenu(void) {
   int subChoice2 = 0;
   while (subChoice2 != 2) {
