@@ -12,12 +12,16 @@
 \item 
 void \mbox{\hyperlink{start_menu_8c_a6dadda41bf834bc919f456bf4bf7601e}{delay\+Timer}} (int time\+Delay)
 \begin{DoxyCompactList}\small\item\em Call the system sleep with closs-\/platform compatibility. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{start_menu_8c_ab4ddd7d7402e03aa3bf71fdea4cccc26}{print\+Exit}} ()
+\begin{DoxyCompactList}\small\item\em Print a message before exiting the program. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{start_menu_8c_aea14db07f0abfbc611d17cef0301806c}{consume}} (void)
 \begin{DoxyCompactList}\small\item\em Consume every residue from a previous scanf. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{start_menu_8c_af1d8664aa0ba51a5705c94e24a4f923d}{print\+Main\+Menu}} (void)
 \begin{DoxyCompactList}\small\item\em Print the main menu when launching the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{start_menu_8c_a7eaf2278a1a73144418a180499eb99ce}{difficulty\+Menu}} (void)
+\begin{DoxyCompactList}\small\item\em Print the difficulty mode menu against computer. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{start_menu_8c_a9ea1a4123d355954dca09ae4760c07d7}{start\+Game\+Menu}} (void)
-\begin{DoxyCompactList}\small\item\em Print the match mode menu to select beetween PC vs Player or Player vs Player. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Print the match mode menu to select beetween Computer vs Player or Player vs Player. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{start_menu_8c_a37a45f403b3fe5b3d89e1862eb328e5b}{rules\+Menu}} (void)
 \begin{DoxyCompactList}\small\item\em Print the rule menu page. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{start_menu_8c_a935aaea0065361102a61da573b1e3298}{credits\+Menu}} (void)
@@ -39,7 +43,7 @@ Consume every residue from a previous scanf.
 
 
 
-Definition at line 23 of file start\+Menu.\+c.
+Definition at line 33 of file start\+Menu.\+c.
 
 \mbox{\Hypertarget{start_menu_8c_a1eb51dc3afa533c5d9ecf5641e7ae7a8}\label{start_menu_8c_a1eb51dc3afa533c5d9ecf5641e7ae7a8}} 
 \index{startMenu.c@{startMenu.c}!controlMenu@{controlMenu}}
@@ -53,7 +57,7 @@ Check the choice selected from the the main menu.
 
 
 
-Definition at line 123 of file start\+Menu.\+c.
+Definition at line 166 of file start\+Menu.\+c.
 
 \mbox{\Hypertarget{start_menu_8c_a935aaea0065361102a61da573b1e3298}\label{start_menu_8c_a935aaea0065361102a61da573b1e3298}} 
 \index{startMenu.c@{startMenu.c}!creditsMenu@{creditsMenu}}
@@ -67,7 +71,7 @@ Print the credits menu page.
 
 
 
-Definition at line 96 of file start\+Menu.\+c.
+Definition at line 140 of file start\+Menu.\+c.
 
 \mbox{\Hypertarget{start_menu_8c_a6dadda41bf834bc919f456bf4bf7601e}\label{start_menu_8c_a6dadda41bf834bc919f456bf4bf7601e}} 
 \index{startMenu.c@{startMenu.c}!delayTimer@{delayTimer}}
@@ -88,6 +92,37 @@ Call the system sleep with closs-\/platform compatibility.
 
 Definition at line 15 of file start\+Menu.\+c.
 
+\mbox{\Hypertarget{start_menu_8c_a7eaf2278a1a73144418a180499eb99ce}\label{start_menu_8c_a7eaf2278a1a73144418a180499eb99ce}} 
+\index{startMenu.c@{startMenu.c}!difficultyMenu@{difficultyMenu}}
+\index{difficultyMenu@{difficultyMenu}!startMenu.c@{startMenu.c}}
+\doxysubsubsection{\texorpdfstring{difficultyMenu()}{difficultyMenu()}}
+{\footnotesize\ttfamily int difficulty\+Menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Print the difficulty mode menu against computer. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 or the strength of the selected difficulty. 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file start\+Menu.\+c.
+
+\mbox{\Hypertarget{start_menu_8c_ab4ddd7d7402e03aa3bf71fdea4cccc26}\label{start_menu_8c_ab4ddd7d7402e03aa3bf71fdea4cccc26}} 
+\index{startMenu.c@{startMenu.c}!printExit@{printExit}}
+\index{printExit@{printExit}!startMenu.c@{startMenu.c}}
+\doxysubsubsection{\texorpdfstring{printExit()}{printExit()}}
+{\footnotesize\ttfamily void print\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print a message before exiting the program. 
+
+
+
+Definition at line 23 of file start\+Menu.\+c.
+
 \mbox{\Hypertarget{start_menu_8c_af1d8664aa0ba51a5705c94e24a4f923d}\label{start_menu_8c_af1d8664aa0ba51a5705c94e24a4f923d}} 
 \index{startMenu.c@{startMenu.c}!printMainMenu@{printMainMenu}}
 \index{printMainMenu@{printMainMenu}!startMenu.c@{startMenu.c}}
@@ -100,7 +135,7 @@ Print the main menu when launching the game.
 
 
 
-Definition at line 28 of file start\+Menu.\+c.
+Definition at line 38 of file start\+Menu.\+c.
 
 \mbox{\Hypertarget{start_menu_8c_a37a45f403b3fe5b3d89e1862eb328e5b}\label{start_menu_8c_a37a45f403b3fe5b3d89e1862eb328e5b}} 
 \index{startMenu.c@{startMenu.c}!rulesMenu@{rulesMenu}}
@@ -114,7 +149,7 @@ Print the rule menu page.
 
 
 
-Definition at line 70 of file start\+Menu.\+c.
+Definition at line 115 of file start\+Menu.\+c.
 
 \mbox{\Hypertarget{start_menu_8c_a9ea1a4123d355954dca09ae4760c07d7}\label{start_menu_8c_a9ea1a4123d355954dca09ae4760c07d7}} 
 \index{startMenu.c@{startMenu.c}!startGameMenu@{startGameMenu}}
@@ -124,12 +159,12 @@ Definition at line 70 of file start\+Menu.\+c.
 
 
 
-Print the match mode menu to select beetween PC vs Player or Player vs Player. 
+Print the match mode menu to select beetween Computer vs Player or Player vs Player. 
 
 \begin{DoxyReturn}{Returns}
-Return the number selected (1, 2 or 3). 
+Return a number depending on the selected menu. 
 \end{DoxyReturn}
 
 
-Definition at line 40 of file start\+Menu.\+c.
+Definition at line 83 of file start\+Menu.\+c.
 

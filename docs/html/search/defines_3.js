@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['max_139',['MAX',['../definitions_8h.html#aacc3ee1a7f283f8ef65cea31f4436a95',1,'definitions.h']]],
-  ['max_5fdepth_140',['MAX_DEPTH',['../definitions_8h.html#a5db49eeef5c9bb774f02996f684df238',1,'definitions.h']]],
-  ['min_141',['MIN',['../definitions_8h.html#a74e75242132eaabbc1c512488a135926',1,'definitions.h']]]
+  ['hard_145',['HARD',['../definitions_8h.html#a4d14a79c82f3f831303e38487811eda4',1,'definitions.h']]],
+  ['height_146',['HEIGHT',['../definitions_8h.html#aed89bd71aee8be823e8a20ec4e093c1e',1,'definitions.h']]]
 ];

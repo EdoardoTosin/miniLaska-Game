@@ -89,7 +89,7 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="start_game_8h.html#a55edd6027f646b0c15aa2ec6447df940">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="start_game_8c.html#a55edd6027f646b0c15aa2ec6447df940">match</a>(<span class="keywordtype">int</span> mode) {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">int</span> choice, index;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">int</span> end = 0, turno = 1, i = 0, j = 0, k = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">int</span> end = 0, turno = 1, i = 0, j = 0, k;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">char</span> player = <span class="charliteral">&#39;R&#39;</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="structmossa.html">mossa</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="structmossa.html">MossaPointer</a> mosse;</div>
@@ -98,77 +98,90 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordflow">while</span> (!end) {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    mosse = (<a class="code" href="struct_8h.html#a6ba2a6c2c3abade2ea6f84313b829b2d">MossaPointer</a>) malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structmossa.html">mossa</a>) * 15);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">for</span> (k = 0; k &lt; 15; ++k) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      mosse[k].<a class="code" href="structmossa.html#afe0c7a481829e8238fa4c44d3aeddf7d">startPos</a> = (<a class="code" href="struct_8h.html#a2d69e76c003907bc44ea567a355a6c0d">PosizionePointer</a>) malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="struct_posizione.html">Posizione</a>));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      mosse[k].<a class="code" href="structmossa.html#ad2d43aa9d5d7780598d6bc530d4462aa">endPos</a> = (<a class="code" href="struct_8h.html#a2d69e76c003907bc44ea567a355a6c0d">PosizionePointer</a>) malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="struct_posizione.html">Posizione</a>));</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    index = <a class="code" href="game_control_8c.html#a716fcb56407d5eb8edcfa513520dbae6">step</a>(board, mosse, turno);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (index == 0) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      end = 1;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">if</span> (turno == 1){</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> (mode == 1)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          printf(<span class="stringliteral">&quot;Player G wins the game with %d moves!!!\n\n&quot;</span>, i);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          printf(<span class="stringliteral">&quot;PC wins the game with %d moves!!!\n\n&quot;</span>, i);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        printf(<span class="stringliteral">&quot;Player R wins the game with %d moves!!!\n\n&quot;</span>, j);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <a class="code" href="start_menu_8c.html#a6dadda41bf834bc919f456bf4bf7601e">delayTimer</a>(5);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">if</span> (turno == 1) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        printf(<span class="stringliteral">&quot;TURN PLAYER %c\n&quot;</span>, player);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">printMoves</a>(mosse, index);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (mode == 1) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          printf(<span class="stringliteral">&quot;\nInsert number: &quot;</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          <span class="keywordflow">do</span> {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            scanf <span class="comment">/*_s*/</span>(<span class="stringliteral">&quot;%d&quot;</span>, &amp; choice);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;          } <span class="keywordflow">while</span> (choice &lt; 1 || choice &gt; index);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;          <a class="code" href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a>(board, mosse[choice - 1]);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;          <a class="code" href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a>(board);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          printf(<span class="stringliteral">&quot;Player %c made the following move %d\n&quot;</span>, player, choice);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          <a class="code" href="structmossa.html">mossa</a> = <a class="code" href="game_control_8c.html#a074d48e7efa85e812327e38d89422c5d">findBestMove</a>(board, mosse, index);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;          printf(<span class="stringliteral">&quot;Move%d\n&quot;</span>, <a class="code" href="structmossa.html">mossa</a> + 1);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;          <a class="code" href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a>(board, mosse[<a class="code" href="structmossa.html">mossa</a>]);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;          <a class="code" href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a>(board);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          printf(<span class="stringliteral">&quot;PC %c made the move number %d\n&quot;</span>, player, <a class="code" href="structmossa.html">mossa</a> + 1);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        turno = 2;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        player = <span class="charliteral">&#39;G&#39;</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        i++;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        printf(<span class="stringliteral">&quot;TURN PLAYER %c\n&quot;</span>, player);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">printMoves</a>(mosse, index);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        printf(<span class="stringliteral">&quot;\nInsert number: &quot;</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">do</span> {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          scanf <span class="comment">/*_s*/</span>(<span class="stringliteral">&quot;%d&quot;</span>, &amp; choice);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        } <span class="keywordflow">while</span> (choice &lt; 1 || choice &gt; index);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a>(board, mosse[choice - 1]);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a>(board);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        printf(<span class="stringliteral">&quot;Player %c made the move number %d\n&quot;</span>, player, choice);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        turno = 1;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        player = <span class="charliteral">&#39;R&#39;</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        j++;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">for</span> (k = 0; k &lt; 15; ++k) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      free(mosse[k].startPos);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      free(mosse[k].endPos);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    free(mosse);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  free(board);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keywordflow">if</span>(mosse==NULL) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;          printf(<span class="stringliteral">&quot;Error! memory not allocated.&quot;</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;          exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">for</span> (k = 0; k &lt; 15; ++k) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      mosse[k].<a class="code" href="structmossa.html#afe0c7a481829e8238fa4c44d3aeddf7d">startPos</a> = (<a class="code" href="struct_8h.html#a2d69e76c003907bc44ea567a355a6c0d">PosizionePointer</a>) malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="struct_posizione.html">Posizione</a>));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span>(mosse[k].startPos==NULL) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            printf(<span class="stringliteral">&quot;Error! memory not allocated.&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      mosse[k].<a class="code" href="structmossa.html#ad2d43aa9d5d7780598d6bc530d4462aa">endPos</a> = (<a class="code" href="struct_8h.html#a2d69e76c003907bc44ea567a355a6c0d">PosizionePointer</a>) malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="struct_posizione.html">Posizione</a>));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span>(mosse[k].endPos==NULL) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            printf(<span class="stringliteral">&quot;Error! memory not allocated.&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    index = <a class="code" href="game_control_8c.html#a716fcb56407d5eb8edcfa513520dbae6">step</a>(board, mosse, turno);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (index == 0) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      end = 1;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">if</span> (turno == 1)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;          printf(<span class="stringliteral">&quot;Player G wins the game with %d moves!!!\n\n&quot;</span>, j);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span> (mode == 1)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          printf(<span class="stringliteral">&quot;Player R wins the game with %d moves!!!\n\n&quot;</span>, i);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;          printf(<span class="stringliteral">&quot;Computer wins the game with %d moves!!!\n\n&quot;</span>, i);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="start_menu_8c.html#a6dadda41bf834bc919f456bf4bf7601e">delayTimer</a>(4);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">if</span> (turno == 1) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        printf(<span class="stringliteral">&quot;TURN PLAYER %c\n&quot;</span>, player);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">printMoves</a>(mosse, index);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> (mode == 0) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;              printf(<span class="stringliteral">&quot;\nInsert number: &quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            scanf(<span class="stringliteral">&quot;%d&quot;</span>, &amp; choice);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;          } <span class="keywordflow">while</span> (choice &lt; 1 || choice &gt; index);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          <a class="code" href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a>(board, mosse[choice - 1]);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;          <a class="code" href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a>(board);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;          printf(<span class="stringliteral">&quot;Player %c made the move number %d\n&quot;</span>, player, choice);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;          <a class="code" href="structmossa.html">mossa</a> = <a class="code" href="game_control_8c.html#a3611567696fd0cc88fc3aa5bbbd900db">findBestMove</a>(board, mosse, index, mode);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;          printf(<span class="stringliteral">&quot;Move%d\n&quot;</span>, <a class="code" href="structmossa.html">mossa</a> + 1);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;          <a class="code" href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a>(board, mosse[<a class="code" href="structmossa.html">mossa</a>]);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          <a class="code" href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a>(board);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;          printf(<span class="stringliteral">&quot;Computer made the move number %d: %c %d -&gt; %c %d\n&quot;</span>, <a class="code" href="structmossa.html">mossa</a> + 1, <a class="code" href="definitions_8h.html#ac6f18a9e1d00b4637522b1b469a92021">ROW</a> + mosse[<a class="code" href="structmossa.html">mossa</a>].startPos -&gt; row, mosse[<a class="code" href="structmossa.html">mossa</a>].startPos -&gt; col, <a class="code" href="definitions_8h.html#ac6f18a9e1d00b4637522b1b469a92021">ROW</a> + mosse[<a class="code" href="structmossa.html">mossa</a>].endPos -&gt; row, mosse[<a class="code" href="structmossa.html">mossa</a>].endPos -&gt; col);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        turno = 2;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        player = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        i++;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        printf(<span class="stringliteral">&quot;TURN PLAYER %c\n&quot;</span>, player);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">printMoves</a>(mosse, index);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            printf(<span class="stringliteral">&quot;\nInsert number: &quot;</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          scanf(<span class="stringliteral">&quot;%d&quot;</span>, &amp; choice);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        } <span class="keywordflow">while</span> (choice &lt; 1 || choice &gt; index);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a>(board, mosse[choice - 1]);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a>(board);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        printf(<span class="stringliteral">&quot;Player %c made the move number %d\n&quot;</span>, player, choice);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        turno = 1;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        player = <span class="charliteral">&#39;R&#39;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        j++;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">for</span> (k = 0; k &lt; 15; ++k) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      free(mosse[k].startPos);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      free(mosse[k].endPos);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    free(mosse);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  free(board);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
 <div class="ttc" id="adefinitions_8h_html"><div class="ttname"><a href="definitions_8h.html">definitions.h</a></div></div>
-<div class="ttc" id="agame_control_8c_html_a074d48e7efa85e812327e38d89422c5d"><div class="ttname"><a href="game_control_8c.html#a074d48e7efa85e812327e38d89422c5d">findBestMove</a></div><div class="ttdeci">int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize)</div><div class="ttdef"><b>Definition:</b> <a href="game_control_8c_source.html#l00279">gameControl.c:279</a></div></div>
-<div class="ttc" id="agame_control_8c_html_a716fcb56407d5eb8edcfa513520dbae6"><div class="ttname"><a href="game_control_8c.html#a716fcb56407d5eb8edcfa513520dbae6">step</a></div><div class="ttdeci">int step(BoardPointer board, MossaPointer mosse, int turno)</div><div class="ttdef"><b>Definition:</b> <a href="game_control_8c_source.html#l00039">gameControl.c:39</a></div></div>
-<div class="ttc" id="agame_control_8c_html_ae742a68a066c4c8d3e3de9ff8d997b37"><div class="ttname"><a href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a></div><div class="ttdeci">void executeStep(BoardPointer board, struct mossa m)</div><div class="ttdoc">Check which move to do between a normal move and an eat move.</div><div class="ttdef"><b>Definition:</b> <a href="game_control_8c_source.html#l00161">gameControl.c:161</a></div></div>
+<div class="ttc" id="adefinitions_8h_html_ac6f18a9e1d00b4637522b1b469a92021"><div class="ttname"><a href="definitions_8h.html#ac6f18a9e1d00b4637522b1b469a92021">ROW</a></div><div class="ttdeci">#define ROW</div><div class="ttdef"><b>Definition:</b> <a href="definitions_8h_source.html#l00003">definitions.h:3</a></div></div>
+<div class="ttc" id="agame_control_8c_html_a3611567696fd0cc88fc3aa5bbbd900db"><div class="ttname"><a href="game_control_8c.html#a3611567696fd0cc88fc3aa5bbbd900db">findBestMove</a></div><div class="ttdeci">int findBestMove(BoardPointer board, MossaPointer mosse, int mosseSize, int mode)</div><div class="ttdef"><b>Definition:</b> <a href="game_control_8c_source.html#l00297">gameControl.c:297</a></div></div>
+<div class="ttc" id="agame_control_8c_html_a716fcb56407d5eb8edcfa513520dbae6"><div class="ttname"><a href="game_control_8c.html#a716fcb56407d5eb8edcfa513520dbae6">step</a></div><div class="ttdeci">int step(BoardPointer board, MossaPointer mosse, int turno)</div><div class="ttdef"><b>Definition:</b> <a href="game_control_8c_source.html#l00037">gameControl.c:37</a></div></div>
+<div class="ttc" id="agame_control_8c_html_ae742a68a066c4c8d3e3de9ff8d997b37"><div class="ttname"><a href="game_control_8c.html#ae742a68a066c4c8d3e3de9ff8d997b37">executeStep</a></div><div class="ttdeci">void executeStep(BoardPointer board, struct mossa m)</div><div class="ttdoc">Check which move to do between a normal move and an eat move.</div><div class="ttdef"><b>Definition:</b> <a href="game_control_8c_source.html#l00159">gameControl.c:159</a></div></div>
 <div class="ttc" id="agame_control_8h_html"><div class="ttname"><a href="game_control_8h.html">gameControl.h</a></div></div>
 <div class="ttc" id="aobject_creation_8c_html_aa84a2026830d09ed5522fce51fd1e416"><div class="ttname"><a href="object_creation_8c.html#aa84a2026830d09ed5522fce51fd1e416">initialize</a></div><div class="ttdeci">BoardPointer initialize()</div><div class="ttdoc">Create the board.</div><div class="ttdef"><b>Definition:</b> <a href="object_creation_8c_source.html#l00023">objectCreation.c:23</a></div></div>
 <div class="ttc" id="aobject_creation_8h_html"><div class="ttname"><a href="object_creation_8h.html">objectCreation.h</a></div></div>
-<div class="ttc" id="aprint_game_8c_html_a4fa5609969245fe96a71aaf4cd0283f7"><div class="ttname"><a href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">printMoves</a></div><div class="ttdeci">void printMoves(MossaPointer mosse, int dim)</div><div class="ttdoc">Print a list of the possible moves the player of that turn can do.</div><div class="ttdef"><b>Definition:</b> <a href="print_game_8c_source.html#l00046">printGame.c:46</a></div></div>
-<div class="ttc" id="aprint_game_8c_html_af30559ebffecd62fa9cfd25f74421e64"><div class="ttname"><a href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a></div><div class="ttdeci">void printBoard(BoardPointer board)</div><div class="ttdoc">Print board and the pieces contained in the cells.</div><div class="ttdef"><b>Definition:</b> <a href="print_game_8c_source.html#l00011">printGame.c:11</a></div></div>
+<div class="ttc" id="aprint_game_8c_html_a4fa5609969245fe96a71aaf4cd0283f7"><div class="ttname"><a href="print_game_8c.html#a4fa5609969245fe96a71aaf4cd0283f7">printMoves</a></div><div class="ttdeci">void printMoves(MossaPointer mosse, int dim)</div><div class="ttdoc">Print a list of the possible moves the player of that turn can do.</div><div class="ttdef"><b>Definition:</b> <a href="print_game_8c_source.html#l00044">printGame.c:44</a></div></div>
+<div class="ttc" id="aprint_game_8c_html_af30559ebffecd62fa9cfd25f74421e64"><div class="ttname"><a href="print_game_8c.html#af30559ebffecd62fa9cfd25f74421e64">printBoard</a></div><div class="ttdeci">void printBoard(BoardPointer board)</div><div class="ttdoc">Print board and the pieces contained in the cells.</div><div class="ttdef"><b>Definition:</b> <a href="print_game_8c_source.html#l00009">printGame.c:9</a></div></div>
 <div class="ttc" id="aprint_game_8h_html"><div class="ttname"><a href="print_game_8h.html">printGame.h</a></div></div>
 <div class="ttc" id="astart_game_8c_html_a55edd6027f646b0c15aa2ec6447df940"><div class="ttname"><a href="start_game_8c.html#a55edd6027f646b0c15aa2ec6447df940">match</a></div><div class="ttdeci">void match(int mode)</div><div class="ttdoc">Start and manage the match mode selected.</div><div class="ttdef"><b>Definition:</b> <a href="start_game_8c_source.html#l00019">startGame.c:19</a></div></div>
 <div class="ttc" id="astart_game_8h_html"><div class="ttname"><a href="start_game_8h.html">startGame.h</a></div></div>

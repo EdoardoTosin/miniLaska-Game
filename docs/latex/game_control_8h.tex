@@ -32,9 +32,9 @@ void \mbox{\hyperlink{game_control_8h_a2291ec76da5e8847772a5f4f920dda1f}{revert}
 \begin{DoxyCompactList}\small\item\em Revert a single move (for PC). \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_cella}{Cella}} $\ast$ \mbox{\hyperlink{game_control_8h_ae088462f6725ab271e25db0242820e4b}{copy\+Cella}} (struct \mbox{\hyperlink{struct_cella}{Cella}} cella)
 \begin{DoxyCompactList}\small\item\em Copy a cell from board. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game_control_8h_ac5dff201d10612f0b00ab318fb21fd07}{minimax}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int is\+Max, int depth, int somma)
+int \mbox{\hyperlink{game_control_8h_aa4cd387c3236baa1d1d57f55ad00594e}{minimax}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, int is\+Max, int depth, int somma, int mode)
 \begin{DoxyCompactList}\small\item\em Algorithm for finding move scores. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{game_control_8h_a60af6d5e1e080d6c16491a68e5c44ea3}{find\+Best\+Move}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$mosse, int mosse\+Size)
+int \mbox{\hyperlink{game_control_8h_a6f3d8b92183a7b6f5dab0662d3b80224}{find\+Best\+Move}} (\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}} board, struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$mosse, int mosse\+Size, int mode)
 \begin{DoxyCompactList}\small\item\em Find the best move based on the score. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -58,7 +58,7 @@ Copy a cell from board.
 \end{DoxyParams}
 
 
-Definition at line 189 of file game\+Control.\+c.
+Definition at line 187 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_a41575517ce76e9b0f17fd1b082acf929}\label{game_control_8h_a41575517ce76e9b0f17fd1b082acf929}} 
 \index{gameControl.h@{gameControl.h}!copyContent@{copyContent}}
@@ -83,7 +83,7 @@ Copy the content from cella to board.
 \end{DoxyParams}
 
 
-Definition at line 168 of file game\+Control.\+c.
+Definition at line 166 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_acf084b734d8a2ae3a560210917b50c14}\label{game_control_8h_acf084b734d8a2ae3a560210917b50c14}} 
 \index{gameControl.h@{gameControl.h}!deleteCellContent@{deleteCellContent}}
@@ -106,7 +106,7 @@ Remove any piece from the given cell of the board.
 \end{DoxyParams}
 
 
-Definition at line 88 of file game\+Control.\+c.
+Definition at line 86 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_a25f4fad66ccbeffc8b5f11b591cb6c0f}\label{game_control_8h_a25f4fad66ccbeffc8b5f11b591cb6c0f}} 
 \index{gameControl.h@{gameControl.h}!eatStep@{eatStep}}
@@ -127,7 +127,7 @@ Execute the eat move.
 \end{DoxyParams}
 
 
-Definition at line 132 of file game\+Control.\+c.
+Definition at line 130 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_ae742a68a066c4c8d3e3de9ff8d997b37}\label{game_control_8h_ae742a68a066c4c8d3e3de9ff8d997b37}} 
 \index{gameControl.h@{gameControl.h}!executeStep@{executeStep}}
@@ -148,13 +148,13 @@ Check which move to do between a normal move and an eat move.
 \end{DoxyParams}
 
 
-Definition at line 161 of file game\+Control.\+c.
+Definition at line 159 of file game\+Control.\+c.
 
-\mbox{\Hypertarget{game_control_8h_a60af6d5e1e080d6c16491a68e5c44ea3}\label{game_control_8h_a60af6d5e1e080d6c16491a68e5c44ea3}} 
+\mbox{\Hypertarget{game_control_8h_a6f3d8b92183a7b6f5dab0662d3b80224}\label{game_control_8h_a6f3d8b92183a7b6f5dab0662d3b80224}} 
 \index{gameControl.h@{gameControl.h}!findBestMove@{findBestMove}}
 \index{findBestMove@{findBestMove}!gameControl.h@{gameControl.h}}
 \doxysubsubsection{\texorpdfstring{findBestMove()}{findBestMove()}}
-{\footnotesize\ttfamily int find\+Best\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$}]{mosse,  }\item[{int}]{mosse\+Size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int find\+Best\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{struct \mbox{\hyperlink{structmossa}{mossa}} $\ast$}]{mosse,  }\item[{int}]{mosse\+Size,  }\item[{int}]{mode }\end{DoxyParamCaption})}
 
 
 
@@ -167,6 +167,8 @@ Find the best move based on the score.
 \mbox{\texttt{ in}}  & {\em mosse} & \\
 \hline
 \mbox{\texttt{ in}}  & {\em mosse\+Size} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & \\
 \hline
 \mbox{\texttt{ out}}  & {\em best\+Move} & \\
 \hline
@@ -195,7 +197,7 @@ Return the number of pieces contained inside the cell (integer up to 3 included,
 \end{DoxyReturn}
 
 
-Definition at line 13 of file game\+Control.\+c.
+Definition at line 11 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_a8952aa8d2c9ad5caab4e06ce060c946c}\label{game_control_8h_a8952aa8d2c9ad5caab4e06ce060c946c}} 
 \index{gameControl.h@{gameControl.h}!getRank@{getRank}}
@@ -221,7 +223,7 @@ Return the number of rank of the piece (1 for a normal piece, 2 if it\textquotes
 \end{DoxyReturn}
 
 
-Definition at line 27 of file game\+Control.\+c.
+Definition at line 25 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_aeb164671a70ca9cfeaae6b43956916b1}\label{game_control_8h_aeb164671a70ca9cfeaae6b43956916b1}} 
 \index{gameControl.h@{gameControl.h}!getTeam@{getTeam}}
@@ -247,7 +249,7 @@ Return the number of the player the piece belongs to (0 if there is any piece in
 \end{DoxyReturn}
 
 
-Definition at line 20 of file game\+Control.\+c.
+Definition at line 18 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_a34ccd549fbd118d18f95171896ea732b}\label{game_control_8h_a34ccd549fbd118d18f95171896ea732b}} 
 \index{gameControl.h@{gameControl.h}!isEmpty@{isEmpty}}
@@ -273,13 +275,13 @@ Return 0 if empty, 1 otherwise.
 \end{DoxyReturn}
 
 
-Definition at line 31 of file game\+Control.\+c.
+Definition at line 29 of file game\+Control.\+c.
 
-\mbox{\Hypertarget{game_control_8h_ac5dff201d10612f0b00ab318fb21fd07}\label{game_control_8h_ac5dff201d10612f0b00ab318fb21fd07}} 
+\mbox{\Hypertarget{game_control_8h_aa4cd387c3236baa1d1d57f55ad00594e}\label{game_control_8h_aa4cd387c3236baa1d1d57f55ad00594e}} 
 \index{gameControl.h@{gameControl.h}!minimax@{minimax}}
 \index{minimax@{minimax}!gameControl.h@{gameControl.h}}
 \doxysubsubsection{\texorpdfstring{minimax()}{minimax()}}
-{\footnotesize\ttfamily int minimax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{is\+Max,  }\item[{int}]{depth,  }\item[{int}]{somma }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int minimax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_8h_abba586de97a173dea16a1cc5f248ff91}{Board\+Pointer}}}]{board,  }\item[{int}]{is\+Max,  }\item[{int}]{depth,  }\item[{int}]{somma,  }\item[{int}]{mode }\end{DoxyParamCaption})}
 
 
 
@@ -295,12 +297,14 @@ Algorithm for finding move scores.
 \hline
 \mbox{\texttt{ in}}  & {\em somma} & \\
 \hline
+\mbox{\texttt{ in}}  & {\em mode} & \\
+\hline
 \mbox{\texttt{ out}}  & {\em best} & \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 202 of file game\+Control.\+c.
+Definition at line 208 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_a07d27bdfda928a5476b34ebbee7560e2}\label{game_control_8h_a07d27bdfda928a5476b34ebbee7560e2}} 
 \index{gameControl.h@{gameControl.h}!normalStep@{normalStep}}
@@ -321,7 +325,7 @@ Execute the normal move.
 \end{DoxyParams}
 
 
-Definition at line 119 of file game\+Control.\+c.
+Definition at line 117 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_ac977acdce8e15d0dc32c056b2a85792a}\label{game_control_8h_ac977acdce8e15d0dc32c056b2a85792a}} 
 \index{gameControl.h@{gameControl.h}!promotion@{promotion}}
@@ -346,7 +350,7 @@ Promote the topmost piece to rank 2.
 \end{DoxyParams}
 
 
-Definition at line 107 of file game\+Control.\+c.
+Definition at line 105 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_a2291ec76da5e8847772a5f4f920dda1f}\label{game_control_8h_a2291ec76da5e8847772a5f4f920dda1f}} 
 \index{gameControl.h@{gameControl.h}!revert@{revert}}
@@ -373,7 +377,7 @@ Revert a single move (for PC).
 \end{DoxyParams}
 
 
-Definition at line 178 of file game\+Control.\+c.
+Definition at line 176 of file game\+Control.\+c.
 
 \mbox{\Hypertarget{game_control_8h_a77b291c0660b39448b2ef56fa7e07d42}\label{game_control_8h_a77b291c0660b39448b2ef56fa7e07d42}} 
 \index{gameControl.h@{gameControl.h}!step@{step}}
@@ -418,5 +422,5 @@ Remove the topmost piece from the given cell of the board.
 \end{DoxyParams}
 
 
-Definition at line 99 of file game\+Control.\+c.
+Definition at line 97 of file game\+Control.\+c.
 
