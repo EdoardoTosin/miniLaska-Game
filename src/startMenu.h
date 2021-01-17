@@ -19,7 +19,7 @@ void printMainMenu(void);
    \brief Print the difficulty mode menu against computer.
    \return Return 0 or the strength of the selected difficulty.
 */
-int difficultyMenu (void)
+int difficultyMenu (void);
 /*!
    \brief Print the match mode menu to select beetween Computer vs Player or Player vs Player.
    \return Return a number depending on the selected menu.
