@@ -2,8 +2,8 @@
 #define HEIGHT (3)
 #define ROW (65)
 #define EASY (1)
-#define NORMAL (3)
-#define HARD (5)
+#define NORMAL (2)
+#define HARD (4)
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
