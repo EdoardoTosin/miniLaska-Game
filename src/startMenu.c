@@ -136,7 +136,7 @@ void controlMenu(void) {
     do {
       scanf(" %d", & choice);
       consume();
-    } while (choice <= 0 || choice > 4);
+    } while (choice < 1 || choice > 4);
 
     if (choice == 1) {
       res = startGameMenu();

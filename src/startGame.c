@@ -48,13 +48,13 @@ void match(int mode) {
       end = 1;
       if (turno == 1)
           printf("Player R wins the game with %d moves!!!\n\n", i);
-      else{
+      else {
         if (mode == 1)
           printf("Player G wins the game with %d moves!!!\n\n", j);
         else
           printf("PC wins the game with %d moves!!!\n\n", j);
       }
-      delayTimer(5);
+      delayTimer(4);
     } else {
       if (turno == 1) {
         printf("TURN PLAYER %c\n", player);
