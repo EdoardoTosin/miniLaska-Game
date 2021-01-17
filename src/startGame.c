@@ -46,21 +46,19 @@ void match(int mode) {
     index = step(board, mosse, turno);
     if (index == 0) {
       end = 1;
-      if (turno == 1){
-        if (mode == 1)
+      if (turno == 2) {
           printf("Player G wins the game with %d moves!!!\n\n", i);
-        else
-          printf("PC wins the game with %d moves!!!\n\n", i);
-      }
-      else
-        printf("Player R wins the game with %d moves!!!\n\n", j);
-      delayTimer(5);
+      }else
+          if (mode == 1)
+            printf("PC wins the game with %d moves!!!\n\n", j);
+          else
+            printf("Player R wins the game with %d moves!!!\n\n", j);
+            delayTimer(5);
     } else {
       if (turno == 1) {
         printf("TURN PLAYER %c\n", player);
         printMoves(mosse, index);
         if (mode == 1) {
-          printf("\nInsert number: ");
           do {
               printf("\nInsert number: ");
             scanf("%d", & choice);
@@ -82,7 +80,6 @@ void match(int mode) {
       } else {
         printf("TURN PLAYER %c\n", player);
         printMoves(mosse, index);
-        printf("\nInsert number: ");
         do {
             printf("\nInsert number: ");
           scanf("%d", & choice);
