@@ -47,12 +47,12 @@ void match(int mode) {
     if (index == 0) {
       end = 1;
       if (turno == 1)
-          printf("Player G wins the game with %d moves!!!\n\n", i);
+          printf("Player G wins the game with %d moves!!!\n\n", j);
       else {
         if (mode == 1)
-          printf("Player R wins the game with %d moves!!!\n\n", j);
+          printf("Player R wins the game with %d moves!!!\n\n", i);
         else
-          printf("PC wins the game with %d moves!!!\n\n", j);
+          printf("PC wins the game with %d moves!!!\n\n", i);
       }
       delayTimer(4);
     } else {
