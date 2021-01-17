@@ -66,7 +66,7 @@ void match(int mode) {
           } while (choice < 1 || choice > index);
           executeStep(board, mosse[choice - 1]);
           printBoard(board);
-          printf("Player %c made the following move %d\n", player, choice);
+          printf("Player %c made the move number %d\n", player, choice);
         } else {
           mossa = findBestMove(board, mosse, index);
           printf("Move%d\n", mossa + 1);
