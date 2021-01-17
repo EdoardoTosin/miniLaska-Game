@@ -46,7 +46,7 @@ void match(int mode) {
     index = step(board, mosse, turno);
     if (index == 0) {
       end = 1;
-      if (turno == 2) {
+      if (turno == 1) {
           printf("Player G wins the game with %d moves!!!\n\n", i);
       }else
           if (mode == 1)
