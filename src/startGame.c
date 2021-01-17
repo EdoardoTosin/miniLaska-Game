@@ -60,8 +60,8 @@ void match(int mode) {
         printf("TURN PLAYER %c\n", player);
         printMoves(mosse, index);
         if (mode == 1) {
-          printf("\nInsert number: ");
           do {
+              printf("\nInsert number: ");
             scanf("%d", & choice);
           } while (choice < 1 || choice > index);
           executeStep(board, mosse[choice - 1]);
@@ -81,8 +81,8 @@ void match(int mode) {
       } else {
         printf("TURN PLAYER %c\n", player);
         printMoves(mosse, index);
-        printf("\nInsert number: ");
         do {
+            printf("\nInsert number: ");
           scanf("%d", & choice);
         } while (choice < 1 || choice > index);
         executeStep(board, mosse[choice - 1]);
