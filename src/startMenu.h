@@ -16,8 +16,13 @@ void consume(void);
 */
 void printMainMenu(void);
 /*!
-   \brief Print the match mode menu to select beetween PC vs Player or Player vs Player.
-   \return Return the number selected (1, 2 or 3).
+   \brief Print the difficulty mode menu against computer.
+   \return Return 0 or the strength of the selected difficulty.
+*/
+int difficultyMenu (void)
+/*!
+   \brief Print the match mode menu to select beetween Computer vs Player or Player vs Player.
+   \return Return a number depending on the selected menu.
 */
 int startGameMenu(void);
 /*!
