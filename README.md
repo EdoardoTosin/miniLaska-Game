@@ -20,7 +20,9 @@ There are a few other changes in the rules, as well. Capturing is mandatory when
 * all the opponent's pieces have been captured, or
 * the opponent resigns.
 
-(Source: [Wikipedia](https://en.wikipedia.org/wiki/Lasca))
+Source: [Wikipedia](https://en.wikipedia.org/wiki/Lasca)
+
+Also the height of a tower can be up to three checkers.
 
 ## Setup
 To run this project, compile it locally using make and have fun.
