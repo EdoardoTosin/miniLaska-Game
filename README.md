@@ -48,8 +48,6 @@ $ cd miniLaska-Game
 $ ./install.sh
 $ ./run.sh
 ```
-## Contacts
-Created by [Singh Baljinder](https://github.com/SinghBaljinder) and [Edoardo Tosin](https://github.com/EdoardoTosin)
 
 ## License
 
