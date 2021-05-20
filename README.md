@@ -4,7 +4,7 @@
 * [General info](#general-info)
 * [Rules](#rules)
 * [Setup](#setup)
-* [Contacts](#contacts)
+* [License](#license)
 
 ## General info
 This project is a variant of the game called Lasca (or Laska).
@@ -50,3 +50,9 @@ $ ./run.sh
 ```
 ## Contacts
 Created by [Singh Baljinder](https://github.com/SinghBaljinder) and [Edoardo Tosin](https://github.com/EdoardoTosin)
+
+## License
+
+Copyright (c) 2021 [Singh Baljinder](https://github.com/SinghBaljinder) & [Edoardo Tosin](https://github.com/EdoardoTosin)
+
+This software is released under the terms of the GNU General Public License v3.0. See the [LICENSE](/LICENSE) file for further information.
