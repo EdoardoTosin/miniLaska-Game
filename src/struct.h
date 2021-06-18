@@ -6,24 +6,24 @@ struct Pedina {
   char p;
   int rank;
 };
-typedef struct Pedina * PedinaPointer;
+typedef struct Pedina * PiecePtr;
 
-struct Cella {
+struct Cell {
   int height;
-  PedinaPointer piece;
+  PiecePtr piece;
 };
-typedef struct Cella ** BoardPointer;
+typedef struct Cell ** BoardPtr;
 
-struct Posizione {
+struct Position {
   int row;
   int col;
 };
-typedef struct Posizione * PosizionePointer;
+typedef struct Position * PositionPtr;
 
 struct mossa {
-  PosizionePointer startPos;
-  PosizionePointer endPos;
+  PositionPtr startPos;
+  PositionPtr endPos;
 };
-typedef struct mossa * MossaPointer;
+typedef struct mossa * MovePtr;
 
 #endif

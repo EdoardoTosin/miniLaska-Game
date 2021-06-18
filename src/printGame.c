@@ -6,7 +6,7 @@
 
 #include "definitions.h"
 
-void printBoard(BoardPointer board) {
+void printBoard(BoardPtr board) {
   char white = '$';
   int i, j, k, l;
   system(CLEAR);
@@ -41,8 +41,8 @@ void printBoard(BoardPointer board) {
   printf("\n");
 }
 
-void printMoves(MossaPointer mosse, int dim) {
+void printMoves(MovePtr moves, int dim) {
   int i;
   for (i = 0; i < dim; i++)
-    printf("Choice n.%d: %c %d -> %c %d\n", i + 1, ROW + mosse[i].startPos -> row, mosse[i].startPos -> col, ROW + mosse[i].endPos -> row, mosse[i].endPos -> col);
+    printf("Choice n.%d: %c %d -> %c %d\n", i + 1, ROW + moves[i].startPos -> row, moves[i].startPos -> col, ROW + moves[i].endPos -> row, moves[i].endPos -> col);
 }
