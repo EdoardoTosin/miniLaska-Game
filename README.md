@@ -45,7 +45,7 @@ Run the following commands on terminal:
 ```
 $ git clone https://github.com/EdoardoTosin/miniLaska-Game.git
 $ cd miniLaska-Game
-$ ./install.sh
+$ ./build.sh
 $ ./run.sh
 ```
 
