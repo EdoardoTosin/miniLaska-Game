@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pedina_77',['Pedina',['../struct_pedina.html',1,'']]],
-  ['posizione_78',['Posizione',['../struct_posizione.html',1,'']]]
+  ['piece_76',['Piece',['../struct_piece.html',1,'']]],
+  ['position_77',['Position',['../struct_position.html',1,'']]]
 ];

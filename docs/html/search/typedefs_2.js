@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pedinapointer_140',['PedinaPointer',['../struct_8h.html#ab42912e006e4e667cb7c40f9c07abc45',1,'struct.h']]],
-  ['posizionepointer_141',['PosizionePointer',['../struct_8h.html#a2d69e76c003907bc44ea567a355a6c0d',1,'struct.h']]]
+  ['pieceptr_139',['PiecePtr',['../struct_8h.html#a2b7e76976de3110cc6fe8d85caeb38c1',1,'struct.h']]],
+  ['positionptr_140',['PositionPtr',['../struct_8h.html#aafc5e5b59d01d40d617072f843bc0c22',1,'struct.h']]]
 ];

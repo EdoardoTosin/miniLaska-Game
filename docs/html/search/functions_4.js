@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['getheight_108',['getHeight',['../game_control_8c.html#a4c4c3f1c585afe702113f5235743c3da',1,'getHeight(BoardPointer board, int i, int j):&#160;gameControl.c'],['../game_control_8h.html#a4c4c3f1c585afe702113f5235743c3da',1,'getHeight(BoardPointer board, int i, int j):&#160;gameControl.c']]],
-  ['getrank_109',['getRank',['../game_control_8c.html#a8952aa8d2c9ad5caab4e06ce060c946c',1,'getRank(BoardPointer board, int i, int j):&#160;gameControl.c'],['../game_control_8h.html#a8952aa8d2c9ad5caab4e06ce060c946c',1,'getRank(BoardPointer board, int i, int j):&#160;gameControl.c']]],
-  ['getteam_110',['getTeam',['../game_control_8c.html#aeb164671a70ca9cfeaae6b43956916b1',1,'getTeam(BoardPointer board, int i, int j):&#160;gameControl.c'],['../game_control_8h.html#aeb164671a70ca9cfeaae6b43956916b1',1,'getTeam(BoardPointer board, int i, int j):&#160;gameControl.c']]]
+  ['getheight_107',['getHeight',['../game_control_8c.html#a5f97294f70eaf1be3c064f4abc9d3c52',1,'getHeight(BoardPtr board, int i, int j):&#160;gameControl.c'],['../game_control_8h.html#a5f97294f70eaf1be3c064f4abc9d3c52',1,'getHeight(BoardPtr board, int i, int j):&#160;gameControl.c']]],
+  ['getrank_108',['getRank',['../game_control_8c.html#a47cf848c435dc66711b4cc50e23284cb',1,'getRank(BoardPtr board, int i, int j):&#160;gameControl.c'],['../game_control_8h.html#a47cf848c435dc66711b4cc50e23284cb',1,'getRank(BoardPtr board, int i, int j):&#160;gameControl.c']]],
+  ['getteam_109',['getTeam',['../game_control_8c.html#aea213cfb5e20e3b10ee92c7e39c3f322',1,'getTeam(BoardPtr board, int i, int j):&#160;gameControl.c'],['../game_control_8h.html#aea213cfb5e20e3b10ee92c7e39c3f322',1,'getTeam(BoardPtr board, int i, int j):&#160;gameControl.c']]]
 ];

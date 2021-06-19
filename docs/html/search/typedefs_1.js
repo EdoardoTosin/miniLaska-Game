@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mossapointer_139',['MossaPointer',['../struct_8h.html#a6ba2a6c2c3abade2ea6f84313b829b2d',1,'struct.h']]]
+  ['moveptr_138',['MovePtr',['../struct_8h.html#a8e7b12199db7587a01bf77908f085c94',1,'struct.h']]]
 ];
