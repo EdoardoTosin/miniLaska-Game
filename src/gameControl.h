@@ -37,10 +37,10 @@ int isEmpty(BoardPtr board, int i, int j);
    \brief Find all possible moves of the current player.
    @param[in] board Struct where all pieces are located.
    @param[in] mosse Struct to store the start and end coordinates for a given move.
-   @param[in] turno Value containing the player of the current turn.
+   @param[in] turn Value containing the player of the current turn.
    \return Return the number of moves that have been found.
 */
-int step(BoardPtr board, struct mossa* mosse, int turno);
+int step(BoardPtr board, struct mossa* mosse, int turn);
 /*!
    \brief Remove any piece from the given cell of the board.
    @param[in] board Struct where all pieces are located.
@@ -109,11 +109,11 @@ struct Cell* copyCella(struct Cell cella);
    @param[in] board Struct where all pieces are located.
    @param[in] isMax
    @param[in] depth
-   @param[in] somma
+   @param[in] sum
    @param[in] mode
    @param[out] best
 */
-int minimax(BoardPtr board, int isMax, int depth, int somma, int mode);
+int minimax(BoardPtr board, int isMax, int depth, int sum, int mode);
 /*!
    \brief Find the best move based on the score.
    @param[in] board Struct where all pieces are located.

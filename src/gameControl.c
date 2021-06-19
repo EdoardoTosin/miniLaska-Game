@@ -34,7 +34,7 @@ int isEmpty(BoardPtr board, int i, int j) {
   return 1;
 }
 
-int step(BoardPtr board, MovePtr moves, int turno) {
+int step(BoardPtr board, MovePtr moves, int turn) {
   int index = 0;
   int i, j, i1, j1;
   int onlyEat = 0; /*serve per vedere se è stata trovata almeno una mangiata*/
@@ -47,7 +47,7 @@ int step(BoardPtr board, MovePtr moves, int turno) {
   int eat;
   for (i = 0; i < DIM; i++) {
     for (j = 0; j < DIM; j++) {
-      if ((i + j) % 2 == 0 && getTeam(board, i, j) == turno)
+      if ((i + j) % 2 == 0 && getTeam(board, i, j) == turn)
         for (i1 = i - 2; i1 <= i + 2; i1++) {
           for (j1 = j - 2; j1 <= j + 2; j1++) {
             middlePointRow = (i + i1) / 2;
@@ -56,14 +56,14 @@ int step(BoardPtr board, MovePtr moves, int turno) {
             andCondition = andCondition && i1 < DIM && i1 >= 0;
             andCondition = andCondition && j1 < DIM && j1 >= 0;
             andCondition = andCondition && isEmpty(board, i1, j1);
-            orCondition = (turno == 1) && i1 > i;
-            orCondition = orCondition || (turno == 2 && i1 < i);
+            orCondition = (turn == 1) && i1 > i;
+            orCondition = orCondition || (turn == 2 && i1 < i);
             orCondition = orCondition || getRank(board, i, j) == 2;
             andCondition = andCondition && orCondition;
             isNormalStep = abs(i1 - i) == 1;
             if (andCondition) {
               middlePointTeam = getTeam(board, middlePointRow, middlePointCol);
-              eat = (middlePointTeam != 0 && middlePointTeam != turno && !isNormalStep);
+              eat = (middlePointTeam != 0 && middlePointTeam != turn && !isNormalStep);
               if ((!onlyEat && (isNormalStep || eat)) || (onlyEat && eat)) {
                 if (!onlyEat && eat) {
                   index = 0;
@@ -103,14 +103,14 @@ void updateCellContent(BoardPtr board, int i, int j) {
 }
 
 void promotion(BoardPtr board, PiecePtr piece, int i, int j) {
-  int altezza = getHeight(board, i, j);
-  if (piece[altezza - 1].p == 'g' && i == 0) {
-    piece[altezza - 1].p = 'G';
-    piece[altezza - 1].rank = 2;
+  int height = getHeight(board, i, j);
+  if (piece[height - 1].p == 'g' && i == 0) {
+    piece[height - 1].p = 'G';
+    piece[height - 1].rank = 2;
   }
-  if (piece[altezza - 1].p == 'r' && i == 6) {
-    piece[altezza - 1].p = 'R';
-    piece[altezza - 1].rank = 2;
+  if (piece[height - 1].p == 'r' && i == 6) {
+    piece[height - 1].p = 'R';
+    piece[height - 1].rank = 2;
   }
 }
 
@@ -131,25 +131,25 @@ void eatStep(BoardPtr board, struct mossa moves) {
   int k;
   int i = (moves.startPos -> row + moves.endPos -> row) / 2;
   int j = (moves.startPos -> col + moves.endPos -> col) / 2;
-  int altezzattuale = getHeight(board, moves.startPos -> row, moves.startPos -> col);
-  int altezzapmedio = getHeight(board, i, j);
-  board[moves.endPos -> row][moves.endPos -> col].piece[0].team = board[i][j].piece[altezzapmedio - 1].team;
-  board[moves.endPos -> row][moves.endPos -> col].piece[0].p = board[i][j].piece[altezzapmedio - 1].p;
-  board[moves.endPos -> row][moves.endPos -> col].piece[0].rank = board[i][j].piece[altezzapmedio - 1].rank;
-  if (altezzattuale == HEIGHT) {
-    for (k = 1; k < altezzattuale; k++) {
+  int currentHeight = getHeight(board, moves.startPos -> row, moves.startPos -> col);
+  int middlePieceHeight = getHeight(board, i, j);
+  board[moves.endPos -> row][moves.endPos -> col].piece[0].team = board[i][j].piece[middlePieceHeight - 1].team;
+  board[moves.endPos -> row][moves.endPos -> col].piece[0].p = board[i][j].piece[middlePieceHeight - 1].p;
+  board[moves.endPos -> row][moves.endPos -> col].piece[0].rank = board[i][j].piece[middlePieceHeight - 1].rank;
+  if (currentHeight == HEIGHT) {
+    for (k = 1; k < currentHeight; k++) {
       board[moves.endPos -> row][moves.endPos -> col].piece[k].team = board[moves.startPos -> row][moves.startPos -> col].piece[k].team;
       board[moves.endPos -> row][moves.endPos -> col].piece[k].p = board[moves.startPos -> row][moves.startPos -> col].piece[k].p;
       board[moves.endPos -> row][moves.endPos -> col].piece[k].rank = board[moves.startPos -> row][moves.startPos -> col].piece[k].rank;
     }
     board[moves.endPos -> row][moves.endPos -> col].height = HEIGHT;
   } else {
-    for (k = 0; k < altezzattuale; k++) {
+    for (k = 0; k < currentHeight; k++) {
       board[moves.endPos -> row][moves.endPos -> col].piece[k + 1].team = board[moves.startPos -> row][moves.startPos -> col].piece[k].team;
       board[moves.endPos -> row][moves.endPos -> col].piece[k + 1].p = board[moves.startPos -> row][moves.startPos -> col].piece[k].p;
       board[moves.endPos -> row][moves.endPos -> col].piece[k + 1].rank = board[moves.startPos -> row][moves.startPos -> col].piece[k].rank;
     }
-    board[moves.endPos -> row][moves.endPos -> col].height = altezzattuale + 1;
+    board[moves.endPos -> row][moves.endPos -> col].height = currentHeight + 1;
   }
   deleteCellContent(board, moves.startPos -> row, moves.startPos -> col);
   updateCellContent(board, i, j);
@@ -205,7 +205,7 @@ struct Cell * copyCella(struct Cell cella) {
   return c;
 }
 
-int minimax(BoardPtr board, int isMax, int depth, int somma, int mode) {
+int minimax(BoardPtr board, int isMax, int depth, int sum, int mode) {
   int i, best;
   int index;
   int eat;
@@ -241,7 +241,7 @@ int minimax(BoardPtr board, int isMax, int depth, int somma, int mode) {
     return INT_MIN;
 
   if (depth == mode)
-    return somma;
+    return sum;
 
   eat = abs(moves -> endPos -> row - moves -> startPos -> row) != 1;
 
@@ -254,7 +254,7 @@ int minimax(BoardPtr board, int isMax, int depth, int somma, int mode) {
       jMiddle = (moves[i].startPos -> col + moves[i].endPos -> col) / 2;
       middle = eat ? copyCella(board[iMiddle][jMiddle]) : NULL;
       executeStep(board, moves[i]);
-      best = MAX(best, minimax(board, !isMax, depth + 1, somma + (eat ? 1 : 0), mode));
+      best = MAX(best, minimax(board, !isMax, depth + 1, sum + (eat ? 1 : 0), mode));
       revert(board, begin, middle, end, moves[i]);
       free(begin);
       free(end);
@@ -277,7 +277,7 @@ int minimax(BoardPtr board, int isMax, int depth, int somma, int mode) {
       jMiddle = (moves[i].startPos -> col + moves[i].endPos -> col) / 2;
       middle = eat ? copyCella(board[iMiddle][jMiddle]) : NULL;
       executeStep(board, moves[i]);
-      best = MIN(best, minimax(board, !isMax, depth + 1, somma + (eat ? -1 : 0), mode));
+      best = MIN(best, minimax(board, !isMax, depth + 1, sum + (eat ? -1 : 0), mode));
       revert(board, begin, middle, end, moves[i]);
       free(begin);
       free(end);

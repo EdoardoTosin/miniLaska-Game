@@ -20,30 +20,30 @@ void match(int mode) {
   int choice, index;
   int end = 0, turno = 1, i = 0, j = 0, k;
   char player = 'R';
-  int mossa;
-  MovePtr mosse;
+  int bestMove;
+  MovePtr moves;
   BoardPtr board = initialize();
   printBoard(board);
   while (!end) {
     printf("\n");
-    mosse = (MovePtr) malloc(sizeof(struct mossa) * 15);
-      if(mosse==NULL) {
+    moves = (MovePtr) malloc(sizeof(struct mossa) * 15);
+      if(moves==NULL) {
           printf("Error! memory not allocated.");
           exit(EXIT_FAILURE);
       }
     for (k = 0; k < 15; ++k) {
-      mosse[k].startPos = (PositionPtr) malloc(sizeof(PositionPtr));
-        if(mosse[k].startPos==NULL) {
+      moves[k].startPos = (PositionPtr) malloc(sizeof(PositionPtr));
+        if(moves[k].startPos==NULL) {
             printf("Error! memory not allocated.");
             exit(EXIT_FAILURE);
         }
-      mosse[k].endPos = (PositionPtr) malloc(sizeof(PositionPtr));
-        if(mosse[k].endPos==NULL) {
+      moves[k].endPos = (PositionPtr) malloc(sizeof(PositionPtr));
+        if(moves[k].endPos==NULL) {
             printf("Error! memory not allocated.");
             exit(EXIT_FAILURE);
         }
     }
-    index = step(board, mosse, turno);
+    index = step(board, moves, turno);
     if (index == 0) {
       end = 1;
       if (turno == 1)
@@ -58,21 +58,21 @@ void match(int mode) {
     } else {
       if (turno == 1) {
         printf("TURN PLAYER %c\n", player);
-        printMoves(mosse, index);
+        printMoves(moves, index);
         if (mode == 0) {
           do {
               printf("\nInsert number: ");
             scanf("%d", & choice);
           } while (choice < 1 || choice > index);
-          executeStep(board, mosse[choice - 1]);
+          executeStep(board, moves[choice - 1]);
           printBoard(board);
           printf("Player %c made the move number %d\n", player, choice);
         } else {
-          mossa = findBestMove(board, mosse, index, mode);
-          printf("Move%d\n", mossa + 1);
-          executeStep(board, mosse[mossa]);
+          bestMove = findBestMove(board, moves, index, mode);
+          printf("Move%d\n", bestMove + 1);
+          executeStep(board, moves[bestMove]);
           printBoard(board);
-          printf("Computer made the move number %d: %c %d -> %c %d\n", mossa + 1, ROW + mosse[mossa].startPos -> row, mosse[mossa].startPos -> col, ROW + mosse[mossa].endPos -> row, mosse[mossa].endPos -> col);
+          printf("Computer made the move number %d: %c %d -> %c %d\n", bestMove + 1, ROW + moves[bestMove].startPos -> row, moves[bestMove].startPos -> col, ROW + moves[bestMove].endPos -> row, moves[bestMove].endPos -> col);
         }
 
         turno = 2;
@@ -80,12 +80,12 @@ void match(int mode) {
         i++;
       } else {
         printf("TURN PLAYER %c\n", player);
-        printMoves(mosse, index);
+        printMoves(moves, index);
         do {
             printf("\nInsert number: ");
           scanf("%d", & choice);
         } while (choice < 1 || choice > index);
-        executeStep(board, mosse[choice - 1]);
+        executeStep(board, moves[choice - 1]);
         printBoard(board);
         printf("Player %c made the move number %d\n", player, choice);
         turno = 1;
@@ -94,10 +94,10 @@ void match(int mode) {
       }
     }
     for (k = 0; k < 15; ++k) {
-      free(mosse[k].startPos);
-      free(mosse[k].endPos);
+      free(moves[k].startPos);
+      free(moves[k].endPos);
     }
-    free(mosse);
+    free(moves);
   }
   free(board);
 }
