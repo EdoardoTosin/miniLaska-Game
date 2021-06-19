@@ -3,4 +3,4 @@
 set -o errexit
 
 #run
-./miniLaska
+build/miniLaska
