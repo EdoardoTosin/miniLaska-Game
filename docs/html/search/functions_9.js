@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['revert_123',['revert',['../game_control_8c.html#afa947bb564880d7c5a5f5576b2462d13',1,'revert(BoardPtr board, struct Cell *begin, struct Cell *middle, struct Cell *end, struct move mossa):&#160;gameControl.c'],['../game_control_8h.html#afa947bb564880d7c5a5f5576b2462d13',1,'revert(BoardPtr board, struct Cell *begin, struct Cell *middle, struct Cell *end, struct move mossa):&#160;gameControl.c']]],
-  ['rulesmenu_124',['rulesMenu',['../start_menu_8c.html#a37a45f403b3fe5b3d89e1862eb328e5b',1,'rulesMenu(void):&#160;startMenu.c'],['../start_menu_8h.html#a37a45f403b3fe5b3d89e1862eb328e5b',1,'rulesMenu(void):&#160;startMenu.c']]]
+  ['revert_123',['revert',['../d2/d8d/game_control_8c.html#aa4d3d8344f3679381994350364df945d',1,'revert(BoardPtr board, struct Cell *begin, struct Cell *middle, struct Cell *end, struct Move mossa):&#160;gameControl.c'],['../db/d8a/game_control_8h.html#aa4d3d8344f3679381994350364df945d',1,'revert(BoardPtr board, struct Cell *begin, struct Cell *middle, struct Cell *end, struct Move mossa):&#160;gameControl.c']]],
+  ['rulesmenu_124',['rulesMenu',['../d4/df2/start_menu_8c.html#a37a45f403b3fe5b3d89e1862eb328e5b',1,'rulesMenu(void):&#160;startMenu.c'],['../d7/d45/start_menu_8h.html#a37a45f403b3fe5b3d89e1862eb328e5b',1,'rulesMenu(void):&#160;startMenu.c']]]
 ];
