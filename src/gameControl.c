@@ -114,7 +114,7 @@ void promotion(BoardPtr board, PiecePtr piece, int i, int j) {
   }
 }
 
-void normalStep(BoardPtr board, struct mossa moves) {
+void normalStep(BoardPtr board, struct move moves) {
   int i;
   int height = getHeight(board, moves.startPos -> row, moves.startPos -> col);
   for (i = 0; i < height; i++) {
@@ -127,7 +127,7 @@ void normalStep(BoardPtr board, struct mossa moves) {
   promotion(board, board[moves.endPos -> row][moves.endPos -> col].piece, moves.endPos -> row, moves.endPos -> col);
 }
 
-void eatStep(BoardPtr board, struct mossa moves) {
+void eatStep(BoardPtr board, struct move moves) {
   int k;
   int i = (moves.startPos -> row + moves.endPos -> row) / 2;
   int j = (moves.startPos -> col + moves.endPos -> col) / 2;
@@ -156,7 +156,7 @@ void eatStep(BoardPtr board, struct mossa moves) {
   promotion(board, board[moves.endPos -> row][moves.endPos -> col].piece, moves.endPos -> row, moves.endPos -> col);
 }
 
-void executeStep(BoardPtr board, struct mossa m) {
+void executeStep(BoardPtr board, struct move m) {
   if (abs(m.endPos -> row - m.startPos -> row) == 1)
     normalStep(board, m);
   else
@@ -173,7 +173,7 @@ void copyContent(BoardPtr board, struct Cell * cella, int row, int col) {
   }
 }
 
-void revert(BoardPtr board, struct Cell * begin, struct Cell * middle, struct Cell * end, struct mossa mossa) {
+void revert(BoardPtr board, struct Cell * begin, struct Cell * middle, struct Cell * end, struct move mossa) {
   int i, j;
   copyContent(board, begin, mossa.startPos -> row, mossa.startPos -> col);
   copyContent(board, end, mossa.endPos -> row, mossa.endPos -> col);
@@ -191,7 +191,7 @@ struct Cell * copyCella(struct Cell cella) {
         printf("Error! memory not allocated.");
         exit(EXIT_FAILURE);
     }
-  c -> piece = (PiecePtr) malloc(HEIGHT * sizeof(struct Pedina));
+  c -> piece = (PiecePtr) malloc(HEIGHT * sizeof(struct Piece));
     if(c -> piece==NULL) {
         printf("Error! memory not allocated.");
         exit(EXIT_FAILURE);
@@ -215,7 +215,7 @@ int minimax(BoardPtr board, int isMax, int depth, int sum, int mode) {
   int jMiddle;
   int j;
   struct Cell * middle;
-  MovePtr moves = (MovePtr) malloc(sizeof(struct mossa) * 15);
+  MovePtr moves = (MovePtr) malloc(sizeof(struct move) * 15);
     if(moves==NULL) {
         printf("Error! memory not allocated.");
         exit(EXIT_FAILURE);

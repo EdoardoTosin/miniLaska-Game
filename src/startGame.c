@@ -26,7 +26,7 @@ void match(int mode) {
   printBoard(board);
   while (!end) {
     printf("\n");
-    moves = (MovePtr) malloc(sizeof(struct mossa) * 15);
+    moves = (MovePtr) malloc(sizeof(struct move) * 15);
       if(moves==NULL) {
           printf("Error! memory not allocated.");
           exit(EXIT_FAILURE);

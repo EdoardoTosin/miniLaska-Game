@@ -34,7 +34,7 @@ BoardPtr initialize() {
           exit(EXIT_FAILURE);
       }
     for (j = 0; j < DIM; j++) {
-      mat[i][j].piece = (PiecePtr) malloc(HEIGHT * sizeof(struct Pedina));
+      mat[i][j].piece = (PiecePtr) malloc(HEIGHT * sizeof(struct Piece));
         if(mat[i][j].piece==NULL) {
             printf("Error! memory not allocated.");
             exit(EXIT_FAILURE);

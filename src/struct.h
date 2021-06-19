@@ -1,12 +1,12 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
-struct Pedina {
+struct Piece {
   int team;
   char p;
   int rank;
 };
-typedef struct Pedina * PiecePtr;
+typedef struct Piece * PiecePtr;
 
 struct Cell {
   int height;
@@ -20,10 +20,10 @@ struct Position {
 };
 typedef struct Position * PositionPtr;
 
-struct mossa {
+struct move {
   PositionPtr startPos;
   PositionPtr endPos;
 };
-typedef struct mossa * MovePtr;
+typedef struct move * MovePtr;
 
 #endif
