@@ -20,13 +20,13 @@ void match(int mode) {
   int choice, index;
   int end = 0, turno = 1, i = 0, j = 0, k;
   char player = 'R';
-  int bestMove;
+  int indexBestMove;
   MovePtr moves;
   BoardPtr board = initialize();
   printBoard(board);
   while (!end) {
     printf("\n");
-    moves = (MovePtr) malloc(sizeof(struct move) * 15);
+    moves = (MovePtr) malloc(sizeof(struct Move) * 15);
       if(moves==NULL) {
           printf("Error! memory not allocated.");
           exit(EXIT_FAILURE);
@@ -68,11 +68,11 @@ void match(int mode) {
           printBoard(board);
           printf("Player %c made the move number %d\n", player, choice);
         } else {
-          bestMove = findBestMove(board, moves, index, mode);
-          printf("Move%d\n", bestMove + 1);
-          executeStep(board, moves[bestMove]);
+          indexBestMove = findBestMove(board, moves, index, mode);
+          printf("Move%d\n", indexBestMove + 1);
+          executeStep(board, moves[indexBestMove]);
           printBoard(board);
-          printf("Computer made the move number %d: %c %d -> %c %d\n", bestMove + 1, ROW + moves[bestMove].startPos -> row, moves[bestMove].startPos -> col, ROW + moves[bestMove].endPos -> row, moves[bestMove].endPos -> col);
+          printf("Computer made the move number %d: %c %d -> %c %d\n", indexBestMove + 1, ROW + moves[indexBestMove].startPos -> row, moves[indexBestMove].startPos -> col, ROW + moves[indexBestMove].endPos -> row, moves[indexBestMove].endPos -> col);
         }
 
         turno = 2;

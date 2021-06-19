@@ -114,7 +114,7 @@ void promotion(BoardPtr board, PiecePtr piece, int i, int j) {
   }
 }
 
-void normalStep(BoardPtr board, struct move moves) {
+void normalStep(BoardPtr board, struct Move moves) {
   int i;
   int height = getHeight(board, moves.startPos -> row, moves.startPos -> col);
   for (i = 0; i < height; i++) {
@@ -127,7 +127,7 @@ void normalStep(BoardPtr board, struct move moves) {
   promotion(board, board[moves.endPos -> row][moves.endPos -> col].piece, moves.endPos -> row, moves.endPos -> col);
 }
 
-void eatStep(BoardPtr board, struct move moves) {
+void eatStep(BoardPtr board, struct Move moves) {
   int k;
   int i = (moves.startPos -> row + moves.endPos -> row) / 2;
   int j = (moves.startPos -> col + moves.endPos -> col) / 2;
@@ -156,7 +156,7 @@ void eatStep(BoardPtr board, struct move moves) {
   promotion(board, board[moves.endPos -> row][moves.endPos -> col].piece, moves.endPos -> row, moves.endPos -> col);
 }
 
-void executeStep(BoardPtr board, struct move m) {
+void executeStep(BoardPtr board, struct Move m) {
   if (abs(m.endPos -> row - m.startPos -> row) == 1)
     normalStep(board, m);
   else
@@ -173,7 +173,7 @@ void copyContent(BoardPtr board, struct Cell * cella, int row, int col) {
   }
 }
 
-void revert(BoardPtr board, struct Cell * begin, struct Cell * middle, struct Cell * end, struct move mossa) {
+void revert(BoardPtr board, struct Cell * begin, struct Cell * middle, struct Cell * end, struct Move mossa) {
   int i, j;
   copyContent(board, begin, mossa.startPos -> row, mossa.startPos -> col);
   copyContent(board, end, mossa.endPos -> row, mossa.endPos -> col);
@@ -215,7 +215,7 @@ int minimax(BoardPtr board, int isMax, int depth, int sum, int mode) {
   int jMiddle;
   int j;
   struct Cell * middle;
-  MovePtr moves = (MovePtr) malloc(sizeof(struct move) * 15);
+  MovePtr moves = (MovePtr) malloc(sizeof(struct Move) * 15);
     if(moves==NULL) {
         printf("Error! memory not allocated.");
         exit(EXIT_FAILURE);
@@ -298,7 +298,7 @@ int findBestMove(BoardPtr board, MovePtr moves, int movesSize, int mode) {
   int i;
   int moveVal = 0;
   int bestVal = INT_MIN;
-  int bestMove = 0;
+  int indexBestMove = 0;
   int eat;
   struct Cell * begin;
   struct Cell * end;
@@ -319,7 +319,7 @@ int findBestMove(BoardPtr board, MovePtr moves, int movesSize, int mode) {
       moveVal = minimax(board, 0, 0, eat ? 1 : 0, mode);
     }
     if (moveVal > bestVal) {
-      bestMove = i;
+      indexBestMove = i;
       bestVal = moveVal;
     }
 
@@ -332,5 +332,5 @@ int findBestMove(BoardPtr board, MovePtr moves, int movesSize, int mode) {
   }
   printf("The value of the best move is : %d\n\n", bestVal);
 
-  return bestMove;
+  return indexBestMove;
 }

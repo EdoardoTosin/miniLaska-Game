@@ -20,10 +20,10 @@ struct Position {
 };
 typedef struct Position * PositionPtr;
 
-struct move {
+struct Move {
   PositionPtr startPos;
   PositionPtr endPos;
 };
-typedef struct move * MovePtr;
+typedef struct Move * MovePtr;
 
 #endif

@@ -40,7 +40,7 @@ int isEmpty(BoardPtr board, int i, int j);
    @param[in] turn Value containing the player of the current turn.
    \return Return the number of moves that have been found.
 */
-int step(BoardPtr board, struct move* mosse, int turn);
+int step(BoardPtr board, struct Move* mosse, int turn);
 /*!
    \brief Remove any piece from the given cell of the board.
    @param[in] board Struct where all pieces are located.
@@ -68,19 +68,19 @@ void promotion(BoardPtr board, PiecePtr piece, int i, int j);
    @param[in] board Struct where all pieces are located.
    @param[in] mosse Struct containing the start and end coordinates to make the move.
 */
-void normalStep(BoardPtr board, struct move mosse);
+void normalStep(BoardPtr board, struct Move mosse);
 /*!
    \brief Execute the eat move.
    @param[in] board Struct where all pieces are located.
    @param[in] mosse Struct containing the start and end coordinates to make the move.
 */
-void eatStep(BoardPtr board, struct move mosse);
+void eatStep(BoardPtr board, struct Move mosse);
 /*!
    \brief Check which move to do between a normal move and an eat move.
    @param[in] board Struct where all pieces are located.
    @param[in] m Struct containing the start and end coordinates of a given move.
 */
-void executeStep(BoardPtr board, struct move m);
+void executeStep(BoardPtr board, struct Move m);
 /*!
    \brief Copy the content from cella to board.
    @param[in] board Struct where all pieces are located.
@@ -97,7 +97,7 @@ void copyContent(BoardPtr board, struct Cell* cella, int row, int col);
    @param[in] end
    @param[in] mossa
 */
-void revert(BoardPtr board, struct Cell* begin, struct Cell* middle, struct Cell* end, struct move mossa);
+void revert(BoardPtr board, struct Cell* begin, struct Cell* middle, struct Cell* end, struct Move mossa);
 /*!
    \brief Copy a cell from board
    @param[in] cella
@@ -120,6 +120,6 @@ int minimax(BoardPtr board, int isMax, int depth, int sum, int mode);
    @param[in] mosse
    @param[in] movesSize
    @param[in] mode
-   @param[out] bestMove
+   @param[out] indexBestMove
 */
-int findBestMove(BoardPtr board, struct move* mosse, int movesSize, int mode);
+int findBestMove(BoardPtr board, struct Move* mosse, int movesSize, int mode);
