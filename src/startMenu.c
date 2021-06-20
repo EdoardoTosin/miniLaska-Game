@@ -153,7 +153,7 @@ void creditsMenu(void) {
     scanf(" %d", & subChoice3);
     consume();
     if (subChoice3 == 1) {
-      puts("E' stato scelto di tornare al menu precedente");
+      puts("You choosed to return to the previous menu");
       return;
     } else if (subChoice3 == 2) {
       printExit();
