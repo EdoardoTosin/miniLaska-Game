@@ -49,7 +49,7 @@ void match(int mode) {
       if (turno == 1)
           printf("Player G wins the game with %d moves!!!\n\n", j);
       else {
-        if (mode == 1)
+        if (mode == 0)
           printf("Player R wins the game with %d moves!!!\n\n", i);
         else
           printf("Computer wins the game with %d moves!!!\n\n", i);
