@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void printRules(void) {
+void printRules() {
   puts("The major difference between Lasca and other draughts variants is that instead of pieces being");
   puts("removed from the board when they are jumped, they are placed under the piece that jumped them,");
   puts("forming a column. A column is under the control of the player whose piece is on top, and has the");

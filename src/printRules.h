@@ -1,4 +1,4 @@
 /*!
    \brief print the rules' page
 */
-void printRules(void);
+void printRules();

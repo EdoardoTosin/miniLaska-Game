@@ -30,12 +30,12 @@ void printExit() {
   return;
 }
 
-void consume(void) {
+void consume() {
   int ch;
   while ((ch = getchar()) != '\n' || ch != '\n');
 }
 
-void printMainMenu(void) {
+void printMainMenu() {
   system(CLEAR);
   puts("/====================/");
   puts("       MAIN MENU      ");
@@ -47,7 +47,7 @@ void printMainMenu(void) {
   printf("\n");
 }
 
-int difficultyMenu (void) {
+int difficultyMenu () {
     int subChoice1 = 0;
     int ch;
     while (subChoice1 != 2) {
@@ -80,7 +80,7 @@ int difficultyMenu (void) {
     return 3;
 }
 
-int startGameMenu(void) {
+int startGameMenu() {
   int subChoice1 = 0;
   int ch, strength;
   while (subChoice1 != 2) {
@@ -112,7 +112,7 @@ int startGameMenu(void) {
   return 3;
 }
 
-void rulesMenu(void) {
+void rulesMenu() {
   int subChoice2 = 0;
   while (subChoice2 != 2) {
     system(CLEAR);
@@ -137,7 +137,7 @@ void rulesMenu(void) {
   }
 }
 
-void creditsMenu(void) {
+void creditsMenu() {
   int subChoice3 = 0;
   while (subChoice3 != 2) {
     system(CLEAR);
@@ -163,7 +163,7 @@ void creditsMenu(void) {
   }
 }
 
-void controlMenu(void) {
+void controlMenu() {
   int choice = 0;
   int mode;
   while (choice != 4) {

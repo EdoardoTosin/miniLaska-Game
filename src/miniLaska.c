@@ -24,7 +24,7 @@
 /*!
    \brief Main entry point of the program.
 */
-int main(void) {
+int main() {
   system(CLEAR);
   puts("/====================/");
   puts("       miniLaska      ");

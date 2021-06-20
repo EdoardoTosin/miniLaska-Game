@@ -10,30 +10,30 @@ void printExit();
 /*!
    \brief Consume every residue from a previous scanf.
 */
-void consume(void);
+void consume();
 /*!
    \brief Print the main menu when launching the game.
 */
-void printMainMenu(void);
+void printMainMenu();
 /*!
    \brief Print the difficulty mode menu against computer.
    \return Return 0 or the strength of the selected difficulty.
 */
-int difficultyMenu (void);
+int difficultyMenu ();
 /*!
    \brief Print the match mode menu to select beetween Computer vs Player or Player vs Player.
    \return Return a number depending on the selected menu.
 */
-int startGameMenu(void);
+int startGameMenu();
 /*!
    \brief Print the rule menu page.
 */
-void rulesMenu(void);
+void rulesMenu();
 /*!
    \brief Print the credits menu page.
 */
-void creditsMenu(void);
+void creditsMenu();
 /*!
    \brief Check the choice selected from the the main menu.
 */
-void controlMenu(void);
+void controlMenu();
