@@ -27,7 +27,7 @@ void printBoard(BoardPtr board) {
             printf(" ");
           else
             printf("%c", board[i][j].piece[k].p);
-        for (l = 0; l< 3; ++)
+        for (l = 0; l< 3; l++)
         {
             printf("%c", board[i][j].piece[l].p);
         }
