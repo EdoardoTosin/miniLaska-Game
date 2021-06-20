@@ -35,7 +35,7 @@ To run this project, compile it locally using make and have fun.
 * Add the path to your Mingw-w64 bin folder to the Windows PATH environment variable
 * Install [Chocolatey](https://chocolatey.org/install) package manager and then install make with the command
   ```choco install make```
-* Download the project from [here](https://github.com/EdoardoTosin/miniLaska-Game/archive/main.zip) or via ``git``
+* Download the project from [here](https://github.com/EdoardoTosin/miniLaska-Game/archive/main.zip) or via ``git clone``
 * Run the following commands:
 
   ```
