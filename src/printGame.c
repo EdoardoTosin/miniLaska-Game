@@ -22,7 +22,7 @@ void printBoard(BoardPtr board) {
     for (j = 0; j < DIM; j++) {
       if ((i + j) % 2 == 0) {
         printf("|");
-        for (k = HEIGHT-1; k >= 0 ; k--)
+        for (k = 2; k = 0 ; k--)
           if (board[i][j].piece[k].p == '-')
             printf(" ");
           else
