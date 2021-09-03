@@ -7,6 +7,7 @@
 * [General info](#general-info)
 * [Rules](#rules)
 * [Setup](#setup)
+* [Documentation](#documentation)
 * [License](#license)
 
 ## General info
@@ -51,6 +52,10 @@ $ cd miniLaska-Game
 $ ./build.sh
 $ ./run.sh
 ```
+
+## Documentation
+
+Doxygen documentation of the project is available [here](https://edoardotosin.github.io/miniLaska-Game/html/index.html).
 
 ## License
 
