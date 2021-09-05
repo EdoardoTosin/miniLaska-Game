@@ -55,7 +55,7 @@ $ ./run.sh
 
 ## Documentation
 
-Doxygen documentation of the project is available [here](https://edoardotosin.github.io/miniLaska-Game/html/index.html).
+Doxygen documentation of the project is available [here](https://edoardotosin.github.io/miniLaska-Game/).
 
 ## License
 
