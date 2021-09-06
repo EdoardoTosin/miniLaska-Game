@@ -5,3 +5,4 @@ miniLaska
 *.o
 Doxyfile
 /build
+mainpage.md

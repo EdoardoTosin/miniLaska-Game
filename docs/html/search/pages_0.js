@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['minilaska_20documentation_150',['miniLaska Documentation',['../index.html',1,'']]]
+  ['minilaska_2dgame_20documentation_0',['miniLaska-Game Documentation',['../index.html',1,'']]]
 ];
