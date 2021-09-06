@@ -29,7 +29,7 @@ Source: [Wikipedia](https://en.wikipedia.org/wiki/Lasca)
 Also, in this variant of Lasca, the height of a tower can be up to three checkers.
 
 ## Setup
-To run this project, compile it locally using make and have fun.
+To run this project, compile it locally using `make` command and have fun.
 
 ### For Windows users:
 * Install Mingw-w64 via the [SourceForge](https://sourceforge.net/projects/mingw-w64/) website
