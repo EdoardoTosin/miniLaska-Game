@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/EdoardoTosin/miniLaska-Game">
-    <img src="https://raw.githubusercontent.com/EdoardoTosin/miniLaska-Game/main/doc/logo.png" alt="LOGO" height=100px></a>
+    <img src="https://github.com/EdoardoTosin/miniLaska-Game/blob/main/doc/logo.png" alt="LOGO" height=100px></a>
 </p>
 
 ## Table of contents
@@ -13,7 +13,7 @@
 ## General info
 This project is a variant of the game called Lasca (or Laska).
 
-![Screenshot](https://raw.githubusercontent.com/EdoardoTosin/miniLaska-Game/main/doc/example.jpg)
+![Screenshot](https://github.com/EdoardoTosin/miniLaska-Game/blob/main/doc/example.jpg)
 
 ## Rules
 The major difference between Lasca and other draughts variants is that instead of pieces being removed from the board when they are jumped, they are placed under the piece that jumped them, forming a column. A column is under the control of the player whose piece is on top, and has the move and jump capabilities of that piece (so that, for instance, a column with a black officer on top is under Black's control, and can move and jump in either direction.) If a column is itself jumped, only the top piece is removed to go under the column doing the jumping.
