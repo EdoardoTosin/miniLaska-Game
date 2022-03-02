@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/EdoardoTosin/miniLaska-Game">
-    <img src="https://raw.githubusercontent.com/EdoardoTosin/miniLaska-Game/blob/main/doc/logo.png" alt="LOGO" height=100px></a>
+    <img src="https://github.com/EdoardoTosin/miniLaska-Game/blob/main/doc/logo.png" alt="LOGO" height=100px></a>
 </p>
 
 ## Table of contents
